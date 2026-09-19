@@ -1,0 +1,20 @@
+# Tous les fichiers volumineux, peu importe où ils sont stockés
+*.fastq
+*.fq
+*.fna
+*.fna.gz
+*.fasta
+*.gz
+*.sra
+*.bam
+*.sam
+fasterq.tmp.*
+
+# Tous les dossiers de données et de génomes (présents et futurs)
+*data*/
+*genome*/
+*RNAseq*/
+
+# Environnements et caches
+conda/
+.snakemake/
