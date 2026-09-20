@@ -31,7 +31,7 @@
     wget "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/054/643/075/GCF_054643075.1_COTS_SCS/GCF_054643075.1_COTS_SCS_genomic.fna.gz"
     ```
 
-### 2.2. Données transcriptomiques (RNA-seq)
+### 2.2. Données transcriptomiques (RNA-seq) pour le test d'Eviann
 * **Identifiants SRA :** `SRR37199246` et `SRR37199247`
 * **Répertoire local :** `/data/projet3/data_sets/RNAseq_data_test/`
 * **Méthode d'extraction :**
@@ -39,7 +39,7 @@
   * Commandes exécutées dans le répertoire cible :
     ```bash
     fasterq-dump -t . --split-files SRR37199246
-    fasterq-dump -t . --split-files [SRR37199247]
+    fasterq-dump -t . --split-files SRR37199247
     ```
   * **Gestion de l'espace temporaire :** Utilisation de l'option `-t .` pour forcer l'écriture des fichiers temporaires dans le répertoire courant du projet partagé (`/data/projet3/...`), empêchant ainsi l'outil d'écrire par défaut dans le répertoire personnel (`$HOME`) et de saturer le quota utilisateur.
 * **Fichiers obtenus (pour chaque dataset) :**
@@ -49,11 +49,12 @@
 
 ---
 
-## 3. État d'avancement et prochaines étapes
+### 2.3 Test d'Eviann sur les données de transcriptomiques et d'homologie
 
-- [x] Initialisation de l'arborescence et sécurisation des droits de groupe (`projet3`).
-- [x] Téléchargement et extraction des jeux de données tests (RNA-seq et génome de référence).
-- [x] Export reproductible de l'environnement (`conda_environment_exports/`).
-- [ ] Clonage et installation de la suite d'annotation EviAnn.
-- [ ] Alignement des lectures RNA-seq sur le génome de référence (fichiers BAM).
-- [ ] Lancement de la Phase 1 d'EviAnn.
+* **Objectif :** Lancer EviAnn avec peu de données sur la machine distante, pour évaluer sa consommation en ressources. 
+
+* **Création d'un envirronnement dedié :**  `eviann` (Eviter le dependency hell) 
+
+* **Installation via conda :** `conda install eviann` version 2.0.6
+
+
