@@ -1,0 +1,57 @@
+name: PTU_project
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - _openmp_mutex=4.5
+  - c-ares=1.11.0
+  - ca-certificates=2026.7.22
+  - curl=7.71.1
+  - icu=70.1
+  - krb5=1.17.2
+  - libcurl=7.71.1
+  - libedit=3.1.20250104
+  - libev=4.33
+  - libgcc=16.2.0
+  - libgcc-ng=16.2.0
+  - libgomp=16.2.0
+  - libiconv=1.18
+  - liblzma=5.8.3
+  - liblzma-devel=5.8.3
+  - libnghttp2=1.41.0
+  - libssh2=1.10.0
+  - libstdcxx=16.2.0
+  - libstdcxx-ng=16.2.0
+  - libxml2=2.9.14
+  - libzlib=1.2.13
+  - ncurses=6.6
+  - openssl=1.1.1w
+  - ossuuid=1.6.2
+  - perl=5.26.2
+  - perl-app-cpanminus=1.7044
+  - perl-business-isbn=3.004
+  - perl-business-isbn-data=20140910.003
+  - perl-carp=1.38
+  - perl-constant=1.33
+  - perl-data-dumper=2.173
+  - perl-encode=2.88
+  - perl-exporter=5.72
+  - perl-extutils-makemaker=7.36
+  - perl-file-path=2.16
+  - perl-file-temp=0.2304
+  - perl-mime-base64=3.15
+  - perl-parent=0.236
+  - perl-uri=1.76
+  - perl-xml-libxml=2.0132
+  - perl-xml-namespacesupport=1.12
+  - perl-xml-sax=1.02
+  - perl-xml-sax-base=1.09
+  - perl-xsloader=0.24
+  - sra-tools=3.4.1
+  - tk=8.6.13
+  - xz=5.8.3
+  - xz-gpl-tools=5.8.3
+  - xz-tools=5.8.3
+  - zlib=1.2.13
+prefix: /home/ouahbi/.conda/envs/PTU_project
