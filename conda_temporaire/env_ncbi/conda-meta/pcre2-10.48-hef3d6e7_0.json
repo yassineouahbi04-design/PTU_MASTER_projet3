@@ -1,0 +1,1990 @@
+{
+  "name": "pcre2",
+  "version": "10.48",
+  "build": "hef3d6e7_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "subdir": "linux-64",
+  "fn": "pcre2-10.48-hef3d6e7_0.conda",
+  "md5": "77f07292734d024ee63af1cdaa44027e",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/pcre2-10.48-hef3d6e7_0.conda",
+  "sha256": "f393e14c8a278b535c76bfa6ab52ec6761cf6b177a24683a49d3c886a0da9f09",
+  "depends": [
+    "__glibc >=2.28,<3.0.a0",
+    "bzip2 >=1.0.8,<2.0a0",
+    "libgcc >=14",
+    "libzlib >=1.3.2,<2.0a0"
+  ],
+  "constrains": [],
+  "license": "BSD-3-Clause WITH PCRE2-exception",
+  "timestamp": 1788937903325,
+  "size": 1505466,
+  "_requested_specs": [],
+  "package_tarball_full_path": "/home/kuganaathan/.conda/pkgs/pcre2-10.48-hef3d6e7_0.conda",
+  "extracted_package_dir": "/home/kuganaathan/.conda/pkgs/pcre2-10.48-hef3d6e7_0",
+  "files": [
+    "bin/pcre2-config",
+    "bin/pcre2grep",
+    "bin/pcre2test",
+    "include/pcre2.h",
+    "include/pcre2posix.h",
+    "lib/cmake/pcre2/pcre2-config-version.cmake",
+    "lib/cmake/pcre2/pcre2-config.cmake",
+    "lib/cmake/pcre2/pcre2-targets-release.cmake",
+    "lib/cmake/pcre2/pcre2-targets.cmake",
+    "lib/libpcre2-16.a",
+    "lib/libpcre2-16.so",
+    "lib/libpcre2-16.so.0",
+    "lib/libpcre2-16.so.0.16.0",
+    "lib/libpcre2-32.a",
+    "lib/libpcre2-32.so",
+    "lib/libpcre2-32.so.0",
+    "lib/libpcre2-32.so.0.16.0",
+    "lib/libpcre2-8.a",
+    "lib/libpcre2-8.so",
+    "lib/libpcre2-8.so.0",
+    "lib/libpcre2-8.so.0.16.0",
+    "lib/libpcre2-posix.a",
+    "lib/libpcre2-posix.so",
+    "lib/libpcre2-posix.so.3",
+    "lib/libpcre2-posix.so.3.0.8",
+    "lib/pkgconfig/libpcre2-16.pc",
+    "lib/pkgconfig/libpcre2-32.pc",
+    "lib/pkgconfig/libpcre2-8.pc",
+    "lib/pkgconfig/libpcre2-posix.pc",
+    "share/doc/pcre2/AUTHORS.md",
+    "share/doc/pcre2/COPYING",
+    "share/doc/pcre2/ChangeLog",
+    "share/doc/pcre2/LICENCE.md",
+    "share/doc/pcre2/NEWS",
+    "share/doc/pcre2/README",
+    "share/doc/pcre2/SECURITY.md",
+    "share/doc/pcre2/SUPPORT-LIFECYCLE.md",
+    "share/doc/pcre2/html/NON-AUTOTOOLS-BUILD.txt",
+    "share/doc/pcre2/html/README.txt",
+    "share/doc/pcre2/html/index.html",
+    "share/doc/pcre2/html/pcre2-config.html",
+    "share/doc/pcre2/html/pcre2.html",
+    "share/doc/pcre2/html/pcre2_callout_enumerate.html",
+    "share/doc/pcre2/html/pcre2_code_copy.html",
+    "share/doc/pcre2/html/pcre2_code_copy_with_tables.html",
+    "share/doc/pcre2/html/pcre2_code_free.html",
+    "share/doc/pcre2/html/pcre2_compile.html",
+    "share/doc/pcre2/html/pcre2_compile_context_copy.html",
+    "share/doc/pcre2/html/pcre2_compile_context_create.html",
+    "share/doc/pcre2/html/pcre2_compile_context_free.html",
+    "share/doc/pcre2/html/pcre2_config.html",
+    "share/doc/pcre2/html/pcre2_convert_context_copy.html",
+    "share/doc/pcre2/html/pcre2_convert_context_create.html",
+    "share/doc/pcre2/html/pcre2_convert_context_free.html",
+    "share/doc/pcre2/html/pcre2_converted_pattern_free.html",
+    "share/doc/pcre2/html/pcre2_dfa_match.html",
+    "share/doc/pcre2/html/pcre2_general_context_copy.html",
+    "share/doc/pcre2/html/pcre2_general_context_create.html",
+    "share/doc/pcre2/html/pcre2_general_context_free.html",
+    "share/doc/pcre2/html/pcre2_get_error_message.html",
+    "share/doc/pcre2/html/pcre2_get_mark.html",
+    "share/doc/pcre2/html/pcre2_get_match_data_heapframes_size.html",
+    "share/doc/pcre2/html/pcre2_get_match_data_size.html",
+    "share/doc/pcre2/html/pcre2_get_ovector_count.html",
+    "share/doc/pcre2/html/pcre2_get_ovector_pointer.html",
+    "share/doc/pcre2/html/pcre2_get_startchar.html",
+    "share/doc/pcre2/html/pcre2_jit_compile.html",
+    "share/doc/pcre2/html/pcre2_jit_free_unused_memory.html",
+    "share/doc/pcre2/html/pcre2_jit_match.html",
+    "share/doc/pcre2/html/pcre2_jit_stack_assign.html",
+    "share/doc/pcre2/html/pcre2_jit_stack_create.html",
+    "share/doc/pcre2/html/pcre2_jit_stack_free.html",
+    "share/doc/pcre2/html/pcre2_maketables.html",
+    "share/doc/pcre2/html/pcre2_maketables_free.html",
+    "share/doc/pcre2/html/pcre2_match.html",
+    "share/doc/pcre2/html/pcre2_match_context_copy.html",
+    "share/doc/pcre2/html/pcre2_match_context_create.html",
+    "share/doc/pcre2/html/pcre2_match_context_free.html",
+    "share/doc/pcre2/html/pcre2_match_data_create.html",
+    "share/doc/pcre2/html/pcre2_match_data_create_from_pattern.html",
+    "share/doc/pcre2/html/pcre2_match_data_free.html",
+    "share/doc/pcre2/html/pcre2_next_match.html",
+    "share/doc/pcre2/html/pcre2_pattern_convert.html",
+    "share/doc/pcre2/html/pcre2_pattern_info.html",
+    "share/doc/pcre2/html/pcre2_serialize_decode.html",
+    "share/doc/pcre2/html/pcre2_serialize_encode.html",
+    "share/doc/pcre2/html/pcre2_serialize_free.html",
+    "share/doc/pcre2/html/pcre2_serialize_get_number_of_codes.html",
+    "share/doc/pcre2/html/pcre2_set_bsr.html",
+    "share/doc/pcre2/html/pcre2_set_callout.html",
+    "share/doc/pcre2/html/pcre2_set_character_tables.html",
+    "share/doc/pcre2/html/pcre2_set_compile_extra_options.html",
+    "share/doc/pcre2/html/pcre2_set_compile_recursion_guard.html",
+    "share/doc/pcre2/html/pcre2_set_depth_limit.html",
+    "share/doc/pcre2/html/pcre2_set_glob_escape.html",
+    "share/doc/pcre2/html/pcre2_set_glob_separator.html",
+    "share/doc/pcre2/html/pcre2_set_heap_limit.html",
+    "share/doc/pcre2/html/pcre2_set_match_limit.html",
+    "share/doc/pcre2/html/pcre2_set_max_pattern_compiled_length.html",
+    "share/doc/pcre2/html/pcre2_set_max_pattern_length.html",
+    "share/doc/pcre2/html/pcre2_set_max_varlookbehind.html",
+    "share/doc/pcre2/html/pcre2_set_newline.html",
+    "share/doc/pcre2/html/pcre2_set_offset_limit.html",
+    "share/doc/pcre2/html/pcre2_set_optimize.html",
+    "share/doc/pcre2/html/pcre2_set_parens_nest_limit.html",
+    "share/doc/pcre2/html/pcre2_set_recursion_limit.html",
+    "share/doc/pcre2/html/pcre2_set_recursion_memory_management.html",
+    "share/doc/pcre2/html/pcre2_set_substitute_callout.html",
+    "share/doc/pcre2/html/pcre2_set_substitute_case_callout.html",
+    "share/doc/pcre2/html/pcre2_substitute.html",
+    "share/doc/pcre2/html/pcre2_substring_copy_byname.html",
+    "share/doc/pcre2/html/pcre2_substring_copy_bynumber.html",
+    "share/doc/pcre2/html/pcre2_substring_free.html",
+    "share/doc/pcre2/html/pcre2_substring_get_byname.html",
+    "share/doc/pcre2/html/pcre2_substring_get_bynumber.html",
+    "share/doc/pcre2/html/pcre2_substring_length_byname.html",
+    "share/doc/pcre2/html/pcre2_substring_length_bynumber.html",
+    "share/doc/pcre2/html/pcre2_substring_list_free.html",
+    "share/doc/pcre2/html/pcre2_substring_list_get.html",
+    "share/doc/pcre2/html/pcre2_substring_nametable_scan.html",
+    "share/doc/pcre2/html/pcre2_substring_number_from_name.html",
+    "share/doc/pcre2/html/pcre2api.html",
+    "share/doc/pcre2/html/pcre2build.html",
+    "share/doc/pcre2/html/pcre2callout.html",
+    "share/doc/pcre2/html/pcre2compat.html",
+    "share/doc/pcre2/html/pcre2convert.html",
+    "share/doc/pcre2/html/pcre2demo.html",
+    "share/doc/pcre2/html/pcre2grep.html",
+    "share/doc/pcre2/html/pcre2jit.html",
+    "share/doc/pcre2/html/pcre2limits.html",
+    "share/doc/pcre2/html/pcre2matching.html",
+    "share/doc/pcre2/html/pcre2partial.html",
+    "share/doc/pcre2/html/pcre2pattern.html",
+    "share/doc/pcre2/html/pcre2perform.html",
+    "share/doc/pcre2/html/pcre2posix.html",
+    "share/doc/pcre2/html/pcre2sample.html",
+    "share/doc/pcre2/html/pcre2serialize.html",
+    "share/doc/pcre2/html/pcre2syntax.html",
+    "share/doc/pcre2/html/pcre2test.html",
+    "share/doc/pcre2/html/pcre2unicode.html",
+    "share/doc/pcre2/pcre2-config.txt",
+    "share/doc/pcre2/pcre2.txt",
+    "share/doc/pcre2/pcre2grep.txt",
+    "share/doc/pcre2/pcre2test.txt",
+    "share/man/man1/pcre2-config.1",
+    "share/man/man1/pcre2grep.1",
+    "share/man/man1/pcre2test.1",
+    "share/man/man3/pcre2.3",
+    "share/man/man3/pcre2_callout_enumerate.3",
+    "share/man/man3/pcre2_code_copy.3",
+    "share/man/man3/pcre2_code_copy_with_tables.3",
+    "share/man/man3/pcre2_code_free.3",
+    "share/man/man3/pcre2_compile.3",
+    "share/man/man3/pcre2_compile_context_copy.3",
+    "share/man/man3/pcre2_compile_context_create.3",
+    "share/man/man3/pcre2_compile_context_free.3",
+    "share/man/man3/pcre2_config.3",
+    "share/man/man3/pcre2_convert_context_copy.3",
+    "share/man/man3/pcre2_convert_context_create.3",
+    "share/man/man3/pcre2_convert_context_free.3",
+    "share/man/man3/pcre2_converted_pattern_free.3",
+    "share/man/man3/pcre2_dfa_match.3",
+    "share/man/man3/pcre2_general_context_copy.3",
+    "share/man/man3/pcre2_general_context_create.3",
+    "share/man/man3/pcre2_general_context_free.3",
+    "share/man/man3/pcre2_get_error_message.3",
+    "share/man/man3/pcre2_get_mark.3",
+    "share/man/man3/pcre2_get_match_data_heapframes_size.3",
+    "share/man/man3/pcre2_get_match_data_size.3",
+    "share/man/man3/pcre2_get_ovector_count.3",
+    "share/man/man3/pcre2_get_ovector_pointer.3",
+    "share/man/man3/pcre2_get_startchar.3",
+    "share/man/man3/pcre2_jit_compile.3",
+    "share/man/man3/pcre2_jit_free_unused_memory.3",
+    "share/man/man3/pcre2_jit_match.3",
+    "share/man/man3/pcre2_jit_stack_assign.3",
+    "share/man/man3/pcre2_jit_stack_create.3",
+    "share/man/man3/pcre2_jit_stack_free.3",
+    "share/man/man3/pcre2_maketables.3",
+    "share/man/man3/pcre2_maketables_free.3",
+    "share/man/man3/pcre2_match.3",
+    "share/man/man3/pcre2_match_context_copy.3",
+    "share/man/man3/pcre2_match_context_create.3",
+    "share/man/man3/pcre2_match_context_free.3",
+    "share/man/man3/pcre2_match_data_create.3",
+    "share/man/man3/pcre2_match_data_create_from_pattern.3",
+    "share/man/man3/pcre2_match_data_free.3",
+    "share/man/man3/pcre2_next_match.3",
+    "share/man/man3/pcre2_pattern_convert.3",
+    "share/man/man3/pcre2_pattern_info.3",
+    "share/man/man3/pcre2_serialize_decode.3",
+    "share/man/man3/pcre2_serialize_encode.3",
+    "share/man/man3/pcre2_serialize_free.3",
+    "share/man/man3/pcre2_serialize_get_number_of_codes.3",
+    "share/man/man3/pcre2_set_bsr.3",
+    "share/man/man3/pcre2_set_callout.3",
+    "share/man/man3/pcre2_set_character_tables.3",
+    "share/man/man3/pcre2_set_compile_extra_options.3",
+    "share/man/man3/pcre2_set_compile_recursion_guard.3",
+    "share/man/man3/pcre2_set_depth_limit.3",
+    "share/man/man3/pcre2_set_glob_escape.3",
+    "share/man/man3/pcre2_set_glob_separator.3",
+    "share/man/man3/pcre2_set_heap_limit.3",
+    "share/man/man3/pcre2_set_match_limit.3",
+    "share/man/man3/pcre2_set_max_pattern_compiled_length.3",
+    "share/man/man3/pcre2_set_max_pattern_length.3",
+    "share/man/man3/pcre2_set_max_varlookbehind.3",
+    "share/man/man3/pcre2_set_newline.3",
+    "share/man/man3/pcre2_set_offset_limit.3",
+    "share/man/man3/pcre2_set_optimize.3",
+    "share/man/man3/pcre2_set_parens_nest_limit.3",
+    "share/man/man3/pcre2_set_recursion_limit.3",
+    "share/man/man3/pcre2_set_recursion_memory_management.3",
+    "share/man/man3/pcre2_set_substitute_callout.3",
+    "share/man/man3/pcre2_set_substitute_case_callout.3",
+    "share/man/man3/pcre2_substitute.3",
+    "share/man/man3/pcre2_substring_copy_byname.3",
+    "share/man/man3/pcre2_substring_copy_bynumber.3",
+    "share/man/man3/pcre2_substring_free.3",
+    "share/man/man3/pcre2_substring_get_byname.3",
+    "share/man/man3/pcre2_substring_get_bynumber.3",
+    "share/man/man3/pcre2_substring_length_byname.3",
+    "share/man/man3/pcre2_substring_length_bynumber.3",
+    "share/man/man3/pcre2_substring_list_free.3",
+    "share/man/man3/pcre2_substring_list_get.3",
+    "share/man/man3/pcre2_substring_nametable_scan.3",
+    "share/man/man3/pcre2_substring_number_from_name.3",
+    "share/man/man3/pcre2api.3",
+    "share/man/man3/pcre2build.3",
+    "share/man/man3/pcre2callout.3",
+    "share/man/man3/pcre2compat.3",
+    "share/man/man3/pcre2convert.3",
+    "share/man/man3/pcre2demo.3",
+    "share/man/man3/pcre2jit.3",
+    "share/man/man3/pcre2limits.3",
+    "share/man/man3/pcre2matching.3",
+    "share/man/man3/pcre2partial.3",
+    "share/man/man3/pcre2pattern.3",
+    "share/man/man3/pcre2perform.3",
+    "share/man/man3/pcre2posix.3",
+    "share/man/man3/pcre2sample.3",
+    "share/man/man3/pcre2serialize.3",
+    "share/man/man3/pcre2syntax.3",
+    "share/man/man3/pcre2unicode.3"
+  ],
+  "paths_data": {
+    "paths_version": 1,
+    "paths": [
+      {
+        "_path": "bin/pcre2-config",
+        "prefix_placeholder": "/home/task_178893781204607/croot/pcre2_1788937841814/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_place",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "sha256": "b7b50cd63f13d1a367df82f77e6f6a9063b108d84ad1177ac9e4e54b6d7f5ebb",
+        "size_in_bytes": 2688,
+        "sha256_in_prefix": "042a56196dc859ebd426fc2ea15638807a3c4dfa053599fa345ef2fb87b0c870"
+      },
+      {
+        "_path": "bin/pcre2grep",
+        "path_type": "hardlink",
+        "sha256": "62870155320950eff9da4d194d0f5fbd9704a163aea28b4b00ac4a86aebcd90f",
+        "size_in_bytes": 771904,
+        "sha256_in_prefix": "62870155320950eff9da4d194d0f5fbd9704a163aea28b4b00ac4a86aebcd90f"
+      },
+      {
+        "_path": "bin/pcre2test",
+        "path_type": "hardlink",
+        "sha256": "fed420bafdfa5e486e6f61cf420787814c5b7c7547ea5eccd06d2b5e10f9e820",
+        "size_in_bytes": 2475680,
+        "sha256_in_prefix": "fed420bafdfa5e486e6f61cf420787814c5b7c7547ea5eccd06d2b5e10f9e820"
+      },
+      {
+        "_path": "include/pcre2.h",
+        "path_type": "hardlink",
+        "sha256": "20d70c58a3b1f205836ceade32af6179a887f24749b8036620f079919d37b11e",
+        "size_in_bytes": 51962,
+        "sha256_in_prefix": "20d70c58a3b1f205836ceade32af6179a887f24749b8036620f079919d37b11e"
+      },
+      {
+        "_path": "include/pcre2posix.h",
+        "path_type": "hardlink",
+        "sha256": "4e3f99d21b10f3168fa562c6345e2b387a1a83f8bd2a35784b2832f4dc4d9444",
+        "size_in_bytes": 7276,
+        "sha256_in_prefix": "4e3f99d21b10f3168fa562c6345e2b387a1a83f8bd2a35784b2832f4dc4d9444"
+      },
+      {
+        "_path": "lib/cmake/pcre2/pcre2-config-version.cmake",
+        "path_type": "hardlink",
+        "sha256": "ae3c7205a7b5a0c0d4f34b268e7693186545f128d11e54a0521f42d3d30cd075",
+        "size_in_bytes": 2768,
+        "sha256_in_prefix": "ae3c7205a7b5a0c0d4f34b268e7693186545f128d11e54a0521f42d3d30cd075"
+      },
+      {
+        "_path": "lib/cmake/pcre2/pcre2-config.cmake",
+        "path_type": "hardlink",
+        "sha256": "832316a65dd308027866c8815c957b93178ad6b1ea53fe6f764f60cce6e4a7d2",
+        "size_in_bytes": 4120,
+        "sha256_in_prefix": "832316a65dd308027866c8815c957b93178ad6b1ea53fe6f764f60cce6e4a7d2"
+      },
+      {
+        "_path": "lib/cmake/pcre2/pcre2-targets-release.cmake",
+        "path_type": "hardlink",
+        "sha256": "267c8c6af04b7259d5d336c102e01d18913c86445fc2fd68fa89f1445552a708",
+        "size_in_bytes": 5356,
+        "sha256_in_prefix": "267c8c6af04b7259d5d336c102e01d18913c86445fc2fd68fa89f1445552a708"
+      },
+      {
+        "_path": "lib/cmake/pcre2/pcre2-targets.cmake",
+        "path_type": "hardlink",
+        "sha256": "53e3fd61037092f4dd2e6ca4fa830fb19781c5c73fa25b9c351d58fc582c4353",
+        "size_in_bytes": 6643,
+        "sha256_in_prefix": "53e3fd61037092f4dd2e6ca4fa830fb19781c5c73fa25b9c351d58fc582c4353"
+      },
+      {
+        "_path": "lib/libpcre2-16.a",
+        "path_type": "hardlink",
+        "sha256": "d00edaf4e764e0e2b9988a7990a1dd1090e85435f090aa8119a521b8d63c5614",
+        "size_in_bytes": 1083918,
+        "sha256_in_prefix": "d00edaf4e764e0e2b9988a7990a1dd1090e85435f090aa8119a521b8d63c5614"
+      },
+      {
+        "_path": "lib/libpcre2-16.so",
+        "path_type": "softlink",
+        "sha256": "e9528630261b30420a58e3cfa519308dee5ae2b45f5b435bfedf2cf012e7a6c2",
+        "size_in_bytes": 743616
+      },
+      {
+        "_path": "lib/libpcre2-16.so.0",
+        "path_type": "softlink",
+        "sha256": "e9528630261b30420a58e3cfa519308dee5ae2b45f5b435bfedf2cf012e7a6c2",
+        "size_in_bytes": 743616
+      },
+      {
+        "_path": "lib/libpcre2-16.so.0.16.0",
+        "path_type": "hardlink",
+        "sha256": "e9528630261b30420a58e3cfa519308dee5ae2b45f5b435bfedf2cf012e7a6c2",
+        "size_in_bytes": 743616,
+        "sha256_in_prefix": "e9528630261b30420a58e3cfa519308dee5ae2b45f5b435bfedf2cf012e7a6c2"
+      },
+      {
+        "_path": "lib/libpcre2-32.a",
+        "path_type": "hardlink",
+        "sha256": "c5c155b1f89e10c52e63060eafc5e5fd81f4214db149200dd2ff10e7da06f0b8",
+        "size_in_bytes": 1026012,
+        "sha256_in_prefix": "c5c155b1f89e10c52e63060eafc5e5fd81f4214db149200dd2ff10e7da06f0b8"
+      },
+      {
+        "_path": "lib/libpcre2-32.so",
+        "path_type": "softlink",
+        "sha256": "837eff5a2af8fe045c47444c70d7664d5a5fc0bedd532538698f37ef4ca1006c",
+        "size_in_bytes": 694272
+      },
+      {
+        "_path": "lib/libpcre2-32.so.0",
+        "path_type": "softlink",
+        "sha256": "837eff5a2af8fe045c47444c70d7664d5a5fc0bedd532538698f37ef4ca1006c",
+        "size_in_bytes": 694272
+      },
+      {
+        "_path": "lib/libpcre2-32.so.0.16.0",
+        "path_type": "hardlink",
+        "sha256": "837eff5a2af8fe045c47444c70d7664d5a5fc0bedd532538698f37ef4ca1006c",
+        "size_in_bytes": 694272,
+        "sha256_in_prefix": "837eff5a2af8fe045c47444c70d7664d5a5fc0bedd532538698f37ef4ca1006c"
+      },
+      {
+        "_path": "lib/libpcre2-8.a",
+        "path_type": "hardlink",
+        "sha256": "3a2f7a4610ddcee54d41989f6cede1ff2cc606a40ab8063a2738bd675be2c410",
+        "size_in_bytes": 1150074,
+        "sha256_in_prefix": "3a2f7a4610ddcee54d41989f6cede1ff2cc606a40ab8063a2738bd675be2c410"
+      },
+      {
+        "_path": "lib/libpcre2-8.so",
+        "path_type": "softlink",
+        "sha256": "8415e1bccebaf7df5569007a23c41aa8588e2775de257a4420c1e4d5b6ac4bce",
+        "size_in_bytes": 801512
+      },
+      {
+        "_path": "lib/libpcre2-8.so.0",
+        "path_type": "softlink",
+        "sha256": "8415e1bccebaf7df5569007a23c41aa8588e2775de257a4420c1e4d5b6ac4bce",
+        "size_in_bytes": 801512
+      },
+      {
+        "_path": "lib/libpcre2-8.so.0.16.0",
+        "path_type": "hardlink",
+        "sha256": "8415e1bccebaf7df5569007a23c41aa8588e2775de257a4420c1e4d5b6ac4bce",
+        "size_in_bytes": 801512,
+        "sha256_in_prefix": "8415e1bccebaf7df5569007a23c41aa8588e2775de257a4420c1e4d5b6ac4bce"
+      },
+      {
+        "_path": "lib/libpcre2-posix.a",
+        "path_type": "hardlink",
+        "sha256": "1643873464e56bce1fe36c30171068380356c7e0ec2d5e1c4bd50d691d823207",
+        "size_in_bytes": 6894,
+        "sha256_in_prefix": "1643873464e56bce1fe36c30171068380356c7e0ec2d5e1c4bd50d691d823207"
+      },
+      {
+        "_path": "lib/libpcre2-posix.so",
+        "path_type": "softlink",
+        "sha256": "33580976aae29af03a67a06b4a7d6be9f66999988ccc77e5cd897606a5cc2db0",
+        "size_in_bytes": 16432
+      },
+      {
+        "_path": "lib/libpcre2-posix.so.3",
+        "path_type": "softlink",
+        "sha256": "33580976aae29af03a67a06b4a7d6be9f66999988ccc77e5cd897606a5cc2db0",
+        "size_in_bytes": 16432
+      },
+      {
+        "_path": "lib/libpcre2-posix.so.3.0.8",
+        "path_type": "hardlink",
+        "sha256": "33580976aae29af03a67a06b4a7d6be9f66999988ccc77e5cd897606a5cc2db0",
+        "size_in_bytes": 16432,
+        "sha256_in_prefix": "33580976aae29af03a67a06b4a7d6be9f66999988ccc77e5cd897606a5cc2db0"
+      },
+      {
+        "_path": "lib/pkgconfig/libpcre2-16.pc",
+        "prefix_placeholder": "/home/task_178893781204607/croot/pcre2_1788937841814/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_place",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "sha256": "3120712d44a0902e7988e511756c21a01606aee05b74e54282f758c98e078679",
+        "size_in_bytes": 641,
+        "sha256_in_prefix": "d2df31fd5b194af1421ada7305f3e1338cda9a750c0f3468b4388bf67e98d8f7"
+      },
+      {
+        "_path": "lib/pkgconfig/libpcre2-32.pc",
+        "prefix_placeholder": "/home/task_178893781204607/croot/pcre2_1788937841814/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_place",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "sha256": "4c4361a3956e5c30ad9b41a66215088f2245a624d1673d705001900ee3dd29ba",
+        "size_in_bytes": 641,
+        "sha256_in_prefix": "545ff5d332a2289859a9dfd34b97df7305ef5c170dab064a091e8c75a3444440"
+      },
+      {
+        "_path": "lib/pkgconfig/libpcre2-8.pc",
+        "prefix_placeholder": "/home/task_178893781204607/croot/pcre2_1788937841814/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_place",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "sha256": "bd97e5c9a6ace30a0f5dd0503a5b773cc41e188778ba8bd7a2456d79e9fa02ea",
+        "size_in_bytes": 638,
+        "sha256_in_prefix": "f66a6025a45343bb0d9fb2b2335299f5f369621f835fb2cc281886098fe974b8"
+      },
+      {
+        "_path": "lib/pkgconfig/libpcre2-posix.pc",
+        "prefix_placeholder": "/home/task_178893781204607/croot/pcre2_1788937841814/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_place",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "sha256": "2ceea1999e3e2982e431b7a47ea8bdc568f51551ab25781a88a71e69175405af",
+        "size_in_bytes": 617,
+        "sha256_in_prefix": "d4206920d2859ce24e48d93bfcdd56b3b98da19e4c5c661a6cdbccd042ce7f88"
+      },
+      {
+        "_path": "share/doc/pcre2/AUTHORS.md",
+        "path_type": "hardlink",
+        "sha256": "412ace3355a4d6a4d835c350a7df172903811eafda7b13500dacf58429ee757e",
+        "size_in_bytes": 4232,
+        "sha256_in_prefix": "412ace3355a4d6a4d835c350a7df172903811eafda7b13500dacf58429ee757e"
+      },
+      {
+        "_path": "share/doc/pcre2/COPYING",
+        "path_type": "hardlink",
+        "sha256": "99272c55f3dcfa07a8a7e15a5c1a33096e4727de74241d65fa049fccfdd59507",
+        "size_in_bytes": 97,
+        "sha256_in_prefix": "99272c55f3dcfa07a8a7e15a5c1a33096e4727de74241d65fa049fccfdd59507"
+      },
+      {
+        "_path": "share/doc/pcre2/ChangeLog",
+        "path_type": "hardlink",
+        "sha256": "8b6f088f694f9b6b06999d61ec86928f57150b1fbe722761b1e04be9e47abdbf",
+        "size_in_bytes": 163029,
+        "sha256_in_prefix": "8b6f088f694f9b6b06999d61ec86928f57150b1fbe722761b1e04be9e47abdbf"
+      },
+      {
+        "_path": "share/doc/pcre2/LICENCE.md",
+        "path_type": "hardlink",
+        "sha256": "197d8a73ffee0d6b09adba2f9c677b5f5aede24edf89258a68e48248d010d811",
+        "size_in_bytes": 4011,
+        "sha256_in_prefix": "197d8a73ffee0d6b09adba2f9c677b5f5aede24edf89258a68e48248d010d811"
+      },
+      {
+        "_path": "share/doc/pcre2/NEWS",
+        "path_type": "hardlink",
+        "sha256": "a586547fdd28e9f426bbbddd963584a51887ffb9518a688a1c4f4d549e25e6b6",
+        "size_in_bytes": 27860,
+        "sha256_in_prefix": "a586547fdd28e9f426bbbddd963584a51887ffb9518a688a1c4f4d549e25e6b6"
+      },
+      {
+        "_path": "share/doc/pcre2/README",
+        "path_type": "hardlink",
+        "sha256": "47319985a9919d7d6030373a33233ce0449b6459a9bce23537afadb2305e2fc2",
+        "size_in_bytes": 47878,
+        "sha256_in_prefix": "47319985a9919d7d6030373a33233ce0449b6459a9bce23537afadb2305e2fc2"
+      },
+      {
+        "_path": "share/doc/pcre2/SECURITY.md",
+        "path_type": "hardlink",
+        "sha256": "6a5ec6991d8338d79c267e9ed00e98bae3e3f3d00299f927c88fc662164476bd",
+        "size_in_bytes": 3712,
+        "sha256_in_prefix": "6a5ec6991d8338d79c267e9ed00e98bae3e3f3d00299f927c88fc662164476bd"
+      },
+      {
+        "_path": "share/doc/pcre2/SUPPORT-LIFECYCLE.md",
+        "path_type": "hardlink",
+        "sha256": "e2724eaa8f2b525ea586a6679ebe7b8eb2acf8e4b67064b449d62e5a939095da",
+        "size_in_bytes": 19464,
+        "sha256_in_prefix": "e2724eaa8f2b525ea586a6679ebe7b8eb2acf8e4b67064b449d62e5a939095da"
+      },
+      {
+        "_path": "share/doc/pcre2/html/NON-AUTOTOOLS-BUILD.txt",
+        "path_type": "hardlink",
+        "sha256": "8a6058617d31141df3339cd85b8451ea0dfb4d5551f64be276ee1e6e0e3cff36",
+        "size_in_bytes": 21903,
+        "sha256_in_prefix": "8a6058617d31141df3339cd85b8451ea0dfb4d5551f64be276ee1e6e0e3cff36"
+      },
+      {
+        "_path": "share/doc/pcre2/html/README.txt",
+        "path_type": "hardlink",
+        "sha256": "47319985a9919d7d6030373a33233ce0449b6459a9bce23537afadb2305e2fc2",
+        "size_in_bytes": 47878,
+        "sha256_in_prefix": "47319985a9919d7d6030373a33233ce0449b6459a9bce23537afadb2305e2fc2"
+      },
+      {
+        "_path": "share/doc/pcre2/html/index.html",
+        "path_type": "hardlink",
+        "sha256": "5a9d7a801a5a00457e80a60d39387f58f14a0d097c253aa48e4109d5bfe9da71",
+        "size_in_bytes": 14009,
+        "sha256_in_prefix": "5a9d7a801a5a00457e80a60d39387f58f14a0d097c253aa48e4109d5bfe9da71"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2-config.html",
+        "path_type": "hardlink",
+        "sha256": "e5aca9f38583c8548300607c928d1ff1f5da68f546bef8f61c6663ffe6c264fa",
+        "size_in_bytes": 3500,
+        "sha256_in_prefix": "e5aca9f38583c8548300607c928d1ff1f5da68f546bef8f61c6663ffe6c264fa"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2.html",
+        "path_type": "hardlink",
+        "sha256": "116216368189bc8e73495fa98294f5f119932b6a6d97d82555d0c8aacac7720e",
+        "size_in_bytes": 10101,
+        "sha256_in_prefix": "116216368189bc8e73495fa98294f5f119932b6a6d97d82555d0c8aacac7720e"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_callout_enumerate.html",
+        "path_type": "hardlink",
+        "sha256": "933a72cff142d80d2198365024cef38584655d3fc08970afc8a94468828c7be0",
+        "size_in_bytes": 2419,
+        "sha256_in_prefix": "933a72cff142d80d2198365024cef38584655d3fc08970afc8a94468828c7be0"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_code_copy.html",
+        "path_type": "hardlink",
+        "sha256": "d06702072a27f72ca932dd4c83770d782dc539a48c1fd29e2fc1214f842d7aa7",
+        "size_in_bytes": 1358,
+        "sha256_in_prefix": "d06702072a27f72ca932dd4c83770d782dc539a48c1fd29e2fc1214f842d7aa7"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_code_copy_with_tables.html",
+        "path_type": "hardlink",
+        "sha256": "16a3b32da40a716ac3e67855ffe881bb6bc2837543c3d61c11470c314ad7a1f6",
+        "size_in_bytes": 1479,
+        "sha256_in_prefix": "16a3b32da40a716ac3e67855ffe881bb6bc2837543c3d61c11470c314ad7a1f6"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_code_free.html",
+        "path_type": "hardlink",
+        "sha256": "5097417e98676664b79b3e6c17035bc1ae44bbe890a570e152a7278ec2aaecbf",
+        "size_in_bytes": 1231,
+        "sha256_in_prefix": "5097417e98676664b79b3e6c17035bc1ae44bbe890a570e152a7278ec2aaecbf"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_compile.html",
+        "path_type": "hardlink",
+        "sha256": "aa9e5d5cc1f961e101de271e1414a526974570349725198e7a2894bd21370b61",
+        "size_in_bytes": 5293,
+        "sha256_in_prefix": "aa9e5d5cc1f961e101de271e1414a526974570349725198e7a2894bd21370b61"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_compile_context_copy.html",
+        "path_type": "hardlink",
+        "sha256": "ef7766f9116639a0846529bb7fb1c12280d027056945fbdd7273a90562f10e1d",
+        "size_in_bytes": 1164,
+        "sha256_in_prefix": "ef7766f9116639a0846529bb7fb1c12280d027056945fbdd7273a90562f10e1d"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_compile_context_create.html",
+        "path_type": "hardlink",
+        "sha256": "4dfac77833b6268441de188ddbf1f65b13f8c01244a789225d5588a12eb8c88c",
+        "size_in_bytes": 1259,
+        "sha256_in_prefix": "4dfac77833b6268441de188ddbf1f65b13f8c01244a789225d5588a12eb8c88c"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_compile_context_free.html",
+        "path_type": "hardlink",
+        "sha256": "45b725f057901ef510bb13c02a7a2766313dadf35fa4b4c937f44be26dd6db90",
+        "size_in_bytes": 1221,
+        "sha256_in_prefix": "45b725f057901ef510bb13c02a7a2766313dadf35fa4b4c937f44be26dd6db90"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_config.html",
+        "path_type": "hardlink",
+        "sha256": "7f051d71b35ee9ffc120408cec90e62aadacf50ff067cef6d12d8e80e8198d9d",
+        "size_in_bytes": 3704,
+        "sha256_in_prefix": "7f051d71b35ee9ffc120408cec90e62aadacf50ff067cef6d12d8e80e8198d9d"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_convert_context_copy.html",
+        "path_type": "hardlink",
+        "sha256": "2197eac4385736cdac322b705a96d9fb77b1de4950b4c06404a86fccb5ef6063",
+        "size_in_bytes": 1145,
+        "sha256_in_prefix": "2197eac4385736cdac322b705a96d9fb77b1de4950b4c06404a86fccb5ef6063"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_convert_context_create.html",
+        "path_type": "hardlink",
+        "sha256": "566d034112a3708398f38a5164fab3c2ce31af3299fb21160bc181be1720d0d7",
+        "size_in_bytes": 1239,
+        "sha256_in_prefix": "566d034112a3708398f38a5164fab3c2ce31af3299fb21160bc181be1720d0d7"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_convert_context_free.html",
+        "path_type": "hardlink",
+        "sha256": "a4f0feb49d8528043e243b716f61e66049bbc31db604fdb95a3cc91e892b6731",
+        "size_in_bytes": 1202,
+        "sha256_in_prefix": "a4f0feb49d8528043e243b716f61e66049bbc31db604fdb95a3cc91e892b6731"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_converted_pattern_free.html",
+        "path_type": "hardlink",
+        "sha256": "409396f873fae9c066d0a8b97a0789a51142617cc7b207d078375bf0d704866e",
+        "size_in_bytes": 1237,
+        "sha256_in_prefix": "409396f873fae9c066d0a8b97a0789a51142617cc7b207d078375bf0d704866e"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_dfa_match.html",
+        "path_type": "hardlink",
+        "sha256": "dec1c5279c3ad117deeb724dbbea3f0622d14f17289befdf9dd69fdaa367bb1c",
+        "size_in_bytes": 3853,
+        "sha256_in_prefix": "dec1c5279c3ad117deeb724dbbea3f0622d14f17289befdf9dd69fdaa367bb1c"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_general_context_copy.html",
+        "path_type": "hardlink",
+        "sha256": "814abb880a1c94eb688f941dd7e8539ca8453c19621db28cf2a8068350655c4f",
+        "size_in_bytes": 1213,
+        "sha256_in_prefix": "814abb880a1c94eb688f941dd7e8539ca8453c19621db28cf2a8068350655c4f"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_general_context_create.html",
+        "path_type": "hardlink",
+        "sha256": "875776c8174f8f4f2765c8012e878f34f5d681b2271fcfde2f1b697453fdaba1",
+        "size_in_bytes": 1470,
+        "sha256_in_prefix": "875776c8174f8f4f2765c8012e878f34f5d681b2271fcfde2f1b697453fdaba1"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_general_context_free.html",
+        "path_type": "hardlink",
+        "sha256": "97451752493c45010135b94cd7f41ef2253d1dcfc362eda45063c6a097af395e",
+        "size_in_bytes": 1160,
+        "sha256_in_prefix": "97451752493c45010135b94cd7f41ef2253d1dcfc362eda45063c6a097af395e"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_get_error_message.html",
+        "path_type": "hardlink",
+        "sha256": "f0d43f7c059ad91419e84e6a61ef6f454a0204f713c04ed6b6ceb071aed7b031",
+        "size_in_bytes": 1733,
+        "sha256_in_prefix": "f0d43f7c059ad91419e84e6a61ef6f454a0204f713c04ed6b6ceb071aed7b031"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_get_mark.html",
+        "path_type": "hardlink",
+        "sha256": "a20d35dd3c88ad1f2de07689fcd673609d442b7af8c22c240548799fe4f2ed83",
+        "size_in_bytes": 1493,
+        "sha256_in_prefix": "a20d35dd3c88ad1f2de07689fcd673609d442b7af8c22c240548799fe4f2ed83"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_get_match_data_heapframes_size.html",
+        "path_type": "hardlink",
+        "sha256": "0d7b77a8aebaa0e226d84003c0d94b400852650920b6aa5c1c9ade4c160e8cf9",
+        "size_in_bytes": 1098,
+        "sha256_in_prefix": "0d7b77a8aebaa0e226d84003c0d94b400852650920b6aa5c1c9ade4c160e8cf9"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_get_match_data_size.html",
+        "path_type": "hardlink",
+        "sha256": "8980a907168b3177e064771e92525922dffec869d581ef1a4cec4972127d51d4",
+        "size_in_bytes": 1041,
+        "sha256_in_prefix": "8980a907168b3177e064771e92525922dffec869d581ef1a4cec4972127d51d4"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_get_ovector_count.html",
+        "path_type": "hardlink",
+        "sha256": "2f13f669f4e113c7079e32ea6b938515038f4a236a4e3495300ad9632a5a6552",
+        "size_in_bytes": 1060,
+        "sha256_in_prefix": "2f13f669f4e113c7079e32ea6b938515038f4a236a4e3495300ad9632a5a6552"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_get_ovector_pointer.html",
+        "path_type": "hardlink",
+        "sha256": "8b207291ed375bc0c560682b4be8e5dffd2bf07aea266a4485b4d3280dd2eca6",
+        "size_in_bytes": 1136,
+        "sha256_in_prefix": "8b207291ed375bc0c560682b4be8e5dffd2bf07aea266a4485b4d3280dd2eca6"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_get_startchar.html",
+        "path_type": "hardlink",
+        "sha256": "2d47faa5fa3fa4a31a5a5ef32b30803b7d505a5439788494eb8ada827b77ea25",
+        "size_in_bytes": 1418,
+        "sha256_in_prefix": "2d47faa5fa3fa4a31a5a5ef32b30803b7d505a5439788494eb8ada827b77ea25"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_jit_compile.html",
+        "path_type": "hardlink",
+        "sha256": "f9f4f0574246cb3014c55e0c918b27d5e4bf113f3ce20bfc7191e588af1ecbb4",
+        "size_in_bytes": 2823,
+        "sha256_in_prefix": "f9f4f0574246cb3014c55e0c918b27d5e4bf113f3ce20bfc7191e588af1ecbb4"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_jit_free_unused_memory.html",
+        "path_type": "hardlink",
+        "sha256": "9f803709fe1d402f12966893bccc44c91c95e7be55a967fb91133cda53ca71d2",
+        "size_in_bytes": 1316,
+        "sha256_in_prefix": "9f803709fe1d402f12966893bccc44c91c95e7be55a967fb91133cda53ca71d2"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_jit_match.html",
+        "path_type": "hardlink",
+        "sha256": "0389c2c6ad28a023bcd7582e6fbc0a87bacfc25694a7bc247b674e7790e3d532",
+        "size_in_bytes": 2515,
+        "sha256_in_prefix": "0389c2c6ad28a023bcd7582e6fbc0a87bacfc25694a7bc247b674e7790e3d532"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_jit_stack_assign.html",
+        "path_type": "hardlink",
+        "sha256": "4f368308f6b48b0bb5ff85ac531073cfe3e5c9c2978d7caac924bc152beeb14a",
+        "size_in_bytes": 2550,
+        "sha256_in_prefix": "4f368308f6b48b0bb5ff85ac531073cfe3e5c9c2978d7caac924bc152beeb14a"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_jit_stack_create.html",
+        "path_type": "hardlink",
+        "sha256": "750094a9e67a5ffd5346531561803e3c30151ca6dd96a6d6e21e1b7a5a9c1f5c",
+        "size_in_bytes": 1805,
+        "sha256_in_prefix": "750094a9e67a5ffd5346531561803e3c30151ca6dd96a6d6e21e1b7a5a9c1f5c"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_jit_stack_free.html",
+        "path_type": "hardlink",
+        "sha256": "a3b3b230269a45d8f2211bc0d788d6fc1488dc1678b596024167f0bc7c722b49",
+        "size_in_bytes": 1211,
+        "sha256_in_prefix": "a3b3b230269a45d8f2211bc0d788d6fc1488dc1678b596024167f0bc7c722b49"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_maketables.html",
+        "path_type": "hardlink",
+        "sha256": "7e3a652eee0d5c27e35e539edc0342c9f2bab80d9b150cd41a07bc2311c7a254",
+        "size_in_bytes": 1635,
+        "sha256_in_prefix": "7e3a652eee0d5c27e35e539edc0342c9f2bab80d9b150cd41a07bc2311c7a254"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_maketables_free.html",
+        "path_type": "hardlink",
+        "sha256": "dd3b14d2a29b3780155e2b5f70d8328fe33c7c765a920bc016eb41bc3be46922",
+        "size_in_bytes": 1211,
+        "sha256_in_prefix": "dd3b14d2a29b3780155e2b5f70d8328fe33c7c765a920bc016eb41bc3be46922"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_match.html",
+        "path_type": "hardlink",
+        "sha256": "11e0d824841cd921ce1c1aaddaeb712394a306b65f7a937b3b22832bedc1eaa8",
+        "size_in_bytes": 3762,
+        "sha256_in_prefix": "11e0d824841cd921ce1c1aaddaeb712394a306b65f7a937b3b22832bedc1eaa8"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_match_context_copy.html",
+        "path_type": "hardlink",
+        "sha256": "2c327807f2c3c4b94b9ee49fbf893392d5c046545bd1dee926720d06045f0318",
+        "size_in_bytes": 1152,
+        "sha256_in_prefix": "2c327807f2c3c4b94b9ee49fbf893392d5c046545bd1dee926720d06045f0318"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_match_context_create.html",
+        "path_type": "hardlink",
+        "sha256": "6841884231d7dc19872554023ebc78a376f03dfb6f87e77ee3b3e76e919029c6",
+        "size_in_bytes": 1249,
+        "sha256_in_prefix": "6841884231d7dc19872554023ebc78a376f03dfb6f87e77ee3b3e76e919029c6"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_match_context_free.html",
+        "path_type": "hardlink",
+        "sha256": "63c08b4dffc4690b29f7568e48d5f364a886452d36b0e9d88341ee8615bee79b",
+        "size_in_bytes": 1211,
+        "sha256_in_prefix": "63c08b4dffc4690b29f7568e48d5f364a886452d36b0e9d88341ee8615bee79b"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_match_data_create.html",
+        "path_type": "hardlink",
+        "sha256": "569e774ec99e6b175a7079113d11fedab9b3dd6cbed0160188a030e66d439fa3",
+        "size_in_bytes": 1743,
+        "sha256_in_prefix": "569e774ec99e6b175a7079113d11fedab9b3dd6cbed0160188a030e66d439fa3"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_match_data_create_from_pattern.html",
+        "path_type": "hardlink",
+        "sha256": "716944db2e739fcdadab1e2aecdabeb5e0b2acc69796d6f843411b4cc467c9d8",
+        "size_in_bytes": 2036,
+        "sha256_in_prefix": "716944db2e739fcdadab1e2aecdabeb5e0b2acc69796d6f843411b4cc467c9d8"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_match_data_free.html",
+        "path_type": "hardlink",
+        "sha256": "c58fb6afe8981bb3c9f77a2c32433cb9274e36b98b4aeb5bedbb6d46040ef54b",
+        "size_in_bytes": 1541,
+        "sha256_in_prefix": "c58fb6afe8981bb3c9f77a2c32433cb9274e36b98b4aeb5bedbb6d46040ef54b"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_next_match.html",
+        "path_type": "hardlink",
+        "sha256": "00dbd0bfb0f32ad8b958594afa6cdebd41234f391225f57ba706e0a794bd0676",
+        "size_in_bytes": 1937,
+        "sha256_in_prefix": "00dbd0bfb0f32ad8b958594afa6cdebd41234f391225f57ba706e0a794bd0676"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_pattern_convert.html",
+        "path_type": "hardlink",
+        "sha256": "63321fea2b7e3053aa8febde35e3b60fed71a26c6aa1a074ddce2174585aa650",
+        "size_in_bytes": 2651,
+        "sha256_in_prefix": "63321fea2b7e3053aa8febde35e3b60fed71a26c6aa1a074ddce2174585aa650"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_pattern_info.html",
+        "path_type": "hardlink",
+        "sha256": "8861f67f30b49730556a63a185376bf13344d0887ed207b5347827552857b958",
+        "size_in_bytes": 4804,
+        "sha256_in_prefix": "8861f67f30b49730556a63a185376bf13344d0887ed207b5347827552857b958"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_serialize_decode.html",
+        "path_type": "hardlink",
+        "sha256": "04bbf432c13f6582746aa985f5e9761cb2e60a2669c9961255b9746ba7ffaa8f",
+        "size_in_bytes": 2535,
+        "sha256_in_prefix": "04bbf432c13f6582746aa985f5e9761cb2e60a2669c9961255b9746ba7ffaa8f"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_serialize_encode.html",
+        "path_type": "hardlink",
+        "sha256": "a19f8d5ac1c37682daf099f339d323410e7d3acef07db493f2645876a18e1a22",
+        "size_in_bytes": 2709,
+        "sha256_in_prefix": "a19f8d5ac1c37682daf099f339d323410e7d3acef07db493f2645876a18e1a22"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_serialize_free.html",
+        "path_type": "hardlink",
+        "sha256": "2148b416d1e28a36a79dac0ed7db65d0329726c4a4d3b79a9f9f136302ad0bad",
+        "size_in_bytes": 1175,
+        "sha256_in_prefix": "2148b416d1e28a36a79dac0ed7db65d0329726c4a4d3b79a9f9f136302ad0bad"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_serialize_get_number_of_codes.html",
+        "path_type": "hardlink",
+        "sha256": "e6b1d9d03f16bd8057776d3adf9ea8a58d820421d83a7c2722ac7fa5b885234c",
+        "size_in_bytes": 1622,
+        "sha256_in_prefix": "e6b1d9d03f16bd8057776d3adf9ea8a58d820421d83a7c2722ac7fa5b885234c"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_bsr.html",
+        "path_type": "hardlink",
+        "sha256": "7ab995a70b3e25b82de3540508beef8287e8688e754f88cfd6dca7f00952fc88",
+        "size_in_bytes": 1187,
+        "sha256_in_prefix": "7ab995a70b3e25b82de3540508beef8287e8688e754f88cfd6dca7f00952fc88"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_callout.html",
+        "path_type": "hardlink",
+        "sha256": "6f1c9a2f6293a88fc77a2225ac06993e251700aa2b89ed4b4339d1bcefa9c46a",
+        "size_in_bytes": 1264,
+        "sha256_in_prefix": "6f1c9a2f6293a88fc77a2225ac06993e251700aa2b89ed4b4339d1bcefa9c46a"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_character_tables.html",
+        "path_type": "hardlink",
+        "sha256": "5f625f09cfe60494d77de709670ff33b1bd2cb66f7c120a42ac86f2d2f649a74",
+        "size_in_bytes": 1425,
+        "sha256_in_prefix": "5f625f09cfe60494d77de709670ff33b1bd2cb66f7c120a42ac86f2d2f649a74"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_compile_extra_options.html",
+        "path_type": "hardlink",
+        "sha256": "9d53c90cf98cd88fc03968b37c19bdb5a1745a79889aa63497db34522b70314f",
+        "size_in_bytes": 2441,
+        "sha256_in_prefix": "9d53c90cf98cd88fc03968b37c19bdb5a1745a79889aa63497db34522b70314f"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_compile_recursion_guard.html",
+        "path_type": "hardlink",
+        "sha256": "a7d06fa9914b8cddd6f4193309ef4fa5689f21886ecb49753b12ad87462458da",
+        "size_in_bytes": 1652,
+        "sha256_in_prefix": "a7d06fa9914b8cddd6f4193309ef4fa5689f21886ecb49753b12ad87462458da"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_depth_limit.html",
+        "path_type": "hardlink",
+        "sha256": "9adb5f0e102c5f51146abf69b45ee2b1fa61d586ee4096862a68b68b68b6b012",
+        "size_in_bytes": 1068,
+        "sha256_in_prefix": "9adb5f0e102c5f51146abf69b45ee2b1fa61d586ee4096862a68b68b68b6b012"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_glob_escape.html",
+        "path_type": "hardlink",
+        "sha256": "29ddfbe7e9161b30e6d8c45a9823c6ec3af0013525a183733aaade9d58eaeafe",
+        "size_in_bytes": 1353,
+        "sha256_in_prefix": "29ddfbe7e9161b30e6d8c45a9823c6ec3af0013525a183733aaade9d58eaeafe"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_glob_separator.html",
+        "path_type": "hardlink",
+        "sha256": "96df9bcdc676507ca651fb08c058b3a1f6abed81b428caa73d0ee8f1d33c5560",
+        "size_in_bytes": 1324,
+        "sha256_in_prefix": "96df9bcdc676507ca651fb08c058b3a1f6abed81b428caa73d0ee8f1d33c5560"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_heap_limit.html",
+        "path_type": "hardlink",
+        "sha256": "815391c2048137416ed6283b40d7771c806988dbb7bea1ac695ba723a0339b18",
+        "size_in_bytes": 1064,
+        "sha256_in_prefix": "815391c2048137416ed6283b40d7771c806988dbb7bea1ac695ba723a0339b18"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_match_limit.html",
+        "path_type": "hardlink",
+        "sha256": "a1f6f4f15cbee1716e609b0f627b29db4d0ace456174892d7ff2b2219ddf9aa3",
+        "size_in_bytes": 1055,
+        "sha256_in_prefix": "a1f6f4f15cbee1716e609b0f627b29db4d0ace456174892d7ff2b2219ddf9aa3"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_max_pattern_compiled_length.html",
+        "path_type": "hardlink",
+        "sha256": "4a52c2f02bea581b58fdb388e45b7acef17570d925cf998d70ca61a9a01ab23f",
+        "size_in_bytes": 1433,
+        "sha256_in_prefix": "4a52c2f02bea581b58fdb388e45b7acef17570d925cf998d70ca61a9a01ab23f"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_max_pattern_length.html",
+        "path_type": "hardlink",
+        "sha256": "65aa52061a724d503fa27013076be8983876f81f34161455e625db159289eb7c",
+        "size_in_bytes": 1324,
+        "sha256_in_prefix": "65aa52061a724d503fa27013076be8983876f81f34161455e625db159289eb7c"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_max_varlookbehind.html",
+        "path_type": "hardlink",
+        "sha256": "c053c45f9f45271700d1401a8cde5744b57b44c9d1ca4ec6df8fbc207e254062",
+        "size_in_bytes": 1283,
+        "sha256_in_prefix": "c053c45f9f45271700d1401a8cde5744b57b44c9d1ca4ec6df8fbc207e254062"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_newline.html",
+        "path_type": "hardlink",
+        "sha256": "a96821645e0fa4b86bdf7a42d5b7088345b4e454bf0874b9606d8b33b792dadb",
+        "size_in_bytes": 1554,
+        "sha256_in_prefix": "a96821645e0fa4b86bdf7a42d5b7088345b4e454bf0874b9606d8b33b792dadb"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_offset_limit.html",
+        "path_type": "hardlink",
+        "sha256": "657fb085f15404a095c3cbabe777ea593be19bdada21e97c60202c50e63a15f6",
+        "size_in_bytes": 1061,
+        "sha256_in_prefix": "657fb085f15404a095c3cbabe777ea593be19bdada21e97c60202c50e63a15f6"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_optimize.html",
+        "path_type": "hardlink",
+        "sha256": "f141edaada045afaf9f54b692d91cf2c81399c75c1998babe4082a4bdab58a2b",
+        "size_in_bytes": 1997,
+        "sha256_in_prefix": "f141edaada045afaf9f54b692d91cf2c81399c75c1998babe4082a4bdab58a2b"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_parens_nest_limit.html",
+        "path_type": "hardlink",
+        "sha256": "99def16f1f189d6ca67dcaed338b09e475b912017d2822ee706b9342855fb02a",
+        "size_in_bytes": 1110,
+        "sha256_in_prefix": "99def16f1f189d6ca67dcaed338b09e475b912017d2822ee706b9342855fb02a"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_recursion_limit.html",
+        "path_type": "hardlink",
+        "sha256": "b896daf2cd88a8f04e766d5b9c8e44698740d7f5c9999bb11b4fc11c9d3ff1c6",
+        "size_in_bytes": 1085,
+        "sha256_in_prefix": "b896daf2cd88a8f04e766d5b9c8e44698740d7f5c9999bb11b4fc11c9d3ff1c6"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_recursion_memory_management.html",
+        "path_type": "hardlink",
+        "sha256": "92d71ce8b44411afbf4f5fe74c3e1d2447cf8b1c5c4f443938bdd5b67957a01b",
+        "size_in_bytes": 1229,
+        "sha256_in_prefix": "92d71ce8b44411afbf4f5fe74c3e1d2447cf8b1c5c4f443938bdd5b67957a01b"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_substitute_callout.html",
+        "path_type": "hardlink",
+        "sha256": "af5924febd63c32120e65ce339bc6a7381b2f9c77c29536e7ca54d15e9463e64",
+        "size_in_bytes": 1327,
+        "sha256_in_prefix": "af5924febd63c32120e65ce339bc6a7381b2f9c77c29536e7ca54d15e9463e64"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_set_substitute_case_callout.html",
+        "path_type": "hardlink",
+        "sha256": "372d6eb901e8e14b71addd18f29438bd42b5e9cb10b2fabf45c16029f0cdb36f",
+        "size_in_bytes": 1456,
+        "sha256_in_prefix": "372d6eb901e8e14b71addd18f29438bd42b5e9cb10b2fabf45c16029f0cdb36f"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_substitute.html",
+        "path_type": "hardlink",
+        "sha256": "7e2786682efadc706352b09a1c9a3b7c09e37257f41bae2660104ffbffd3290f",
+        "size_in_bytes": 5035,
+        "sha256_in_prefix": "7e2786682efadc706352b09a1c9a3b7c09e37257f41bae2660104ffbffd3290f"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_substring_copy_byname.html",
+        "path_type": "hardlink",
+        "sha256": "c74839601fc902b433eca6efc93943612573b2a945c21b122c33fdbe9b8c86aa",
+        "size_in_bytes": 2047,
+        "sha256_in_prefix": "c74839601fc902b433eca6efc93943612573b2a945c21b122c33fdbe9b8c86aa"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_substring_copy_bynumber.html",
+        "path_type": "hardlink",
+        "sha256": "60d4c6929afbf7ac320432251e4db01ece2f4e82a9ca6b7de498808e9d4e86ac",
+        "size_in_bytes": 1848,
+        "sha256_in_prefix": "60d4c6929afbf7ac320432251e4db01ece2f4e82a9ca6b7de498808e9d4e86ac"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_substring_free.html",
+        "path_type": "hardlink",
+        "sha256": "4b8d2a0d00b9b585618971cb4012dcc877d625a31d9d2f12fe5a8ba6e1ee52fd",
+        "size_in_bytes": 1184,
+        "sha256_in_prefix": "4b8d2a0d00b9b585618971cb4012dcc877d625a31d9d2f12fe5a8ba6e1ee52fd"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_substring_get_byname.html",
+        "path_type": "hardlink",
+        "sha256": "1db998288decc91edfb79aa683d62d55d6b03871cb1750e1831aecd155201127",
+        "size_in_bytes": 2175,
+        "sha256_in_prefix": "1db998288decc91edfb79aa683d62d55d6b03871cb1750e1831aecd155201127"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_substring_get_bynumber.html",
+        "path_type": "hardlink",
+        "sha256": "2ad593e6483c935f1de8c4e95dedf9f320c5fc37cbe047fb6de35b3b84a772cc",
+        "size_in_bytes": 2011,
+        "sha256_in_prefix": "2ad593e6483c935f1de8c4e95dedf9f320c5fc37cbe047fb6de35b3b84a772cc"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_substring_length_byname.html",
+        "path_type": "hardlink",
+        "sha256": "3e9932471bda6e7a8e44df395757ea32eb9f5f622fa78a5c7a001c3e9958f429",
+        "size_in_bytes": 1442,
+        "sha256_in_prefix": "3e9932471bda6e7a8e44df395757ea32eb9f5f622fa78a5c7a001c3e9958f429"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_substring_length_bynumber.html",
+        "path_type": "hardlink",
+        "sha256": "9586ff2b5d28a370f37a1cec9240114d6afaa6eeca1db825aa3bb6a874714eef",
+        "size_in_bytes": 1506,
+        "sha256_in_prefix": "9586ff2b5d28a370f37a1cec9240114d6afaa6eeca1db825aa3bb6a874714eef"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_substring_list_free.html",
+        "path_type": "hardlink",
+        "sha256": "a84e48533b013e15770a35a1b3f2b56cce225c3315b2a0898005f6a15fd2ca84",
+        "size_in_bytes": 1201,
+        "sha256_in_prefix": "a84e48533b013e15770a35a1b3f2b56cce225c3315b2a0898005f6a15fd2ca84"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_substring_list_get.html",
+        "path_type": "hardlink",
+        "sha256": "6ee930d80d4d989abb07da24bc754885221a521e8b776c309343cecbd5296f74",
+        "size_in_bytes": 2124,
+        "sha256_in_prefix": "6ee930d80d4d989abb07da24bc754885221a521e8b776c309343cecbd5296f74"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_substring_nametable_scan.html",
+        "path_type": "hardlink",
+        "sha256": "6918ae2d5282a6e3c9dc703625f744eacb04a44ac718d01efa79bc3ee069fbaa",
+        "size_in_bytes": 1825,
+        "sha256_in_prefix": "6918ae2d5282a6e3c9dc703625f744eacb04a44ac718d01efa79bc3ee069fbaa"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2_substring_number_from_name.html",
+        "path_type": "hardlink",
+        "sha256": "82817105ca3ad597e0e28c4298881aeff7449c09032f8db748a5762679a68ffd",
+        "size_in_bytes": 1633,
+        "sha256_in_prefix": "82817105ca3ad597e0e28c4298881aeff7449c09032f8db748a5762679a68ffd"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2api.html",
+        "path_type": "hardlink",
+        "sha256": "2cc0b829a8f41d07607f637ab16bf99fda175a3d671ca4adfee4da0744aac345",
+        "size_in_bytes": 217277,
+        "sha256_in_prefix": "2cc0b829a8f41d07607f637ab16bf99fda175a3d671ca4adfee4da0744aac345"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2build.html",
+        "path_type": "hardlink",
+        "sha256": "b9a311467c97a923443be66e058f8a8d63411f1cee5cd47b332ee5a95f39874d",
+        "size_in_bytes": 29385,
+        "sha256_in_prefix": "b9a311467c97a923443be66e058f8a8d63411f1cee5cd47b332ee5a95f39874d"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2callout.html",
+        "path_type": "hardlink",
+        "sha256": "c969712360e50e7b1a7e67243a5f3129de604c5226c091e670072f5ca20a50cd",
+        "size_in_bytes": 20361,
+        "sha256_in_prefix": "c969712360e50e7b1a7e67243a5f3129de604c5226c091e670072f5ca20a50cd"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2compat.html",
+        "path_type": "hardlink",
+        "sha256": "d77386eef8d8138972e92f55c4f0313ca316a9895edcd936957bbc94dde8fa46",
+        "size_in_bytes": 13435,
+        "sha256_in_prefix": "d77386eef8d8138972e92f55c4f0313ca316a9895edcd936957bbc94dde8fa46"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2convert.html",
+        "path_type": "hardlink",
+        "sha256": "a2f09f1dfccd5441dea6bbd55e6860f84de24df90be97ed48f554cd6f110b978",
+        "size_in_bytes": 7916,
+        "sha256_in_prefix": "a2f09f1dfccd5441dea6bbd55e6860f84de24df90be97ed48f554cd6f110b978"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2demo.html",
+        "path_type": "hardlink",
+        "sha256": "671b39dc761f1f7b43b58d9a203a4e0073f3e2514d9bfd0e3350bf885591d3d1",
+        "size_in_bytes": 17580,
+        "sha256_in_prefix": "671b39dc761f1f7b43b58d9a203a4e0073f3e2514d9bfd0e3350bf885591d3d1"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2grep.html",
+        "path_type": "hardlink",
+        "sha256": "a7ea84098d27e2660c4fba5a85376be947874302948bbc7502ee96396f79dd0d",
+        "size_in_bytes": 56397,
+        "sha256_in_prefix": "a7ea84098d27e2660c4fba5a85376be947874302948bbc7502ee96396f79dd0d"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2jit.html",
+        "path_type": "hardlink",
+        "sha256": "e338486e12cd5d733ceb95803b99db0bf64525fce3bf562ed49fcccf86ecce4b",
+        "size_in_bytes": 23485,
+        "sha256_in_prefix": "e338486e12cd5d733ceb95803b99db0bf64525fce3bf562ed49fcccf86ecce4b"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2limits.html",
+        "path_type": "hardlink",
+        "sha256": "e615311702c41fdfa9cd12d9c39b57216940c7b6aa9398625674a8315c290727",
+        "size_in_bytes": 3919,
+        "sha256_in_prefix": "e615311702c41fdfa9cd12d9c39b57216940c7b6aa9398625674a8315c290727"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2matching.html",
+        "path_type": "hardlink",
+        "sha256": "9b36270d8f6bfacccb3a4c2d9e7564c55100e6842f453686af1f016b998c8ae5",
+        "size_in_bytes": 11223,
+        "sha256_in_prefix": "9b36270d8f6bfacccb3a4c2d9e7564c55100e6842f453686af1f016b998c8ae5"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2partial.html",
+        "path_type": "hardlink",
+        "sha256": "cccad082fdd17ba3750d9517b4d248fd825dcbfdc17328d3e245b61bfae12dd9",
+        "size_in_bytes": 19479,
+        "sha256_in_prefix": "cccad082fdd17ba3750d9517b4d248fd825dcbfdc17328d3e245b61bfae12dd9"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2pattern.html",
+        "path_type": "hardlink",
+        "sha256": "e1ae7a7a415031293d774f2b9ee94075f258c2eba1695b40d412dbff957e6681",
+        "size_in_bytes": 187425,
+        "sha256_in_prefix": "e1ae7a7a415031293d774f2b9ee94075f258c2eba1695b40d412dbff957e6681"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2perform.html",
+        "path_type": "hardlink",
+        "sha256": "28e44ca26a81829a130bf6d72f0fce360e11935d0299a4a8506ef1c307402ca3",
+        "size_in_bytes": 12806,
+        "sha256_in_prefix": "28e44ca26a81829a130bf6d72f0fce360e11935d0299a4a8506ef1c307402ca3"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2posix.html",
+        "path_type": "hardlink",
+        "sha256": "7fbee6668f74de8a280abb961751ce314bf6b991639c28f183880ac3cd649d5b",
+        "size_in_bytes": 17082,
+        "sha256_in_prefix": "7fbee6668f74de8a280abb961751ce314bf6b991639c28f183880ac3cd649d5b"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2sample.html",
+        "path_type": "hardlink",
+        "sha256": "5b1464069396c39f69542bd5e9780f4422589b75e8ac3e84107d1055cf812590",
+        "size_in_bytes": 3947,
+        "sha256_in_prefix": "5b1464069396c39f69542bd5e9780f4422589b75e8ac3e84107d1055cf812590"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2serialize.html",
+        "path_type": "hardlink",
+        "sha256": "05ec5660b0b2c35c64bdb4a3146b644accad9ec9984a5659738c3cd66a392db7",
+        "size_in_bytes": 10079,
+        "sha256_in_prefix": "05ec5660b0b2c35c64bdb4a3146b644accad9ec9984a5659738c3cd66a392db7"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2syntax.html",
+        "path_type": "hardlink",
+        "sha256": "6117eeef84db483b47bb8b6e41a287ec9de9a057a0c5be03389fa4d0a9c044cf",
+        "size_in_bytes": 30991,
+        "sha256_in_prefix": "6117eeef84db483b47bb8b6e41a287ec9de9a057a0c5be03389fa4d0a9c044cf"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2test.html",
+        "path_type": "hardlink",
+        "sha256": "d837aa60cc226b4dba283d447bc708ca34317ef2e53cda09e2c285b1f654d9dd",
+        "size_in_bytes": 101761,
+        "sha256_in_prefix": "d837aa60cc226b4dba283d447bc708ca34317ef2e53cda09e2c285b1f654d9dd"
+      },
+      {
+        "_path": "share/doc/pcre2/html/pcre2unicode.html",
+        "path_type": "hardlink",
+        "sha256": "deabb929843991e75e8ee7326cadc5cd1e0c976f18c846ccaba8fffa173d8c0c",
+        "size_in_bytes": 23543,
+        "sha256_in_prefix": "deabb929843991e75e8ee7326cadc5cd1e0c976f18c846ccaba8fffa173d8c0c"
+      },
+      {
+        "_path": "share/doc/pcre2/pcre2-config.txt",
+        "path_type": "hardlink",
+        "sha256": "5f14dd31fd4d7ce40fb9f50ba45cdae187cd8516a304c645d5940833dc4a27b2",
+        "size_in_bytes": 3006,
+        "sha256_in_prefix": "5f14dd31fd4d7ce40fb9f50ba45cdae187cd8516a304c645d5940833dc4a27b2"
+      },
+      {
+        "_path": "share/doc/pcre2/pcre2.txt",
+        "path_type": "hardlink",
+        "sha256": "086781db8307afc2a6fce5e78c945b80f1667f2b384f028c2794c07dec6906b0",
+        "size_in_bytes": 652064,
+        "sha256_in_prefix": "086781db8307afc2a6fce5e78c945b80f1667f2b384f028c2794c07dec6906b0"
+      },
+      {
+        "_path": "share/doc/pcre2/pcre2grep.txt",
+        "path_type": "hardlink",
+        "sha256": "6b9a57be08e2380d104ad7c8d5e689a6f3c0e7019af583f3589978ec89c4a128",
+        "size_in_bytes": 63436,
+        "sha256_in_prefix": "6b9a57be08e2380d104ad7c8d5e689a6f3c0e7019af583f3589978ec89c4a128"
+      },
+      {
+        "_path": "share/doc/pcre2/pcre2test.txt",
+        "path_type": "hardlink",
+        "sha256": "2af277a184dd8d0731fbe49b7d763f959f6d6a3785374a5d660c6662118c1141",
+        "size_in_bytes": 106637,
+        "sha256_in_prefix": "2af277a184dd8d0731fbe49b7d763f959f6d6a3785374a5d660c6662118c1141"
+      },
+      {
+        "_path": "share/man/man1/pcre2-config.1",
+        "path_type": "hardlink",
+        "sha256": "840b236e0f13abaf87bd7ca3c02930663ccc01672a97c1231f407678dc177f77",
+        "size_in_bytes": 2572,
+        "sha256_in_prefix": "840b236e0f13abaf87bd7ca3c02930663ccc01672a97c1231f407678dc177f77"
+      },
+      {
+        "_path": "share/man/man1/pcre2grep.1",
+        "path_type": "hardlink",
+        "sha256": "d9d112f26d0044951861b68921cd93c5e08edd80a492e6293775b6293074d648",
+        "size_in_bytes": 53290,
+        "sha256_in_prefix": "d9d112f26d0044951861b68921cd93c5e08edd80a492e6293775b6293074d648"
+      },
+      {
+        "_path": "share/man/man1/pcre2test.1",
+        "path_type": "hardlink",
+        "sha256": "f4ac285b9c7316e6ec600cdac45d2fca52baaf0ad6bd92d70fcbc3bb9090bd29",
+        "size_in_bytes": 97354,
+        "sha256_in_prefix": "f4ac285b9c7316e6ec600cdac45d2fca52baaf0ad6bd92d70fcbc3bb9090bd29"
+      },
+      {
+        "_path": "share/man/man3/pcre2.3",
+        "path_type": "hardlink",
+        "sha256": "a17de648778a63cc8d8b1d345df83a605b91d17d6d32565d8a7005138a56e7f4",
+        "size_in_bytes": 9104,
+        "sha256_in_prefix": "a17de648778a63cc8d8b1d345df83a605b91d17d6d32565d8a7005138a56e7f4"
+      },
+      {
+        "_path": "share/man/man3/pcre2_callout_enumerate.3",
+        "path_type": "hardlink",
+        "sha256": "cabf2414af400c81b7a0245fa6988a85decce1f012b6757627207e0e9cf0398a",
+        "size_in_bytes": 1890,
+        "sha256_in_prefix": "cabf2414af400c81b7a0245fa6988a85decce1f012b6757627207e0e9cf0398a"
+      },
+      {
+        "_path": "share/man/man3/pcre2_code_copy.3",
+        "path_type": "hardlink",
+        "sha256": "5fff2ae9b0d19d02e99202d637a46d443d177d0430511cf17db9cabcb273073d",
+        "size_in_bytes": 879,
+        "sha256_in_prefix": "5fff2ae9b0d19d02e99202d637a46d443d177d0430511cf17db9cabcb273073d"
+      },
+      {
+        "_path": "share/man/man3/pcre2_code_copy_with_tables.3",
+        "path_type": "hardlink",
+        "sha256": "243ccd06859554a6179b69f91626755bc73a380c5fbcd175ee71e128fe6301b8",
+        "size_in_bytes": 974,
+        "sha256_in_prefix": "243ccd06859554a6179b69f91626755bc73a380c5fbcd175ee71e128fe6301b8"
+      },
+      {
+        "_path": "share/man/man3/pcre2_code_free.3",
+        "path_type": "hardlink",
+        "sha256": "3c801804226dc4ff60cf120929e133c3c8f6da41c66510e6a345df0ead027ebe",
+        "size_in_bytes": 748,
+        "sha256_in_prefix": "3c801804226dc4ff60cf120929e133c3c8f6da41c66510e6a345df0ead027ebe"
+      },
+      {
+        "_path": "share/man/man3/pcre2_compile.3",
+        "path_type": "hardlink",
+        "sha256": "21ec27eb7111356b6936293bb344ced0f26ec28ffea16b70e41e1bd34c2bf1b7",
+        "size_in_bytes": 4729,
+        "sha256_in_prefix": "21ec27eb7111356b6936293bb344ced0f26ec28ffea16b70e41e1bd34c2bf1b7"
+      },
+      {
+        "_path": "share/man/man3/pcre2_compile_context_copy.3",
+        "path_type": "hardlink",
+        "sha256": "620e14ef223de40fc3c5b82b5baaf1a6ef8b784cf2ba1551e08c466e896d66b1",
+        "size_in_bytes": 674,
+        "sha256_in_prefix": "620e14ef223de40fc3c5b82b5baaf1a6ef8b784cf2ba1551e08c466e896d66b1"
+      },
+      {
+        "_path": "share/man/man3/pcre2_compile_context_create.3",
+        "path_type": "hardlink",
+        "sha256": "de77e4e86eec5017564e97b6729d771e4ca36d915ab0f23897cd591a79beb2b9",
+        "size_in_bytes": 766,
+        "sha256_in_prefix": "de77e4e86eec5017564e97b6729d771e4ca36d915ab0f23897cd591a79beb2b9"
+      },
+      {
+        "_path": "share/man/man3/pcre2_compile_context_free.3",
+        "path_type": "hardlink",
+        "sha256": "633f26a812b003425fcb3805005e7acdc194313f3ef8072a254ca60372a9bd92",
+        "size_in_bytes": 729,
+        "sha256_in_prefix": "633f26a812b003425fcb3805005e7acdc194313f3ef8072a254ca60372a9bd92"
+      },
+      {
+        "_path": "share/man/man3/pcre2_config.3",
+        "path_type": "hardlink",
+        "sha256": "efbd44d826b24594d50ef781b30e6f7398a2ce59d3ff7bef0acd48b3ef0fcd6e",
+        "size_in_bytes": 3345,
+        "sha256_in_prefix": "efbd44d826b24594d50ef781b30e6f7398a2ce59d3ff7bef0acd48b3ef0fcd6e"
+      },
+      {
+        "_path": "share/man/man3/pcre2_convert_context_copy.3",
+        "path_type": "hardlink",
+        "sha256": "3484bd3f9b5362ccfb4f6987d39567ad3e07e8cb0470f4d585128a5016c97f4e",
+        "size_in_bytes": 666,
+        "sha256_in_prefix": "3484bd3f9b5362ccfb4f6987d39567ad3e07e8cb0470f4d585128a5016c97f4e"
+      },
+      {
+        "_path": "share/man/man3/pcre2_convert_context_create.3",
+        "path_type": "hardlink",
+        "sha256": "c742aa57cbb4befe83c9bae9a20e9b3e2624140f59029f624e6d437dbb485017",
+        "size_in_bytes": 757,
+        "sha256_in_prefix": "c742aa57cbb4befe83c9bae9a20e9b3e2624140f59029f624e6d437dbb485017"
+      },
+      {
+        "_path": "share/man/man3/pcre2_convert_context_free.3",
+        "path_type": "hardlink",
+        "sha256": "a0ef60181a57311e0c92bf3b8fa1d7c8caa6f9d9b30c3288b77507084dd0e487",
+        "size_in_bytes": 726,
+        "sha256_in_prefix": "a0ef60181a57311e0c92bf3b8fa1d7c8caa6f9d9b30c3288b77507084dd0e487"
+      },
+      {
+        "_path": "share/man/man3/pcre2_converted_pattern_free.3",
+        "path_type": "hardlink",
+        "sha256": "a53ea6169db39f759e9b412c5c3250b5e5a64c90b52fc03b028570b42af2ed74",
+        "size_in_bytes": 759,
+        "sha256_in_prefix": "a53ea6169db39f759e9b412c5c3250b5e5a64c90b52fc03b028570b42af2ed74"
+      },
+      {
+        "_path": "share/man/man3/pcre2_dfa_match.3",
+        "path_type": "hardlink",
+        "sha256": "075c1c8f66f5aeb2b3a40eff7ff3f5ec51b61e6b5f6da78718f9c983a6d3ba23",
+        "size_in_bytes": 3438,
+        "sha256_in_prefix": "075c1c8f66f5aeb2b3a40eff7ff3f5ec51b61e6b5f6da78718f9c983a6d3ba23"
+      },
+      {
+        "_path": "share/man/man3/pcre2_general_context_copy.3",
+        "path_type": "hardlink",
+        "sha256": "e860904db3d09ae8f628bf5929f61787bfcc18801f3f577dcfb61c9519479ce8",
+        "size_in_bytes": 722,
+        "sha256_in_prefix": "e860904db3d09ae8f628bf5929f61787bfcc18801f3f577dcfb61c9519479ce8"
+      },
+      {
+        "_path": "share/man/man3/pcre2_general_context_create.3",
+        "path_type": "hardlink",
+        "sha256": "d9b9db80807cf4b841bdf78763ff391bec04f25009fd090c5f40a5c4f5b1e850",
+        "size_in_bytes": 973,
+        "sha256_in_prefix": "d9b9db80807cf4b841bdf78763ff391bec04f25009fd090c5f40a5c4f5b1e850"
+      },
+      {
+        "_path": "share/man/man3/pcre2_general_context_free.3",
+        "path_type": "hardlink",
+        "sha256": "32a1956beed8e6c5e0150e382d2eb1fb7466d275dc8cca129fa0aefe27071c35",
+        "size_in_bytes": 669,
+        "sha256_in_prefix": "32a1956beed8e6c5e0150e382d2eb1fb7466d275dc8cca129fa0aefe27071c35"
+      },
+      {
+        "_path": "share/man/man3/pcre2_get_error_message.3",
+        "path_type": "hardlink",
+        "sha256": "b4e1228a3f9b980ff8c5fa2242e21a5d1f76531d4c05541cf594ef14179a0e27",
+        "size_in_bytes": 1233,
+        "sha256_in_prefix": "b4e1228a3f9b980ff8c5fa2242e21a5d1f76531d4c05541cf594ef14179a0e27"
+      },
+      {
+        "_path": "share/man/man3/pcre2_get_mark.3",
+        "path_type": "hardlink",
+        "sha256": "a703d1fc8671c42bb8f5e4793a04d1f6b130a0c589e14d273682900c57ec6f5b",
+        "size_in_bytes": 1010,
+        "sha256_in_prefix": "a703d1fc8671c42bb8f5e4793a04d1f6b130a0c589e14d273682900c57ec6f5b"
+      },
+      {
+        "_path": "share/man/man3/pcre2_get_match_data_heapframes_size.3",
+        "path_type": "hardlink",
+        "sha256": "ec1ae2df6b521557a41d94c94126bc5623fd665393c90f13446f1222230d6dac",
+        "size_in_bytes": 598,
+        "sha256_in_prefix": "ec1ae2df6b521557a41d94c94126bc5623fd665393c90f13446f1222230d6dac"
+      },
+      {
+        "_path": "share/man/man3/pcre2_get_match_data_size.3",
+        "path_type": "hardlink",
+        "sha256": "7f5a95600f7fc40662b8951e407ab6e42418e7be1c69713d5c9165ce8a6f71ae",
+        "size_in_bytes": 554,
+        "sha256_in_prefix": "7f5a95600f7fc40662b8951e407ab6e42418e7be1c69713d5c9165ce8a6f71ae"
+      },
+      {
+        "_path": "share/man/man3/pcre2_get_ovector_count.3",
+        "path_type": "hardlink",
+        "sha256": "93a348c82c848b423ec24588b7684d0f9488542370a1abe63de1b6d6df6f96e5",
+        "size_in_bytes": 575,
+        "sha256_in_prefix": "93a348c82c848b423ec24588b7684d0f9488542370a1abe63de1b6d6df6f96e5"
+      },
+      {
+        "_path": "share/man/man3/pcre2_get_ovector_pointer.3",
+        "path_type": "hardlink",
+        "sha256": "af03969075441493e53d6638fc97f0023b133501184159b6a65da2f69d9905f2",
+        "size_in_bytes": 648,
+        "sha256_in_prefix": "af03969075441493e53d6638fc97f0023b133501184159b6a65da2f69d9905f2"
+      },
+      {
+        "_path": "share/man/man3/pcre2_get_startchar.3",
+        "path_type": "hardlink",
+        "sha256": "bd64d41190268998c6a7d9eabb396ccc7b0282a145e835f200f49bb6c9021d76",
+        "size_in_bytes": 936,
+        "sha256_in_prefix": "bd64d41190268998c6a7d9eabb396ccc7b0282a145e835f200f49bb6c9021d76"
+      },
+      {
+        "_path": "share/man/man3/pcre2_jit_compile.3",
+        "path_type": "hardlink",
+        "sha256": "2744cd1b7c5143d4c4c59cc0389b778b8f1c3c9b06986d9de86b66b1d5b8ab4a",
+        "size_in_bytes": 2298,
+        "sha256_in_prefix": "2744cd1b7c5143d4c4c59cc0389b778b8f1c3c9b06986d9de86b66b1d5b8ab4a"
+      },
+      {
+        "_path": "share/man/man3/pcre2_jit_free_unused_memory.3",
+        "path_type": "hardlink",
+        "sha256": "ff40dc431366b8f1aed5e02e91748320c499782bb141d4dbcb8bc787adc70f14",
+        "size_in_bytes": 823,
+        "sha256_in_prefix": "ff40dc431366b8f1aed5e02e91748320c499782bb141d4dbcb8bc787adc70f14"
+      },
+      {
+        "_path": "share/man/man3/pcre2_jit_match.3",
+        "path_type": "hardlink",
+        "sha256": "7c446a39814922464c4c06ca939afa27af39804be1046b9aa8092b988ff2b415",
+        "size_in_bytes": 1961,
+        "sha256_in_prefix": "7c446a39814922464c4c06ca939afa27af39804be1046b9aa8092b988ff2b415"
+      },
+      {
+        "_path": "share/man/man3/pcre2_jit_stack_assign.3",
+        "path_type": "hardlink",
+        "sha256": "0449fc9f2e30dfcb14a3ee59da0de1da977ced8df134354ae971cde59b74088e",
+        "size_in_bytes": 1994,
+        "sha256_in_prefix": "0449fc9f2e30dfcb14a3ee59da0de1da977ced8df134354ae971cde59b74088e"
+      },
+      {
+        "_path": "share/man/man3/pcre2_jit_stack_create.3",
+        "path_type": "hardlink",
+        "sha256": "c408d47e2ed6b8c41b1e79e937191d5af5fedec1b2e47fa543c27b157d83e7a3",
+        "size_in_bytes": 1298,
+        "sha256_in_prefix": "c408d47e2ed6b8c41b1e79e937191d5af5fedec1b2e47fa543c27b157d83e7a3"
+      },
+      {
+        "_path": "share/man/man3/pcre2_jit_stack_free.3",
+        "path_type": "hardlink",
+        "sha256": "b81358253dcd83817fe5511e29002728a0c47cd94acb96dfdbb1c7ebf49e2eb5",
+        "size_in_bytes": 713,
+        "sha256_in_prefix": "b81358253dcd83817fe5511e29002728a0c47cd94acb96dfdbb1c7ebf49e2eb5"
+      },
+      {
+        "_path": "share/man/man3/pcre2_maketables.3",
+        "path_type": "hardlink",
+        "sha256": "fdb96275a90681bf407a7c8b18882a30c952dd47a897e755062837393aaccc98",
+        "size_in_bytes": 1115,
+        "sha256_in_prefix": "fdb96275a90681bf407a7c8b18882a30c952dd47a897e755062837393aaccc98"
+      },
+      {
+        "_path": "share/man/man3/pcre2_maketables_free.3",
+        "path_type": "hardlink",
+        "sha256": "cfba1c644a72e7eabed3480eb987e353c647a82462c7daac7a8b69fc2921696d",
+        "size_in_bytes": 713,
+        "sha256_in_prefix": "cfba1c644a72e7eabed3480eb987e353c647a82462c7daac7a8b69fc2921696d"
+      },
+      {
+        "_path": "share/man/man3/pcre2_match.3",
+        "path_type": "hardlink",
+        "sha256": "e6433b944b024c983bb3358180e5d37a28e96b23fc7f0102ad58568692500981",
+        "size_in_bytes": 3379,
+        "sha256_in_prefix": "e6433b944b024c983bb3358180e5d37a28e96b23fc7f0102ad58568692500981"
+      },
+      {
+        "_path": "share/man/man3/pcre2_match_context_copy.3",
+        "path_type": "hardlink",
+        "sha256": "ea40882f03939f4a105ca59e052d44c47b5c9dac85937d94825241bba1a17da4",
+        "size_in_bytes": 664,
+        "sha256_in_prefix": "ea40882f03939f4a105ca59e052d44c47b5c9dac85937d94825241bba1a17da4"
+      },
+      {
+        "_path": "share/man/man3/pcre2_match_context_create.3",
+        "path_type": "hardlink",
+        "sha256": "a60c7e235b6aef661af0b222aa5b8f3349c3a961c0cf262830145086ca68fe93",
+        "size_in_bytes": 758,
+        "sha256_in_prefix": "a60c7e235b6aef661af0b222aa5b8f3349c3a961c0cf262830145086ca68fe93"
+      },
+      {
+        "_path": "share/man/man3/pcre2_match_context_free.3",
+        "path_type": "hardlink",
+        "sha256": "f5376cd5baaeac9ecfdc3527d18e2292e77086284168da700fbb50b67a1ee1f7",
+        "size_in_bytes": 721,
+        "sha256_in_prefix": "f5376cd5baaeac9ecfdc3527d18e2292e77086284168da700fbb50b67a1ee1f7"
+      },
+      {
+        "_path": "share/man/man3/pcre2_match_data_create.3",
+        "path_type": "hardlink",
+        "sha256": "920bb822e6d10dd7b5f0ccfd87cac3d1c301d62415865fe539fb63625fce89dd",
+        "size_in_bytes": 1245,
+        "sha256_in_prefix": "920bb822e6d10dd7b5f0ccfd87cac3d1c301d62415865fe539fb63625fce89dd"
+      },
+      {
+        "_path": "share/man/man3/pcre2_match_data_create_from_pattern.3",
+        "path_type": "hardlink",
+        "sha256": "ec4a20f53f4d7ff14f3c53bd44acd09a0509d749d24c13eeb254e16ff0d8a54d",
+        "size_in_bytes": 1525,
+        "sha256_in_prefix": "ec4a20f53f4d7ff14f3c53bd44acd09a0509d749d24c13eeb254e16ff0d8a54d"
+      },
+      {
+        "_path": "share/man/man3/pcre2_match_data_free.3",
+        "path_type": "hardlink",
+        "sha256": "3f66de7ab13a3a8b577db92431657c71ebc81d007c9c583f0390eb36edf71571",
+        "size_in_bytes": 1047,
+        "sha256_in_prefix": "3f66de7ab13a3a8b577db92431657c71ebc81d007c9c583f0390eb36edf71571"
+      },
+      {
+        "_path": "share/man/man3/pcre2_next_match.3",
+        "path_type": "hardlink",
+        "sha256": "f429d5326719d364fde2e4cf919304199b5cf7663b740ae1b4e2d1501f2d91cd",
+        "size_in_bytes": 1433,
+        "sha256_in_prefix": "f429d5326719d364fde2e4cf919304199b5cf7663b740ae1b4e2d1501f2d91cd"
+      },
+      {
+        "_path": "share/man/man3/pcre2_pattern_convert.3",
+        "path_type": "hardlink",
+        "sha256": "f515aab5a3bb004e28b1c55b8f8463742ce73f49907f36a6237e8d0974a126c0",
+        "size_in_bytes": 2140,
+        "sha256_in_prefix": "f515aab5a3bb004e28b1c55b8f8463742ce73f49907f36a6237e8d0974a126c0"
+      },
+      {
+        "_path": "share/man/man3/pcre2_pattern_info.3",
+        "path_type": "hardlink",
+        "sha256": "bb0f25dd39bf0c8ea9a832ab6912d3e4396ee2b9b1385973b5071eb45d48e29e",
+        "size_in_bytes": 4529,
+        "sha256_in_prefix": "bb0f25dd39bf0c8ea9a832ab6912d3e4396ee2b9b1385973b5071eb45d48e29e"
+      },
+      {
+        "_path": "share/man/man3/pcre2_serialize_decode.3",
+        "path_type": "hardlink",
+        "sha256": "80e989ba997f1c861eebb20eb0b7a3b798d257f12bf48117d878994b299d30e0",
+        "size_in_bytes": 2017,
+        "sha256_in_prefix": "80e989ba997f1c861eebb20eb0b7a3b798d257f12bf48117d878994b299d30e0"
+      },
+      {
+        "_path": "share/man/man3/pcre2_serialize_encode.3",
+        "path_type": "hardlink",
+        "sha256": "844d0a05b93468c5e6ba982fba8c3cefc34abd91d30f127e789cb83dc389f272",
+        "size_in_bytes": 2193,
+        "sha256_in_prefix": "844d0a05b93468c5e6ba982fba8c3cefc34abd91d30f127e789cb83dc389f272"
+      },
+      {
+        "_path": "share/man/man3/pcre2_serialize_free.3",
+        "path_type": "hardlink",
+        "sha256": "622aa5dd546d65aa83de4c6587cf568d2d48d6c97903b46f46cd338f2e16f473",
+        "size_in_bytes": 687,
+        "sha256_in_prefix": "622aa5dd546d65aa83de4c6587cf568d2d48d6c97903b46f46cd338f2e16f473"
+      },
+      {
+        "_path": "share/man/man3/pcre2_serialize_get_number_of_codes.3",
+        "path_type": "hardlink",
+        "sha256": "3482df438e8190d5fb41db0c1d7940b40f04ed47cadcc313a6d3f8670063dbf0",
+        "size_in_bytes": 1112,
+        "sha256_in_prefix": "3482df438e8190d5fb41db0c1d7940b40f04ed47cadcc313a6d3f8670063dbf0"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_bsr.3",
+        "path_type": "hardlink",
+        "sha256": "4224f1b64f4dc56501cefe3839889c9fd09129293779919142919b1fdea9a43f",
+        "size_in_bytes": 710,
+        "sha256_in_prefix": "4224f1b64f4dc56501cefe3839889c9fd09129293779919142919b1fdea9a43f"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_callout.3",
+        "path_type": "hardlink",
+        "sha256": "617f73c450a0ce4f43ba5dd8c127a87da38c57a44ff923528bdbbec06060429d",
+        "size_in_bytes": 777,
+        "sha256_in_prefix": "617f73c450a0ce4f43ba5dd8c127a87da38c57a44ff923528bdbbec06060429d"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_character_tables.3",
+        "path_type": "hardlink",
+        "sha256": "743f0f8892d1f4b9409b38b72658005acca05a4c60be56087aedee65e87487d4",
+        "size_in_bytes": 912,
+        "sha256_in_prefix": "743f0f8892d1f4b9409b38b72658005acca05a4c60be56087aedee65e87487d4"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_compile_extra_options.3",
+        "path_type": "hardlink",
+        "sha256": "1f26c3bb333815eb187e3450a309225a397c42d68f18eb7515d6cdc9e1f3f810",
+        "size_in_bytes": 2259,
+        "sha256_in_prefix": "1f26c3bb333815eb187e3450a309225a397c42d68f18eb7515d6cdc9e1f3f810"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_compile_recursion_guard.3",
+        "path_type": "hardlink",
+        "sha256": "fd08fb5e71881e53aca85ae372d89bb421276ea3a037146466139628f2b75d54",
+        "size_in_bytes": 1152,
+        "sha256_in_prefix": "fd08fb5e71881e53aca85ae372d89bb421276ea3a037146466139628f2b75d54"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_depth_limit.3",
+        "path_type": "hardlink",
+        "sha256": "bfece97a9d6dccf8a871b7fcd400073e4425c2162f706a227ff75f1a0b5ef87d",
+        "size_in_bytes": 580,
+        "sha256_in_prefix": "bfece97a9d6dccf8a871b7fcd400073e4425c2162f706a227ff75f1a0b5ef87d"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_glob_escape.3",
+        "path_type": "hardlink",
+        "sha256": "40966669c651ad77c4e962257b49663d0aa1dc61550e78682f897a43dfb2770c",
+        "size_in_bytes": 878,
+        "sha256_in_prefix": "40966669c651ad77c4e962257b49663d0aa1dc61550e78682f897a43dfb2770c"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_glob_separator.3",
+        "path_type": "hardlink",
+        "sha256": "d7d721dd1f51c3694f602bb8ff15ac64be3c928b491e77e46e2b24d4bbe2d94a",
+        "size_in_bytes": 846,
+        "sha256_in_prefix": "d7d721dd1f51c3694f602bb8ff15ac64be3c928b491e77e46e2b24d4bbe2d94a"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_heap_limit.3",
+        "path_type": "hardlink",
+        "sha256": "162b774e09dbb18979b3a6c606a1ee97deb34a648ee7600a9a5e0ab9d795033d",
+        "size_in_bytes": 576,
+        "sha256_in_prefix": "162b774e09dbb18979b3a6c606a1ee97deb34a648ee7600a9a5e0ab9d795033d"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_match_limit.3",
+        "path_type": "hardlink",
+        "sha256": "b241783dab5f69d10060f8941b2935b9e721216bfc90daf2f0966d89f158e36d",
+        "size_in_bytes": 569,
+        "sha256_in_prefix": "b241783dab5f69d10060f8941b2935b9e721216bfc90daf2f0966d89f158e36d"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_max_pattern_compiled_length.3",
+        "path_type": "hardlink",
+        "sha256": "a62c93f5750e1b5935a516040e1082fe56509969737be5aa48cfb1743e814edf",
+        "size_in_bytes": 927,
+        "sha256_in_prefix": "a62c93f5750e1b5935a516040e1082fe56509969737be5aa48cfb1743e814edf"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_max_pattern_length.3",
+        "path_type": "hardlink",
+        "sha256": "fe6d673da19dd12e1c0fb7d95d5cf2c6eb78ceb17e2244ecdcf87432faefa023",
+        "size_in_bytes": 830,
+        "sha256_in_prefix": "fe6d673da19dd12e1c0fb7d95d5cf2c6eb78ceb17e2244ecdcf87432faefa023"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_max_varlookbehind.3",
+        "path_type": "hardlink",
+        "sha256": "deed07bfcace2de55b87e8b49bc58588a5764f0ec24c2cca606cb9caee67e868",
+        "size_in_bytes": 780,
+        "sha256_in_prefix": "deed07bfcace2de55b87e8b49bc58588a5764f0ec24c2cca606cb9caee67e868"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_newline.3",
+        "path_type": "hardlink",
+        "sha256": "a2a219452f835e412089a1243eb2cf0bd5a0bf3714f9386326255e8d51e69872",
+        "size_in_bytes": 1064,
+        "sha256_in_prefix": "a2a219452f835e412089a1243eb2cf0bd5a0bf3714f9386326255e8d51e69872"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_offset_limit.3",
+        "path_type": "hardlink",
+        "sha256": "1b010d151c2635ae5c6cf8358f22af61ccd529d476f5cb9116cebdaf57649b45",
+        "size_in_bytes": 576,
+        "sha256_in_prefix": "1b010d151c2635ae5c6cf8358f22af61ccd529d476f5cb9116cebdaf57649b45"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_optimize.3",
+        "path_type": "hardlink",
+        "sha256": "07b9b580d53436fb9400e51078ff14ece0a005c9c4b16f14f3f79e06e389455f",
+        "size_in_bytes": 1518,
+        "sha256_in_prefix": "07b9b580d53436fb9400e51078ff14ece0a005c9c4b16f14f3f79e06e389455f"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_parens_nest_limit.3",
+        "path_type": "hardlink",
+        "sha256": "04fcb2dd95ca21a5c88a562d90fb6d2330451223da8e1af794cf832199d94f5a",
+        "size_in_bytes": 618,
+        "sha256_in_prefix": "04fcb2dd95ca21a5c88a562d90fb6d2330451223da8e1af794cf832199d94f5a"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_recursion_limit.3",
+        "path_type": "hardlink",
+        "sha256": "c88dff509d78c30f1a1757979069833dcf6bf5e691cfb492c01647b8b3582100",
+        "size_in_bytes": 591,
+        "sha256_in_prefix": "c88dff509d78c30f1a1757979069833dcf6bf5e691cfb492c01647b8b3582100"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_recursion_memory_management.3",
+        "path_type": "hardlink",
+        "sha256": "627edf5af6f89fb55e6b3dde41a5182efe413bb7747f31359eaba14a46e6c2b7",
+        "size_in_bytes": 721,
+        "sha256_in_prefix": "627edf5af6f89fb55e6b3dde41a5182efe413bb7747f31359eaba14a46e6c2b7"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_substitute_callout.3",
+        "path_type": "hardlink",
+        "sha256": "da37312d457b0f338135b0622fc835a3e02f666f1f5ea06c4d5cbf177d8b3e29",
+        "size_in_bytes": 831,
+        "sha256_in_prefix": "da37312d457b0f338135b0622fc835a3e02f666f1f5ea06c4d5cbf177d8b3e29"
+      },
+      {
+        "_path": "share/man/man3/pcre2_set_substitute_case_callout.3",
+        "path_type": "hardlink",
+        "sha256": "4bc070e4340251fe7df33ae05fa1f810589aa8e91720cef15b30c507a0db79e6",
+        "size_in_bytes": 952,
+        "sha256_in_prefix": "4bc070e4340251fe7df33ae05fa1f810589aa8e91720cef15b30c507a0db79e6"
+      },
+      {
+        "_path": "share/man/man3/pcre2_substitute.3",
+        "path_type": "hardlink",
+        "sha256": "ff551479aeddb4093add131994998b4403ff3d280254b0815a12ef9c23a2747d",
+        "size_in_bytes": 4815,
+        "sha256_in_prefix": "ff551479aeddb4093add131994998b4403ff3d280254b0815a12ef9c23a2747d"
+      },
+      {
+        "_path": "share/man/man3/pcre2_substring_copy_byname.3",
+        "path_type": "hardlink",
+        "sha256": "815bc9fcdbe16c0022e2fe250bcac8e306f0496f30b70ed9ece12d744196c6d3",
+        "size_in_bytes": 1539,
+        "sha256_in_prefix": "815bc9fcdbe16c0022e2fe250bcac8e306f0496f30b70ed9ece12d744196c6d3"
+      },
+      {
+        "_path": "share/man/man3/pcre2_substring_copy_bynumber.3",
+        "path_type": "hardlink",
+        "sha256": "7ffbbc80bb1e4b8a7939ebba766973ff6079e4df603d3151fe3cc59678b0048f",
+        "size_in_bytes": 1335,
+        "sha256_in_prefix": "7ffbbc80bb1e4b8a7939ebba766973ff6079e4df603d3151fe3cc59678b0048f"
+      },
+      {
+        "_path": "share/man/man3/pcre2_substring_free.3",
+        "path_type": "hardlink",
+        "sha256": "ee800a45cc8de4ba47ba3d878bcae3c01f088dd71e3001fae76560bb81688ec9",
+        "size_in_bytes": 701,
+        "sha256_in_prefix": "ee800a45cc8de4ba47ba3d878bcae3c01f088dd71e3001fae76560bb81688ec9"
+      },
+      {
+        "_path": "share/man/man3/pcre2_substring_get_byname.3",
+        "path_type": "hardlink",
+        "sha256": "35f5aa652aaba5db9dc5b135bcc102f13613e3787148834a086b54a74df3b52b",
+        "size_in_bytes": 1668,
+        "sha256_in_prefix": "35f5aa652aaba5db9dc5b135bcc102f13613e3787148834a086b54a74df3b52b"
+      },
+      {
+        "_path": "share/man/man3/pcre2_substring_get_bynumber.3",
+        "path_type": "hardlink",
+        "sha256": "b46fc1a547285a6217db6aee9078e072e988a422ecf9fd625d7b3fbe37f5522d",
+        "size_in_bytes": 1501,
+        "sha256_in_prefix": "b46fc1a547285a6217db6aee9078e072e988a422ecf9fd625d7b3fbe37f5522d"
+      },
+      {
+        "_path": "share/man/man3/pcre2_substring_length_byname.3",
+        "path_type": "hardlink",
+        "sha256": "012e3c4040c4235d6dc142b519a3e4546a970a692e5780a58ab6e383dcf7de38",
+        "size_in_bytes": 941,
+        "sha256_in_prefix": "012e3c4040c4235d6dc142b519a3e4546a970a692e5780a58ab6e383dcf7de38"
+      },
+      {
+        "_path": "share/man/man3/pcre2_substring_length_bynumber.3",
+        "path_type": "hardlink",
+        "sha256": "1c0bb1613fcb024e61ed10b31c9d0ac2b1a76c5e37e8067b8b61bdbfe56a2bdb",
+        "size_in_bytes": 1002,
+        "sha256_in_prefix": "1c0bb1613fcb024e61ed10b31c9d0ac2b1a76c5e37e8067b8b61bdbfe56a2bdb"
+      },
+      {
+        "_path": "share/man/man3/pcre2_substring_list_free.3",
+        "path_type": "hardlink",
+        "sha256": "c2dc3886ac08444c26f092455af87a790884b00219e0d2abcf438389cbab1632",
+        "size_in_bytes": 714,
+        "sha256_in_prefix": "c2dc3886ac08444c26f092455af87a790884b00219e0d2abcf438389cbab1632"
+      },
+      {
+        "_path": "share/man/man3/pcre2_substring_list_get.3",
+        "path_type": "hardlink",
+        "sha256": "8da02e36024c2ee4d0fde9013393c203060ad2232c8f6132cae7421b6d49b9da",
+        "size_in_bytes": 1620,
+        "sha256_in_prefix": "8da02e36024c2ee4d0fde9013393c203060ad2232c8f6132cae7421b6d49b9da"
+      },
+      {
+        "_path": "share/man/man3/pcre2_substring_nametable_scan.3",
+        "path_type": "hardlink",
+        "sha256": "6dd424296802eff2c084fa5de3a69d41d4190a8ac8ad347a6b4dc77a50a1c5ea",
+        "size_in_bytes": 1319,
+        "sha256_in_prefix": "6dd424296802eff2c084fa5de3a69d41d4190a8ac8ad347a6b4dc77a50a1c5ea"
+      },
+      {
+        "_path": "share/man/man3/pcre2_substring_number_from_name.3",
+        "path_type": "hardlink",
+        "sha256": "3955f90f0807a4c76f01266b9c5dbace156cd1b5b86b144c392f6b3239f5b55e",
+        "size_in_bytes": 1129,
+        "sha256_in_prefix": "3955f90f0807a4c76f01266b9c5dbace156cd1b5b86b144c392f6b3239f5b55e"
+      },
+      {
+        "_path": "share/man/man3/pcre2api.3",
+        "path_type": "hardlink",
+        "sha256": "2cbdc5b49ed8286aad336359ef4ed17a9093e29f2cfd59e21bb4db85887b8534",
+        "size_in_bytes": 207663,
+        "sha256_in_prefix": "2cbdc5b49ed8286aad336359ef4ed17a9093e29f2cfd59e21bb4db85887b8534"
+      },
+      {
+        "_path": "share/man/man3/pcre2build.3",
+        "path_type": "hardlink",
+        "sha256": "c58e514e2c3393227f0a82b4b711abda4cb08c94216768bd0ebe13831658a7e8",
+        "size_in_bytes": 25879,
+        "sha256_in_prefix": "c58e514e2c3393227f0a82b4b711abda4cb08c94216768bd0ebe13831658a7e8"
+      },
+      {
+        "_path": "share/man/man3/pcre2callout.3",
+        "path_type": "hardlink",
+        "sha256": "94c5a9a96ddd9a89113cac2280f50b46fb8a6030e956dc9b8d2f01aca1eb985d",
+        "size_in_bytes": 18829,
+        "sha256_in_prefix": "94c5a9a96ddd9a89113cac2280f50b46fb8a6030e956dc9b8d2f01aca1eb985d"
+      },
+      {
+        "_path": "share/man/man3/pcre2compat.3",
+        "path_type": "hardlink",
+        "sha256": "aa94e62efc478873ead922e130aeab1ea4fbf29577218bf4f9ef97315cad00d7",
+        "size_in_bytes": 12792,
+        "sha256_in_prefix": "aa94e62efc478873ead922e130aeab1ea4fbf29577218bf4f9ef97315cad00d7"
+      },
+      {
+        "_path": "share/man/man3/pcre2convert.3",
+        "path_type": "hardlink",
+        "sha256": "e7396414286068c01366cf0b7263c7b2a63d7e70d66b4c310d9829fb37333ae3",
+        "size_in_bytes": 6673,
+        "sha256_in_prefix": "e7396414286068c01366cf0b7263c7b2a63d7e70d66b4c310d9829fb37333ae3"
+      },
+      {
+        "_path": "share/man/man3/pcre2demo.3",
+        "path_type": "hardlink",
+        "sha256": "4214bf4bcea63cac2e0789bb69b9e2e82f151e1589e31e6f3e89c82d4f089ab5",
+        "size_in_bytes": 17342,
+        "sha256_in_prefix": "4214bf4bcea63cac2e0789bb69b9e2e82f151e1589e31e6f3e89c82d4f089ab5"
+      },
+      {
+        "_path": "share/man/man3/pcre2jit.3",
+        "path_type": "hardlink",
+        "sha256": "13389d226eeec8c9df812cf97a50b393a0f9d34b7caec93b81a7bbf6e177d046",
+        "size_in_bytes": 21613,
+        "sha256_in_prefix": "13389d226eeec8c9df812cf97a50b393a0f9d34b7caec93b81a7bbf6e177d046"
+      },
+      {
+        "_path": "share/man/man3/pcre2limits.3",
+        "path_type": "hardlink",
+        "sha256": "c523028a84295fda8f05d5c0937104186aa4d3a5e5583a73408d1a9035e0ccb2",
+        "size_in_bytes": 3461,
+        "sha256_in_prefix": "c523028a84295fda8f05d5c0937104186aa4d3a5e5583a73408d1a9035e0ccb2"
+      },
+      {
+        "_path": "share/man/man3/pcre2matching.3",
+        "path_type": "hardlink",
+        "sha256": "409274ac6d46c670a77f342dd0aa517effa72470dec3486665fa50578b766777",
+        "size_in_bytes": 9764,
+        "sha256_in_prefix": "409274ac6d46c670a77f342dd0aa517effa72470dec3486665fa50578b766777"
+      },
+      {
+        "_path": "share/man/man3/pcre2partial.3",
+        "path_type": "hardlink",
+        "sha256": "a9400e229f16ac6b60af03b19c54b0d256944f59bfd2bebb464bd37041f9ce3a",
+        "size_in_bytes": 17958,
+        "sha256_in_prefix": "a9400e229f16ac6b60af03b19c54b0d256944f59bfd2bebb464bd37041f9ce3a"
+      },
+      {
+        "_path": "share/man/man3/pcre2pattern.3",
+        "path_type": "hardlink",
+        "sha256": "1e7983b3a62943284c5b492fce2731fe15a1965e24cb16eaee6d72aeb123f069",
+        "size_in_bytes": 182891,
+        "sha256_in_prefix": "1e7983b3a62943284c5b492fce2731fe15a1965e24cb16eaee6d72aeb123f069"
+      },
+      {
+        "_path": "share/man/man3/pcre2perform.3",
+        "path_type": "hardlink",
+        "sha256": "c90e625d26d6e4dcf923d31613582fc2a442d61dd30a35aa3b864303e4925944",
+        "size_in_bytes": 11658,
+        "sha256_in_prefix": "c90e625d26d6e4dcf923d31613582fc2a442d61dd30a35aa3b864303e4925944"
+      },
+      {
+        "_path": "share/man/man3/pcre2posix.3",
+        "path_type": "hardlink",
+        "sha256": "c6cc40b7d7966ddfcd0f5ff6438ab0cfab32160dbe980bff6ee5eddde59f82ba",
+        "size_in_bytes": 15449,
+        "sha256_in_prefix": "c6cc40b7d7966ddfcd0f5ff6438ab0cfab32160dbe980bff6ee5eddde59f82ba"
+      },
+      {
+        "_path": "share/man/man3/pcre2sample.3",
+        "path_type": "hardlink",
+        "sha256": "fed854401cf609b04c0475b15df8a71d7caf9a83917e527f2acbf833e34b2629",
+        "size_in_bytes": 3408,
+        "sha256_in_prefix": "fed854401cf609b04c0475b15df8a71d7caf9a83917e527f2acbf833e34b2629"
+      },
+      {
+        "_path": "share/man/man3/pcre2serialize.3",
+        "path_type": "hardlink",
+        "sha256": "cc4489baa391ecde1f13858c138ab7af9b478f87412ea09f8f03797942109706",
+        "size_in_bytes": 8958,
+        "sha256_in_prefix": "cc4489baa391ecde1f13858c138ab7af9b478f87412ea09f8f03797942109706"
+      },
+      {
+        "_path": "share/man/man3/pcre2syntax.3",
+        "path_type": "hardlink",
+        "sha256": "953f6d0c5752b0a8aaa352937e280797be80ffdb7b4123cc44d1583802e3b8c3",
+        "size_in_bytes": 26896,
+        "sha256_in_prefix": "953f6d0c5752b0a8aaa352937e280797be80ffdb7b4123cc44d1583802e3b8c3"
+      },
+      {
+        "_path": "share/man/man3/pcre2unicode.3",
+        "path_type": "hardlink",
+        "sha256": "8e1bf2cc2c9f83df1c63fb89532cf82a66952c21174020d1e2bc7d39ffda19fc",
+        "size_in_bytes": 22760,
+        "sha256_in_prefix": "8e1bf2cc2c9f83df1c63fb89532cf82a66952c21174020d1e2bc7d39ffda19fc"
+      }
+    ]
+  },
+  "link": {
+    "source": "/home/kuganaathan/.conda/pkgs/pcre2-10.48-hef3d6e7_0",
+    "type": 1
+  }
+}

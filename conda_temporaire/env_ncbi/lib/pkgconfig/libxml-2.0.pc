@@ -1,0 +1,13 @@
+prefix=/data/projet3/conda_temporaire/env_ncbi
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+modules=1
+
+Name: libXML
+Version: 2.15.3
+Description: libXML library version2.
+Requires.private:  icu-uc
+Libs: -L${libdir} -lxml2 
+Libs.private:  -ldl -lpthread -L/data/projet3/conda_temporaire/env_ncbi/lib -lz -L/data/projet3/conda_temporaire/env_ncbi/lib  -lm 
+Cflags: -I${includedir}/libxml2  

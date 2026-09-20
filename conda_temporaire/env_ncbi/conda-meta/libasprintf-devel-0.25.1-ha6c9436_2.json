@@ -1,0 +1,50 @@
+{
+  "name": "libasprintf-devel",
+  "version": "0.25.1",
+  "build": "ha6c9436_2",
+  "build_number": 2,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "subdir": "linux-64",
+  "fn": "libasprintf-devel-0.25.1-ha6c9436_2.conda",
+  "md5": "2875b2c5053c99933493fd311de4c7db",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/libasprintf-devel-0.25.1-ha6c9436_2.conda",
+  "sha256": "41c9f8b2f9acdf37920d03669337ad288df7c4ef2cf82ad0865861974a2dc75b",
+  "depends": [
+    "__glibc >=2.28,<3.0.a0",
+    "libasprintf 0.25.1 ha6c9436_2",
+    "libgcc >=14"
+  ],
+  "constrains": [],
+  "license": "LGPL-2.1-or-later",
+  "timestamp": 1784195574350,
+  "size": 33560,
+  "_requested_specs": [],
+  "package_tarball_full_path": "/opt/conda/pkgs/libasprintf-devel-0.25.1-ha6c9436_2.conda",
+  "extracted_package_dir": "/opt/conda/pkgs/libasprintf-devel-0.25.1-ha6c9436_2",
+  "files": [
+    "include/autosprintf.h",
+    "lib/libasprintf.so"
+  ],
+  "paths_data": {
+    "paths_version": 1,
+    "paths": [
+      {
+        "_path": "include/autosprintf.h",
+        "path_type": "hardlink",
+        "sha256": "b63993786da0e9435ee611e08bfc12800e32f47c9820f7be42cb75687d7ee541",
+        "size_in_bytes": 2421,
+        "sha256_in_prefix": "b63993786da0e9435ee611e08bfc12800e32f47c9820f7be42cb75687d7ee541"
+      },
+      {
+        "_path": "lib/libasprintf.so",
+        "path_type": "softlink",
+        "sha256": "7a3f7ae69a26cd0cdf0c7487956c30041087a8ec69c95fa3900eec7cebafc65c",
+        "size_in_bytes": 110760
+      }
+    ]
+  },
+  "link": {
+    "source": "/opt/conda/pkgs/libasprintf-devel-0.25.1-ha6c9436_2",
+    "type": 1
+  }
+}

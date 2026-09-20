@@ -1,0 +1,11 @@
+prefix=/data/projet3/conda_temporaire/env_ncbi
+exec_prefix=${prefix}
+includedir=${prefix}/include
+libdir=${exec_prefix}/lib
+
+Name: libidn2
+Description: Library implementing IDNA2008 and TR46
+Version: 2.3.8
+Cflags: -I${includedir}
+Libs: -L${libdir} -lidn2
+Libs.private: -L/data/projet3/conda_temporaire/env_ncbi/lib -liconv -R/data/projet3/conda_temporaire/env_ncbi/lib -L/data/projet3/conda_temporaire/env_ncbi/lib -lunistring -R/data/projet3/conda_temporaire/env_ncbi/lib
