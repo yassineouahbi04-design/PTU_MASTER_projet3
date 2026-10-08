@@ -9,12 +9,24 @@
 *.bam
 *.sam
 fasterq.tmp.*
+*.zip
 
 # Tous les dossiers de données et de génomes (présents et futurs)
 *data*/
 *genome*/
 *RNAseq*/
+acanthaster_planci_ref_datas/
 
-# Environnements et caches
-conda/
-.snakemake/
+# Environnements/caches et dossiers
+.snakemake/ 
+
+# Runs EviAnn et gros fichiers intermédiaires
+annotation_datas/
+*.ht2
+*.tmp
+*.bam
+*.sam
+*.fna
+*.faa
+
+/conda_environments/env_*/
