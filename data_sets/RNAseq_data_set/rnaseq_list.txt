@@ -1,0 +1,6 @@
+
+/data/projet3/data_sets/RNAseq_data_set/gonad_dataset/SRR37114952_1.fastq /data/projet3/data_sets/RNAseq_data_set/gonad_dataset/SRR37114952_2.fastq fastq
+/data/projet3/data_sets/RNAseq_data_set/spine_dataset/SRR37114948_1.fastq /data/projet3/data_sets/RNAseq_data_set/spine_dataset/SRR37114948_2.fastq fastq
+/data/projet3/data_sets/RNAseq_data_set/stomach_dataset/SRR37114954_1.fastq /data/projet3/data_sets/RNAseq_data_set/stomach_dataset/SRR37114954_2.fastq fastq
+/data/projet3/data_sets/RNAseq_data_set/juvenile_data_set/juvenile_replicat_1/SRR37199247_1.fastq /data/projet3/data_sets/RNAseq_data_set/juvenile_data_set/juvenile_replicat_1/SRR37199247_2.fastq
+/data/projet3/data_sets/RNAseq_data_set/juvenile_data_set/juvenile_replicat_2/SRR37199246_1.fastq /data/projet3/data_sets/RNAseq_data_set/juvenile_data_set/juvenile_replicat_2/SRR37199246_2.fastq

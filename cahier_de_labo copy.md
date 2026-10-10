@@ -37,7 +37,7 @@
 
 ## Journal des sessions de travail
 
-  **24/09/2026**
+  **24/09/2026 — Acquisition du génome de référence**
 
   Yassine a initialisé le projet en téléchargeant l'assemblage de référence d'*Acanthaster planci* depuis le NCBI, puis l'a décompressé.
   ```bash
@@ -50,7 +50,7 @@
   gunzip -k GCF_054643075.1_COTS_SCS_genomic.fna.gz
   ```
 
-  **26/09/2026 : Extraction des données**
+  **26/09/2026 — Extraction des données test RNA-seq**
 
   Yassine a extrait les données transcriptomiques de test en paires FASTQ avec l'outil `fasterq-dump` depuis l'environnement `env_ncbi`. 
 
@@ -70,7 +70,7 @@
   fasterq-dump -t . --split-files SRR37199247
   ```
   
-  **27/09/2026 : Test EviAnn**
+  **27/09/2026 — Test EviAnn**
   
   Un premier test du pipeline EviAnn a été initié par Yassine sur l'assemblage complet du génome au sein d'une session `screen` allouant 8 cœurs. Un fichier `rnaseq_list.txt` a été crée, regroupant les chemins des lectures de test appariées (`SRR37199246` et `SRR37199247`) avec la mention fastq en fin de ligne, pour satisfaire le parser d'EviAnn.    
 
@@ -86,10 +86,10 @@
 
   cd /data/projet3/annotation_datas/eviann_datas/eviann_runs/test_1_run
   
-  eviann.sh \
-  -g /data/projet3/acanthaster_planci_ref_datas/genome/entier_genome/GCF_054643075.1_COTS_SCS_genomic.fna \
-  -p /data/projet3/data_sets/homology_data_set/asteroidea_proteins.faa \
-  -r /data/projet3/data_sets/RNAseq_data_set/rnaseq_list.txt \
+  eviann.sh
+  -g /data/projet3/acanthaster_planci_ref_datas/genome/entier_genome/GCF_054643075.1_COTS_SCS_genomic.fna
+  -p /data/projet3/data_sets/homology_data_set/asteroidea_proteins.faa 
+  -r /data/projet3/data_sets/RNAseq_data_set/rnaseq_list.txt
   -t 8 2>&1 | tee eviann.log
   ``` 
   
@@ -97,7 +97,7 @@
   
   Le diagnostic a révélé que l'empreinte mémoire du génome complet saturait la RAM du serveur (déclenchement de l'OOM Killer).
 
-  **28/09/2026 : Solution à EviAnn (run_1)**
+  **28/09/2026 — Solution au problème EviAnn (run_1)**
   
   Après l’interruption des essais sur le génome entier faute de mémoire, Yassine a réparti le génome en deux fichiers avec SeqKit :
 
@@ -129,9 +129,20 @@
 
   La colonne « Somme » additionne les compteurs des deux exécutions. Les annotations GFF ont pas la suite été réunies et comparées à l’annotation de référence. On remarque néanmoins que la somme des protéines distinctes dénombrées dans chaque partie ne prouve pas qu’il existe 	22 342 protéines distinctes à l’échelle du génome complet, comme indiqué pour la référence.
 
-  **08/10/2026 — Lancement du run 2 avec l’ensemble des données RNA-seq**
+  **08/10/2026 — Lancement du run 2 avec l’ensemble des données RNA-seq téléchargées**
 
-  Yassine a relancé EviAnn sur la première partie du génome, dans `annotation_datas/eviann_datas/eviann_runs/run_2/genomic_part_001/`. L’option `-r` désigne le fichier `/data/projet3/data_sets/RNAseq_data_set/rnaseq_list.txt`, qui regroupe les chemins des paires de fichiers RNA-seq utilisées pour cette exécution, comme expliquer précedement .
+  Yassine a relancé EviAnn dans `annotation_datas/eviann_datas/eviann_runs/run_2/genomic_part_001/`, sur la première partie du génome, en allouant 4 cœurs cette fois-ci et en utilisant toutes les données RNA-seq à disposition.   
+  
+  ```bash 
+  # EviAnn a été lancer avec la commande suivante
+
+  eviann.sh  
+  -g /data/projet3 /acanthaster_planci_ref_datas/genome/split_genome/GCF_054643075.1_COTS_SCS_genomic.part_001.fna  
+  -p /data/projet3/data_sets/homology_data_set/asteroidea_proteins.faa  
+  -r /data/projet3/data_sets/RNAseq_data_set/rnaseq_list.txt -t 4 2>&1 | tee eviann.log
+  ```
+  
+  L’option `-r` désigne le fichier `rnaseq_list.txt`, qui regroupe les chemins des paires de fichiers RNA-seq utilisées pour cette exécution, comme expliquer précedement .
 
   Une première erreur provenait du chemin donné à `-r` : la commande indiquait `RNAseq_data_test` au lieu de `RNAseq_data_set`. Après cette correction, EviAnn a pu lire le manifeste et construire l’index HISAT2, mais l’alignement s’est arrêté avec le message suivant :
 
@@ -140,7 +151,7 @@
   Alignment with HISAT2 or transcript assembly with StringTie failed
   ```
 
-  La vérification des chemins **à l’intérieur** de `rnaseq_list.txt` a ensuite mis en évidence que certains fichiers FASTQ n’étaient pas désignés par le bon chemin. La recherche peut être reproduite avec cette commande, qui affiche le numéro de ligne et le chemin de chaque fichier absent ou vide :
+  La vérification des chemins à l’intérieur de `rnaseq_list.txt` a ensuite mis en évidence que certains fichiers FASTQ n’étaient pas désignés par le bon chemin. La recherche peut être reproduite avec cette commande, qui affiche le numéro de ligne et le chemin de chaque fichier absent ou vide :
 
   ```bash
   liste=/data/projet3/data_sets/RNAseq_data_set/rnaseq_list.txt
@@ -152,7 +163,55 @@
   done
   ```
 
-  Les chemins erronés du manifeste ont été corrigés, puis EviAnn a été relancé. **L’exécution semble maintenant progresser**, mais sa réussite et la production du GFF final restent à confirmer dans le journal de ce run.
+  Les chemins erronés du manifeste ont été corrigés, puis EviAnn a été relancé.
+
+  **09/10/2026 — Diagnostic de l’échec du run 2**
+
+  Le journal `eviann.log` indique que miniprot s’est une nouvelle fois arrêté avec le message `Killed` pendant l’alignement des protéines. Les fichiers intermédiaires nécessaires aux étapes suivantes n’ont pas été produits. Le GFF annoncé en fin d’exécution contient 0 gène et n’est pas exploitable.
+
+  Afin de mieux comprendre le problème avec miniprot, ce dernier à été lancé seul sur le meme set de données (RNA-seq et homologie).
+  Après avoir activé l’environnement `env_eviann`, nous avons relancé le test avec un seul cœur pour mesurer la mémoire utilisée par miniprot indépendamment d’EviAnn :
+
+  ```bash
+  conda conda_environements/env_eviann
+  command -v miniprot
+
+  /usr/bin/time -v miniprot -t 1 \
+  /data/projet3/acanthaster_planci_ref_datas/genome/split_genome/GCF_054643075.1_COTS_SCS_genomic.part_001.fna \
+  /data/projet3/data_sets/homology_data_set/asteroidea_proteins.faa \
+  > /dev/null 2> miniprot_test.log
+  ```
+
+  Le test s’est terminé correctement en `2 h 27 min`. Sa consommation maximale de mémoire a été de `7 365 152 Ko`, soit environ `7,0 Go`. Miniprot fonctionne donc seul avec un cœur sur ces données.
+
+  Le test isolé de miniprot ayant réussi avec un cœur, un nouvel essai d’EviAnn a été lancé sur le même génome et avec les mêmes données, en utilisant deux cœurs :
+
+  ```bash
+  # Activation de l'environnement EviAnn
+  conda conda_environments/env_eviann
+
+  # Déplacement dans le dossier concerné
+  cd /data/projet3/annotation_datas/eviann_datas/eviann_runs/run_2/genomic_part_001
+
+  # Lancement du pipeline EviAnn
+  eviann.sh
+  -g /data/projet3/acanthaster_planci_ref_datas/genome/split_genome/GCF_054643075.1_COTS_SCS_genomic.part_001.fna
+  -p /data/projet3/data_sets/homology_data_set/asteroidea_proteins.faa
+  -r /data/projet3/data_sets/RNAseq_data_set/rnaseq_list.txt
+  -t 2 2>&1 | tee eviann.log
+  ```
+
+  
+  
+
+
+
+
+  
+
+
+
+  
 
 
   

@@ -1,32 +1,22 @@
-# Tous les fichiers volumineux, peu importe où ils sont stockés
-*.fastq
-*.fq
-*.fna
-*.fna.gz
-*.fasta
-*.gz
-*.sra
-*.bam
-*.sam
-fasterq.tmp.*
-*.zip
+# Environnements Conda installés
+/conda_environments/env_*/
 
-# Tous les dossiers de données et de génomes (présents et futurs)
-*data*/
-*genome*/
-*RNAseq*/
+# Données de référence pour l'alignement
 acanthaster_planci_ref_datas/
 
-# Environnements/caches et dossiers
-.snakemake/ 
+# Lectures RNA-seq brutes
+/data_sets/RNAseq_data_set/**/*.fastq
+/data_sets/RNAseq_data_set/**/*.fastq.gz
+/data_sets/RNAseq_data_set/**/*.fq
+/data_sets/RNAseq_data_set/**/*.fq.gz
+/data_sets/RNAseq_data_set/**/*.sra
 
-# Runs EviAnn et gros fichiers intermédiaires
-annotation_datas/
-*.ht2
-*.tmp
-*.bam
-*.sam
-*.fna
-*.faa
 
-/conda_environments/env_*/
+# Fichiers temporaires d'alignement
+/annotation_datas/eviann_datas/eviann_runs
+
+# Fichiers de résultats FastQC au format zip
+/fastqc_results/**/*.zip
+/annotation_datas/eviann_datas/eviann_runs/
+/data_sets/homology_data_set/*.faa
+/annotation_datas/gff_compare_results/**/*.gtf
