@@ -11,12 +11,10 @@ acanthaster_planci_ref_datas/
 /data_sets/RNAseq_data_set/**/*.fq.gz
 /data_sets/RNAseq_data_set/**/*.sra
 
+/data_sets/homology_data_set
 
-# Fichiers temporaires d'alignement
+# Fichiers resultats Eviann
 /annotation_datas/eviann_datas/eviann_runs
 
 # Fichiers de résultats FastQC au format zip
 /fastqc_results/**/*.zip
-/annotation_datas/eviann_datas/eviann_runs/
-/data_sets/homology_data_set/*.faa
-/annotation_datas/gff_compare_results/**/*.gtf
