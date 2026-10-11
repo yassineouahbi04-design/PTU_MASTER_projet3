@@ -1,0 +1,8 @@
+name: /data/projet3/conda_environments/env_seqkit
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - seqkit=2.14.0=hb192632_0
+prefix: /data/projet3/conda_environments/env_seqkit

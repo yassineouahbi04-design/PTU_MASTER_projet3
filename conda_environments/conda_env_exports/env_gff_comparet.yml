@@ -1,0 +1,12 @@
+name: /data/projet3/conda_environments/env_gff_compare
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - _openmp_mutex=4.5=20_gnu
+  - gffcompare=0.12.10=h9948957_0
+  - libgcc=16.2.0=ha9f2e26_7
+  - libgomp=16.2.0=he0feb66_7
+  - libstdcxx=16.2.0=h934c35e_7
+prefix: /data/projet3/conda_environments/env_gff_compare
