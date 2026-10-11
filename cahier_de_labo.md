@@ -461,11 +461,11 @@ Options utilisées :
 
   * **`annotation_datas/` :** ce répertoire maître regroupe toute l'activité et l'évaluation du pipeline. Il est subdivisé en :
 
-    * `eviann_datas/` : contient l'historique des exécutions (`eviann_runs/`) et les fichiers finaux du pipeline (`eviann_results/`).
+    * `eviann_datas/` : contient l'historique des exécutions (`eviann_runs/`) et les fichiers finaux fusionnées (`eviann_results/`).
 
     * `gff_compare_results/` : contient les évaluations de l'annotation générée face à l'annotation officielle pour chaque run. 
 
-  * **`fastqc_results/` :** répertoire dédié aux rapports de contrôle qualité des lectures.
+  * **`fastqc_results/` :** répertoire dédié aux rapports de contrôle qualité des lectures, organisé par tissu.
 
   La reproductibilité est assurée par le répertoire `conda_environments`. Il contient les environnements virtuels, crés par Shahiran, isolant les dépendances logicielles : 
   
@@ -504,17 +504,19 @@ Options utilisées :
 
   ```bash 
 
-  conda activate /data/projet3/conda_environments/env_ncbi
+  conda conda_environments/env_ncbi
 
-  cd /data/projet3/data_sets/RNAseq_data_set/juvenile_data_set/
+  cd data_sets/RNAseq_data_set/juvenile_data_set/
 
   fasterq-dump -t . --split-files SRR37199246
   fasterq-dump -t . --split-files SRR37199247
   ```
+
+  Les données ont ensuites étaient répartie en 2 fichier, `juvenille_resplicat_1` (qui regoupe les données `SRR37199247`) et `juvenille_replicat_2` (qui regroupe les données `SRR37199246`) 
   
   **27/09/2026 — Test EviAnn**
   
-  Un premier test du pipeline EviAnn a été initié sur l'assemblage complet du génome au sein d'une session `screen` allouant 8 cœurs. Un fichier `rnaseq_list.txt` a été crée, regroupant les chemins des lectures de test appariées (`SRR37199246` et `SRR37199247`) avec la mention fastq en fin de ligne, pour satisfaire le parser d'EviAnn.    
+  Un premier test du pipeline EviAnn a été initié sur l'assemblage complet du génome au sein d'une session `screen` allouant 8 cœurs. Un fichier `rnaseq_list.txt` a été crée, regroupant les chemins des lectures de test `juvenile_data_set`, avec la mention fastq en fin de ligne, pour satisfaire le parser d'EviAnn.    
 
   ```bash
 
@@ -526,7 +528,7 @@ Options utilisées :
   
   conda conda_environments/env_eviann
 
-  cd /data/projet3/annotation_datas/eviann_datas/eviann_runs/test_1_run
+  cd annotation_datas/eviann_datas/eviann_runs/test_1_run
   
   eviann.sh
   -g /data/projet3/acanthaster_planci_ref_datas/genome/entier_genome/GCF_054643075.1_COTS_SCS_genomic.fna
@@ -548,7 +550,7 @@ Options utilisées :
   
   conda activate conda_environments/env_seqkit/
   
-  # On lance la commande pour fragmenter le génome en deux
+  # On lance la commande pour fragmenter le génome en deux, dans un nouveau dossier
 
   seqkit split2 -p 2 GCF_054643075.1_COTS_SCS_genomic.fna -O split_genome/
   ```
@@ -633,7 +635,7 @@ Options utilisées :
   conda conda_environments/env_eviann
 
   # Déplacement dans le dossier concerné
-  cd /data/projet3/annotation_datas/eviann_datas/eviann_runs/run_2/genomic_part_001
+  cd annotation_datas/eviann_datas/eviann_runs/run_2/genomic_part_001
 
   # Lancement du pipeline EviAnn
   eviann.sh
@@ -657,9 +659,11 @@ Options utilisées :
   | Long non-coding RNAs | 508 |
   | Distinct proteins | 18 061 |
 
+  Les les résultats devront etre fusionner avec ceux de la seconde partie du gènome, puis comparer avec le gènome de réference. 
+
   **11/10/2026 — Export des environnements**
 
-  Les envoronnements `env_fastqc`, `env_gff_compare`, `env_ncbi` et `env_seqkit` ont été exporté dans le dossier dedié `conda_env_exports`. 
+  Les environnements `env_fastqc`, `env_gff_compare`, `env_ncbi` et `env_seqkit` ont été exporté dans le dossier dedié `conda_env_exports`. 
 
   La commande fu la suivante :
 
