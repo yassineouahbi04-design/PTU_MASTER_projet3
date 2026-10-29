@@ -670,5 +670,76 @@ Options utilisées :
   ```bash
   conda env export -p /data/projet3/conda_environments/env_... > /data/projet3/conda_environments/conda_env_exports/env_... .yml
   ```
+
+  **28/10/2026 — Réarrangement de l'arborescence**
+
+  L'arborescence a été réaménagée de la manière suivante, suite aux remarques du professeur, par souci de simplicité :
+  
+  * **`acanthaster_planci_ref_datas/` :** ce dossier reste incahngé. 
+
+  * **`analyses/`:** on y retrouve les dossiers `eviann_results`, `gff_compare_results` et `fastqc_results`. 
+
+  * **`conda_environments/`:** ce dossier rest inchangé.
+
+  * **`data_sets/`:** ce dossier rest inchangé. 
+
+  * **`evian_runs/`:** contient toutes les données des runs eviann.
+
+  **29/10/2026 — Run_2 part_2**
+
+ Un run Eviann sur la seconde partie du génome pour le run_2 a été relancé. La raison étant que le run précédent n'ayant pas été lancé avec la même commande, les fichiers ont des des noms et des structures différents, ce qui compliquer un peu les choses poour la fusion des fichiers d'annoation. La commande fu la suivante : 
+
+  ```bash
+  # On se dèplace dans le fichier fraichement cree genomic_part__002. 
+
+  cd /data/projet3/eviann_runs/run_2/genomic_part_002_yassine
+
+  # On lance EviAnn. 
+
+  eviann.sh
+  -g /data/projet3/acanthaster_planci_ref_datas/genome/split_genome/GCF_054643075.1_COTS_SCS_genomic.part_002.fna
+  -p /data/projet3/data_sets/homology_data_set/asteroidea_proteins.faa
+  -r /data/projet3/data_sets/RNAseq_data_set/rnaseq_list.txt
+  -t 2 2>&1 | tee eviann.log
+  ```
+
+
+
+---  
+
+### 28/10/2026 – Libération de l’espace de stockage sur le serveur et suppression des résultats EviAnn devenus inutiles
+
+# **Étudiant :** Shahiran Kuganaathan  
+
+À la suite d'un message transmis par une camarade de promotion, nous avons été informés que Madame Friedrich demandait aux différents groupes de PTU en bioinformatique de faire du tri dans leurs fichiers. En effet, l'espace de stockage occupé par les différents projets commençait à saturer le serveur, rendant son utilisation de plus en plus difficile.
+
+J'ai donc commencé par supprimer les dossiers `test_1_run` et `test_2_run`, qui correspondaient aux premiers essais réalisés avec EviAnn. Ces résultats n'étant plus nécessaires pour la suite de notre projet, leur suppression permettait de libérer plusieurs gigaoctets d'espace de stockage.
+
+J'ai également supprimé les résultats de mon exécution d'EviAnn sur la deuxième partie du génome (`genomic_part_002`), dans le dossier `run_2`. En effet, Yassine avait relancé l'annotation de cette même partie du génome en utilisant une commande différente de celle que j'avais initialement employée.
+
+Pour rappel, nous avions séparé le génome en deux parties afin de réaliser les annotations avec EviAnn. Cependant, pour la suite du projet, nous devions regrouper les annotations obtenues sur ces deux parties afin de pouvoir poursuivre les analyses avec `gffcompare`. Or, les commandes utilisées initialement n'étaient pas identiques, ce qui avait entraîné des différences dans la structure des fichiers de sortie et compliquait leur regroupement.
+
+Yassine a donc relancé l'annotation de la deuxième partie du génome avec une commande permettant d'obtenir une organisation des fichiers de sortie cohérente avec celle de la première partie, afin de faciliter les étapes suivantes.
+
+Mon ancienne exécution étant devenue redondante, j'ai supprimé les fichiers correspondants pour éviter de conserver inutilement plusieurs versions des mêmes résultats et ainsi contribuer à réduire l'espace de stockage occupé par notre projet sur le serveur.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 
