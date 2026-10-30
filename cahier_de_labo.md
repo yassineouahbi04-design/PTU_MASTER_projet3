@@ -685,7 +685,7 @@ Options utilisées :
 
   * **`evian_runs/`:** contient toutes les données des runs eviann.
 
-  **29/10/2026 — Run_2 part_2**
+  **29/10/2026 — EviAnn run_2 genomic_part_002**
 
  Un run Eviann sur la seconde partie du génome pour le run_2 a été relancé. La raison étant que le run précédent n'ayant pas été lancé avec la même commande, les fichiers ont des des noms et des structures différents, ce qui compliquer un peu les choses poour la fusion des fichiers d'annoation. La commande fu la suivante : 
 
@@ -703,7 +703,73 @@ Options utilisées :
   -t 2 2>&1 | tee eviann.log
   ```
 
+  Le journal rapporte les résultats suivants :
 
+  | Élément annoté | Nombre |
+  |---|---:|
+  | Genes | 9771  |
+  | Protein coding genes | 9258 |
+  | Processed pseudo gene transcripts | 46 |
+  | Processed pseudo genes | 44 |
+  | Transcripts | 23 180 |
+  | Long non-coding RNAs | 473 |
+  | Distinct proteins | 17 229  |
+
+  **Compression des données RNA-seq**
+
+  Afin de libérer de l’espace sur le serveur, les fichiers de lectures RNA-seq au format `.fastq` ont été compressés individuellement au format `.fastq.gz`. Chaque fichier d’une paire reste séparé, ce qui préserve l’organisation des échantillons.
+
+  ```bash
+  racine=/data/projet3/data_sets/RNAseq_data_set
+
+  find "$racine" -type f -name '*.fastq' -print0 |
+  while IFS= read -r -d '' fichier; do
+    gzip -v -- "$fichier" || exit 1
+  done
+  ```
+  La compression initiale avec `gzip` s’est interrompue après les fichiers des gonades, faute d’espace disque. Pour accélérer la reprise, un environnement Conda dédié à `pigz`, outil de compression utilisant plusieurs cœurs, a été préparé dans le dossier commun du projet :
+
+  ```bash
+  conda create --prefix /data/projet3/conda_environments/env_pigz -c conda-forge pigz
+  conda activate /data/projet3/conda_environments/env_pigz
+  ```
+  
+  `pigz` a ensuite été lancé avec quatre cœurs pour traiter les fichiers `.fastq` encore présents, un fichier à la fois :
+
+  ```bash
+  racine=/data/projet3/data_sets/RNAseq_data_set
+
+  find "$racine" -type f -name '*.fastq' -print0 |
+  while IFS= read -r -d '' fichier; do
+    if [ -e "$fichier.gz" ]; then
+        printf 'Fichier .gz déjà présent, à vérifier : %s.gz\n' "$fichier" >&2
+        exit 1
+    fi
+    pigz -p 4 -v -- "$fichier" || exit 1
+  done
+  ```
+
+  **30/10/2026 — Fin de la compression des fichiers et modification du manifest rnaseq_list.txt**
+
+  Après plus d'une douzaine d'heures, tous les fichiers ont été compressés. 
+
+  Les chemins du manifeste utilisé par EviAnn ont été mis à jour :
+
+  ```bash
+  liste=/data/projet3/data_sets/RNAseq_data_set/rnaseq_list.txt
+  sed -i.bak -E 's/\.fastq([[:space:]]|$)/.fastq.gz\1/g' "$liste"
+  ```
+
+  La présence des deux fichiers indiqués sur chaque ligne a ensuite été contrôlée via la commande :
+
+  ```bash
+  awk 'NF {print $1; print $2}' "$liste" |
+  while IFS= read -r fichier; do
+    [ -f "$fichier" ] || printf 'Fichier introuvable : %s\n' "$fichier"
+  done
+  ```
+
+  Aucun chemin manquant n’a été signalé. L’ancienne copie du manifeste, contenant les chemins en .fastq a été supprimée après cette vérification. Le fichier rnaseq_list.txt à utiliser pour les prochains lancements d’EviAnn pointe donc vers les fichiers compressés.
 
 ---  
 
