@@ -1,0 +1,12 @@
+name: /data/projet3/conda_environments/env_pigz
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - _openmp_mutex=4.5
+  - libgcc=16.2.0
+  - libgomp=16.2.0
+  - libzlib=1.3.2
+  - pigz=2.8
+prefix: /data/projet3/conda_environments/env_pigz
