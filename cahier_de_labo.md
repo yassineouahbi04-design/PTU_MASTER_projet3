@@ -771,6 +771,27 @@ Options utilisées :
 
   Aucun chemin manquant n’a été signalé. L’ancienne copie du manifeste, contenant les chemins en .fastq a été supprimée après cette vérification. Le fichier rnaseq_list.txt à utiliser pour les prochains lancements d’EviAnn pointe donc vers les fichiers compressés.
 
+  **31/10/2026 — Nettoyage des fichiers temporaires Git**
+
+  Le dossier `.git` occupait environ 30 Go, comme me l'a fait remarqué mon camarade Shahiran. La commande `git count-objects -vH` a montré que 24,37 Go provenaient de deux fichiers temporaires `tmp_pack_*`, signalés comme fichiers abandonnés par Git.
+
+  ```bash
+  cd /data/projet3
+  git count-objects -vH
+  git status -sb
+  df -h /data/projet3
+  ```
+
+  Après vérification qu’aucune opération Git n’était en cours, ces deux fichiers temporaires ont été supprimés :
+
+  ```bash
+  ps -ef | grep -E '[g]it (gc|repack|pack-objects|add|push|fetch)'
+  ls -lh .git/objects/pack/tmp_pack_*
+  rm -i -- .git/objects/pack/tmp_pack_*
+  ```
+
+  Cette suppression permet de récupérer environ 24 Go sans retirer les commits ni les fichiers du projet. Les objets Git valides restent conservés dans `.git`.
+
 ---  
 
 ### 28/10/2026 – Libération de l’espace de stockage sur le serveur et suppression des résultats EviAnn devenus inutiles
@@ -789,7 +810,117 @@ Yassine a donc relancé l'annotation de la deuxième partie du génome avec une 
 
 Mon ancienne exécution étant devenue redondante, j'ai supprimé les fichiers correspondants pour éviter de conserver inutilement plusieurs versions des mêmes résultats et ainsi contribuer à réduire l'espace de stockage occupé par notre projet sur le serveur.
 
+### 31/10/2026 – Modification du jeu de données d’homologie pour exclure *Acanthaster planci*
 
+**Étudiant : Shahiran Kuganaathan**
+
+J'ai décidé de modifier notre jeu de données d'homologie afin d'exclure les protéines d'*Acanthaster planci*. En effet, comme nous cherchons à annoter le génome de cette espèce avec EviAnn, conserver ses protéines déjà annotées risquait de réutiliser des annotations existantes comme preuves d'homologie. L'objectif était donc de privilégier les protéines homologues provenant d'autres espèces d'Asteroidea, afin de rendre notre annotation moins dépendante des annotations déjà disponibles pour *Acanthaster planci*.
+
+Dans un premier temps, j'ai tenté de télécharger un nouveau jeu de données depuis NCBI avec EDirect. Pour cela, j'ai lancé une session `screen` :
+
+```bash
+screen -S download_proteins
+```
+
+J'ai ensuite utilisé la commande suivante :
+
+```bash
+esearch -db protein -query "txid7588[Organism:exp] NOT txid133434[Organism:exp]" | efetch -format fasta > asteroidea_sans_planci.faa
+```
+
+Cette commande permet de rechercher les protéines des Asteroidea (`txid7588`) en excluant celles d'*Acanthaster planci* (`txid133434`), puis de télécharger les séquences au format FASTA.
+
+Cependant, plusieurs erreurs `curl (56) OpenSSL SSL_read: unexpected eof while reading` sont apparues au cours du téléchargement. Après m'être renseigné, j'ai constaté que cette erreur correspondait à une interruption inattendue de la connexion avec NCBI. Même si le téléchargement continuait, certaines séquences risquaient potentiellement d'être manquantes ou incomplètes.
+
+J'ai finalement décidé d'interrompre le téléchargement et de réutiliser le fichier initial `asteroidea_proteins.faa`, en supprimant directement les protéines d'*Acanthaster planci* avec la commande `awk` :
+
+```bash
+awk '/^>/ {garder = ($0 !~ /\[Acanthaster planci\]/)} garder' asteroidea_proteins.faa > asteroidea_filtre_sans_planci.faa
+```
+
+Cette commande permet de retirer les protéines d'*Acanthaster planci* tout en conservant celles des autres espèces. Cette méthode permet également de conserver les mêmes séquences que dans le jeu de données initial, sans dépendre des éventuelles mises à jour de NCBI.
+
+J'ai ensuite vérifié les tailles des fichiers et le nombre de séquences avant et après le filtrage :
+
+```bash
+ls -lh asteroidea_proteins.faa asteroidea_filtre_sans_planci.faa
+
+grep -c '^>' asteroidea_proteins.faa
+grep -c '^>' asteroidea_filtre_sans_planci.faa
+```
+
+Le fichier initial contenait **139 392 séquences (104 Mo)**, contre **98 124 séquences (71 Mo)** après filtrage, soit **41 268 séquences supprimées**.
+
+Pour vérifier que les séquences supprimées correspondaient bien à *Acanthaster planci*, j'ai utilisé :
+
+```bash
+grep -ic '^>.*\[Acanthaster planci\]' asteroidea_proteins.faa
+
+grep -ic '^>.*\[Acanthaster planci\]' asteroidea_filtre_sans_planci.faa
+```
+
+La première commande a renvoyé **41 268**, correspondant exactement au nombre de séquences supprimées, tandis que la seconde a renvoyé **0**, confirmant qu'aucune entrée portant le nom `[Acanthaster planci]` ne subsistait dans le nouveau fichier.
+
+### 31/10/2026 – Analyse des résultats FastQC et trimming des données RNA-seq juvéniles
+
+**Étudiant : Shahiran Kuganaathan**
+
+Après avoir examiné les rapports FastQC de nos différents échantillons RNA-seq, j'ai constaté que les deux réplicats juvéniles présentaient une quantité importante de séquences d'adaptateurs Illumina. En effet, le module `Adapter Content` indiquait environ **30 % de reads contenant des adaptateurs**.
+
+Ces pourcentages correspondent à la proportion de reads dans lesquels FastQC a détecté des adaptateurs. Leur présence peut notamment s'expliquer par des fragments d'ADNc plus courts que la longueur de séquençage, entraînant la lecture d'une partie des adaptateurs.
+
+En comparaison, les autres échantillons présentaient des pourcentages beaucoup plus faibles, inférieurs à 1 % pour R1 et R2.
+
+Par ailleurs, les dix fichiers présentaient une bonne qualité globale des bases selon le module `Per base sequence quality`. J'ai donc décidé de réaliser un trimming uniquement sur les deux réplicats juvéniles, afin de supprimer les séquences d'adaptateurs sans raccourcir inutilement les reads des autres échantillons.
+
+Pour cela, j'ai choisi d'utiliser **Trimmomatic**, que nous avions déjà étudié en cours, et de l'installer dans un environnement Conda dédié :
+
+```bash
+conda create -p /data/projet3/conda_environments/env_trimmomatic -c conda-forge -c bioconda trimmomatic -y
+```
+
+Trimmomatic permet notamment de supprimer les adaptateurs en comparant les reads aux séquences d'adaptateurs de référence. Il peut également éliminer les reads devenus trop courts après le nettoyage.
+
+J'ai ensuite créé un script Bash, `trim_juveniles.sh`, dans le dossier `trimming_results`, à l'aide de `nano` :
+
+```bash
+nano /data/projet3/trimming_results/trim_juveniles.sh
+```
+
+Dans ce script, j'ai d'abord utilisé la commande suivante afin de retrouver le fichier contenant les séquences des adaptateurs Illumina :
+
+```bash
+ADAPTERS=$(find /data/projet3/conda_environments/env_trimmomatic -name "TruSeq3-PE.fa" -print -quit)
+```
+
+La commande `find` recherche le fichier `TruSeq3-PE.fa` dans l'environnement Conda et enregistre son chemin dans la variable `ADAPTERS`, qui est ensuite utilisée par Trimmomatic.
+
+Pour le trimming des deux réplicats, j'ai utilisé les paramètres suivants :
+
+```bash
+"ILLUMINACLIP:${ADAPTERS}:2:30:10:2:true" \
+MINLEN:36
+```
+
+Le paramètre `ILLUMINACLIP` permet de rechercher et de supprimer les adaptateurs à partir du fichier de référence. Les valeurs indiquées correspondent aux différents seuils utilisés par Trimmomatic pour leur détection. Le paramètre `MINLEN:36` permet quant à lui d'éliminer les reads dont la longueur devient inférieure à 36 nucléotides après le trimming.
+
+Le script contient les commandes de trimming des deux réplicats juvéniles, exécutées successivement. Pour chaque réplicat, quatre fichiers de sortie sont prévus : deux fichiers `paired`, contenant les reads dont les deux partenaires ont été conservés, et deux fichiers `unpaired`, contenant les reads conservés seuls.
+
+Tous les fichiers sont directement enregistrés au format compressé `.fastq.gz`, afin de limiter l'espace de stockage utilisé sur le serveur PTU. Les résultats sont répartis dans les dossiers `Juvenile_Replicat1` et `Juvenile_Replicat2`, avec un fichier `trimmomatic.log` permettant de conserver les statistiques du traitement.
+
+Pour exécuter le script sans devoir maintenir ma connexion au serveur PTU, j'ai prévu de le lancer dans une session `screen` :
+
+```bash
+screen -S trimming_juveniles
+```
+
+Puis, après activation de l'environnement Conda :
+
+```bash
+conda activate /data/projet3/conda_environments/env_trimmomatic
+
+bash /data/projet3/trimming_results/trim_juveniles.sh
+```
 
 
 
