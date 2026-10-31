@@ -1,0 +1,2 @@
+/data/projet3/trimming_results/juvenile_replicat_1/SRR37199247_R1_paired.fastq.gz /data/projet3/trimming_results/juvenile_replicat_1/SRR37199247_R2_paired.fastq.gz fastq
+/data/projet3/trimming_results/juvenile_replicat_2/SRR37199246_R1_paired.fastq.gz /data/projet3/trimming_results/juvenile_replicat_2/SRR37199246_R2_paired.fastq.gz fastq

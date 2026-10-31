@@ -792,6 +792,43 @@ Options utilisées :
 
   Cette suppression permet de récupérer environ 24 Go sans retirer les commits ni les fichiers du projet. Les objets Git valides restent conservés dans `.git`.
 
+  **Lancement d’EviAnn avec les RNA-seq juvéniles trimés**
+
+  Un manifeste consacré aux deux réplicats juvéniles a été créé. Chaque ligne associe les lectures `R1_paired` et `R2_paired` d’un même réplicat :
+
+  ```bash
+  liste=/data/projet3/data_sets/RNAseq_data_set/rnaseq_juveniles_trimes.txt
+
+  cat > "$liste" <<'EOF'
+  /data/projet3/trimming_results/juvenile_replicat_1/SRR37199247_R1_paired.fastq.gz /data/projet3/trimming_results/juvenile_replicat_1/SRR37199247_R2_paired.fastq.gz fastq
+  /data/projet3/trimming_results/juvenile_replicat_2/SRR37199246_R1_paired.fastq.gz /data/projet3/trimming_results/juvenile_replicat_2/SRR37199246_R2_paired.fastq.gz fastq
+  EOF
+  ```
+
+  Les fichiers `unpaired`, dont une seule lecture de la paire a survécu au trimming, ne sont pas inclus. Un dossier distinct a été créé pour annoter la première partie du génome sans réutiliser les résultats intermédiaires des runs précédents :
+
+  ```bash
+  mkdir -p /data/projet3/eviann_runs/run_juvenile_trimes/genomic_part_001
+  ```
+
+  EviAnn a été lancé avec deux cœurs dans une session `screen` :
+
+  ```bash
+  # Activation de l'environnement
+  conda activate /data/projet3/conda_environments/env_eviann
+  
+  # Déplacement dans le bon dossier
+  cd /data/projet3/eviann_runs/run_juvenile_trimes/genomic_part_001
+
+  # Lancement d'EviAnn
+  eviann.sh \
+  -g /data/projet3/acanthaster_planci_ref_datas/genome/split_genome/GCF_054643075.1_COTS_SCS_genomic.part_001.fna \
+  -p /data/projet3/data_sets/homology_data_set/asteroidea_proteins.faa \
+  -r /data/projet3/data_sets/RNAseq_data_set/rnaseq_juveniles_trimes.txt \
+  -t 2 2>&1 | tee eviann.log
+  ```
+
+
 ---  
 
 ### 28/10/2026 – Libération de l’espace de stockage sur le serveur et suppression des résultats EviAnn devenus inutiles
