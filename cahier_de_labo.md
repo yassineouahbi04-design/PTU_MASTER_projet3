@@ -792,7 +792,7 @@ Options utilisées :
 
   Cette suppression permet de récupérer environ 24 Go sans retirer les commits ni les fichiers du projet. Les objets Git valides restent conservés dans `.git`.
 
-  **Lancement d’EviAnn avec les RNA-seq juvéniles trimés**
+  **Lancement d’EviAnn avec les RNA-seq juvéniles trimés et les données homologies sans les protéines de planci**
 
   Un manifeste consacré aux deux réplicats juvéniles a été créé. Chaque ligne associe les lectures `R1_paired` et `R2_paired` d’un même réplicat :
 
@@ -811,7 +811,7 @@ Options utilisées :
   mkdir -p /data/projet3/eviann_runs/run_juvenile_trimes/genomic_part_001
   ```
 
-  EviAnn a été lancé avec deux cœurs dans une session `screen` :
+  EviAnn a été lancé avec deux cœurs dans une session `screen` sur la seconde partie du gènome dans un premier temps:
 
   ```bash
   # Activation de l'environnement
@@ -821,12 +821,25 @@ Options utilisées :
   cd /data/projet3/eviann_runs/run_juvenile_trimes/genomic_part_001
 
   # Lancement d'EviAnn
-  eviann.sh \
-  -g /data/projet3/acanthaster_planci_ref_datas/genome/split_genome/GCF_054643075.1_COTS_SCS_genomic.part_001.fna \
-  -p /data/projet3/data_sets/homology_data_set/asteroidea_proteins.faa \
-  -r /data/projet3/data_sets/RNAseq_data_set/rnaseq_juveniles_trimes.txt \
+  eviann.sh
+  -g /data/projet3/acanthaster_planci_ref_datas/genome/split_genome/GCF_054643075.1_COTS_SCS_genomic.part_001.fna
+  -p /data/projet3/data_sets/homology_data_set/asteroidea_filtre_sans_planci.faa
+  -r /data/projet3/data_sets/RNAseq_data_set/rnaseq_juveniles_trimes.txt
   -t 2 2>&1 | tee eviann.log
   ```
+  
+  Le journal rapporte :
+
+  | Élément annoté | Nombre |
+  |---|---:|
+  | Genes | 6955 |
+  | protein coding genes | 6594 |
+  | processed pseudo gene transcripts| 11 |
+  | processed pseudo genes | 10 |
+  | transcripts | 12279 |
+  | long non-coding RNAs | 354 |
+  | distinct proteins | 9601 |
+  
 
 
 ---  
@@ -959,7 +972,15 @@ conda activate /data/projet3/conda_environments/env_trimmomatic
 bash /data/projet3/trimming_results/trim_juveniles.sh
 ```
 
+### 01/11/2026 — Tentatives d’installation de BUSCO
 
+**Étudiant : Shahiran Kuganaathan**
+
+J’ai effectué deux tentatives d’installation de BUSCO 6.1.0 dans un environnement Conda dédié, mais les deux ont échoué avec les erreurs `No space left on device` et `InvalidArchiveError`, indiquant un manque d’espace disque lors du téléchargement et de l’extraction des paquets.
+
+Après avoir effectué des recherches sur Internet pour comprendre l’origine de ces erreurs, j’ai vérifié l’espace de stockage disponible sur le serveur. J’ai constaté que le disque système `/`, d’une capacité de 38 Go et partagé entre les utilisateurs, était presque saturé, contrairement à la partition `/data`, qui disposait encore de plusieurs gigaoctets libres.
+
+Le problème provenait du fonctionnement de Conda : bien que l’environnement BUSCO soit destiné à être installé dans `/data/projet3/conda_environments/`, Conda téléchargeait et extrayait d’abord les dépendances dans le cache personnel `/home/kuganaathan/.conda/pkgs`, situé sur le disque système presque saturé. L’espace disponible sur cette partition était donc insuffisant pour terminer l’installation.
 
 
 

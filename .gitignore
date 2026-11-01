@@ -13,8 +13,9 @@ acanthaster_planci_ref_datas/
 
 /data_sets/homology_data_set
 
-# Fichiers resultats Eviann
-eviann_runs
+# Fichiers resultats Eviann et analyses
+eviann_runs/
+analyses/
 
 # Fichiers de résultats FastQC au format zip
 /fastqc_results/**/*.zip
