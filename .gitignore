@@ -5,13 +5,7 @@
 acanthaster_planci_ref_datas/
 
 # Lectures RNA-seq brutes
-/data_sets/RNAseq_data_set/**/*.fastq
-/data_sets/RNAseq_data_set/**/*.fastq.gz
-/data_sets/RNAseq_data_set/**/*.fq
-/data_sets/RNAseq_data_set/**/*.fq.gz
-/data_sets/RNAseq_data_set/**/*.sra
-
-/data_sets/homology_data_set
+/data_sets
 
 # Fichiers resultats Eviann et analyses
 eviann_runs/

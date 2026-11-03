@@ -63,7 +63,6 @@ A_planci.proteins.fasta (proteins_sequences_file.fasta)
 genome_ref.gff(ref_annotation.gff)
 
 
-Bien sûr. Pour ton **cahier de labo**, tu peux mettre ça, dans l’ordre de ce que tu as fait aujourd’hui :
 
 ### Comparaison de l’annotation EviAnn avec l’annotation de référence
 
@@ -818,11 +817,11 @@ Options utilisées :
   conda activate /data/projet3/conda_environments/env_eviann
   
   # Déplacement dans le bon dossier
-  cd /data/projet3/eviann_runs/run_juvenile_trimes/genomic_part_001
+  cd /data/projet3/eviann_runs/run_juvenile_trimes/genomic_part_002
 
   # Lancement d'EviAnn
   eviann.sh
-  -g /data/projet3/acanthaster_planci_ref_datas/genome/split_genome/GCF_054643075.1_COTS_SCS_genomic.part_001.fna
+  -g /data/projet3/acanthaster_planci_ref_datas/genome/split_genome/GCF_054643075.1_COTS_SCS_genomic.part_002.fna
   -p /data/projet3/data_sets/homology_data_set/asteroidea_filtre_sans_planci.faa
   -r /data/projet3/data_sets/RNAseq_data_set/rnaseq_juveniles_trimes.txt
   -t 2 2>&1 | tee eviann.log
@@ -839,7 +838,71 @@ Options utilisées :
   | transcripts | 12279 |
   | long non-coding RNAs | 354 |
   | distinct proteins | 9601 |
+
+  Suite à ca il a été lancer sur la première partie du gènome en allouant 4 coeurs :
+
+  ```bash
+  # Activation de l'environnement
+  conda activate /data/projet3/conda_environments/env_eviann
   
+  # Déplacement dans le bon dossier
+  cd /data/projet3/eviann_runs/run_juvenile_trimes/genomic_part_001
+
+  # Lancement d'EviAnn
+  eviann.sh
+  -g /data/projet3/acanthaster_planci_ref_datas/genome/split_genome/GCF_054643075.1_COTS_SCS_genomic.part_001.fna
+  -p /data/projet3/data_sets/homology_data_set/asteroidea_filtre_sans_planci.faa
+  -r /data/projet3/data_sets/RNAseq_data_set/rnaseq_juveniles_trimes.txt
+  -t 4 2>&1 | tee eviann.log
+  ```
+
+  Le journal rapporte :
+
+  | Élément annoté | Nombre |
+  |---|---:|
+  | Genes | 8184 |
+  | protein coding genes | 7812 |
+  | processed pseudo gene transcripts| 26 |
+  | processed pseudo genes | 26 |
+  | transcripts | 13914 |
+  | long non-coding RNAs | 351 |
+  | distinct proteins | 11340 |
+
+  **3/11/2026 — Lancement d’EviAnn avec l’ensemble des données RNA-seq et les données d'homologie filtrées** 
+
+  Un nouveau manifeste, `rnaseq_all_compressed_datas.txt`, a été préparé avec les chemins des fichiers RNA-seq compressés (`.fastq.gz`). Chaque ligne associe les deux fichiers d’un échantillon.
+
+  EviAnn a été lancé sur la première partie du génome, avec le fichier de protéines homologues filtrées et le manifeste `rnaseq_all_compressed_datas.txt`.
+
+  ```bash
+  eviann.sh
+  -g /data/projet3/acanthaster_planci_ref_datas/genome/split_genome/GCF_054643075.1_COTS_SCS_genomic.part_001.fna
+  -p /data/projet3/data_sets/homology_data_set/asteroidea_filtre_sans_planci.faa
+  -r /data/projet3/data_sets/RNAseq_data_set/rnaseq_all_compressed_datas.txt
+  -t 4 2>&1 | tee eviann.log
+  ```
+
+  Le run a échoué à cause d'un manque d'espace. Pour regeler ce problème de notre coté nous avons supprimer un grosse partie des données des run tout en gardant les fichiers importants (BAM, utilise à GFF compare et Features count), cela a été fait par Shahiran. Les données du run précedent ont été suprimer et un nouveau va etre retenter cette fois ci avec un autre type de données. 
+
+  **Nouvelle annotation à partir des BAM non trimés et des données d'homologie filtrées**
+
+  Les alignements RNA-seq ont été regroupés dans `/data/projet3/data_sets/BAM_data_set/`, avec un dossier distinct pour chaque partie du génome. Deux manifestes ont été créés dans `/data/projet3/manifests_bam/` : `non_trimmed_part_001.txt` et `non_trimmed_part_002.txt`. Chacun contient les chemins de cinq BAM non trimés (épine, estomac, gonade et deux réplicats juvéniles), avec le mot-clé `bam` attendu par EviAnn.
+
+  Une nouvelle annotation a été lancée sur la partie 001 du génome, en utilisant le manifeste correspondant et les protéines d’homologie filtrées pour exclure *Acanthaster planci* :
+
+  ```bash
+  set -o pipefail
+
+  eviann.sh -g /data/projet3/acanthaster_planci_ref_datas/genome/split_genome/GCF_054643075.1_COTS_SCS_genomic.part_001.fna 
+  -p /data/projet3/data_sets/homology_data_set/asteroidea_filtre_sans_planci.faa 
+  -r /data/projet3/manifests_bam/non_trimmed_part_001.txt -t 4 2>&1 | tee eviann.log
+  ```
+  Le manifeste `non_trimmed_part_002.txt` servira à lancer séparément l’annotation de la partie 002.
+
+  Le journal rapport : 
+  
+
+  **Lancement d’EviAnn avec l’ensemble des données RNA-seq, dont les données juveniles trimmé, et les données d'homologie filtrées**
 
 
 ---  
