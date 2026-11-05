@@ -891,20 +891,183 @@ Options utilisées :
   Une nouvelle annotation a été lancée sur la partie 001 du génome, en utilisant le manifeste correspondant et les protéines d’homologie filtrées pour exclure *Acanthaster planci* :
 
   ```bash
-  set -o pipefail
-
-  eviann.sh -g /data/projet3/acanthaster_planci_ref_datas/genome/split_genome/GCF_054643075.1_COTS_SCS_genomic.part_001.fna 
+  eviann.sh 
+  -g /data/projet3/acanthaster_planci_ref_datas/genome/split_genome/GCF_054643075.1_COTS_SCS_genomic.part_001.fna 
   -p /data/projet3/data_sets/homology_data_set/asteroidea_filtre_sans_planci.faa 
-  -r /data/projet3/manifests_bam/non_trimmed_part_001.txt -t 4 2>&1 | tee eviann.log
+  -r /data/projet3/data_sets/BAM_data_set/manifests_bam/non_trimmed_part_001. txt -t 4 2>&1 | tee eviann.log
   ```
-  Le manifeste `non_trimmed_part_002.txt` servira à lancer séparément l’annotation de la partie 002.
+  Au moment de l'alignement avec miniprot le run sur la seconde moitié du gènome à été lancé : 
 
-  Le journal rapport : 
+  ```bash
+  eviann.sh 
+  -g /data/projet3/acanthaster_planci_ref_datas/genome/split_genome/GCF_054643075.1_COTS_SCS_genomic.part_002.fna 
+  -p /data/projet3/data_sets/homology_data_set/asteroidea_filtre_sans_planci.faa 
+  -r /data/projet3/data_sets/BAM_data_set/manifests_bam/non_trimmed_part_002.txt -t 4 2>&1 | tee eviann.log
+  ```
+
+  Le run sur la premère partie ayant échoué il a été relancé. 
+
+  Le journal rapporte pour la première moitié :
+
+  | Élément annoté | Nombre |
+  |---|---:|
+  | Genes | 9116 |
+  | protein coding genes | 8353 |
+  | processed pseudo gene transcripts| 38 |
+  | processed pseudo genes | 38 |
+  | transcripts | 18667 |
+  | long non-coding RNAs | 740 |
+  | distinct proteins | 13697 |
+
+  Le journal rapporte pour la seconde moitié :
+
+  | Élément annoté | Nombre |
+  |---|---:|
+  | Genes | 8036 |
+  | protein coding genes | 7325 |
+  | processed pseudo gene transcripts| 14 |
+  | processed pseudo genes | 13 |
+  | transcripts | 17238 |
+  | long non-coding RNAs | 705 |
+  | distinct proteins | 12057 |  
+
+  **3/11/2026 — Lancement d’EviAnn avec l’ensemble des données RNA-seq, dont les données juveniles trimmé, et les données d'homologie filtrées**
+
+  Une nouvelle annotation a été lancée sur la partie 001 du génome, en utilisant le manifeste correspondant et les protéines d’homologie filtrées pour exclure *Acanthaster planci* :
+
+  ``` bash
+  time eviann.sh
+  -g /data/projet3/acanthaster_planci_ref_datas/genome/split_genome/GCF_054643075.1_COTS_SCS_genomic.part_002.fna 
+  -p /data/projet3/data_sets/homology_data_set/asteroidea_filtre_sans_planci.faa 
+  -r /data/projet3/data_sets/BAM_data_set/manifests_bam/mixte_part_002.txt -t 4 2>&1 | tee eviann.log  
+  ```
   
+  Le journal rapporte : 
 
-  **Lancement d’EviAnn avec l’ensemble des données RNA-seq, dont les données juveniles trimmé, et les données d'homologie filtrées**
+  | Élément annoté | Nombre |
+  |---|---:|
+  | Genes | 9125 |
+  | protein coding genes | 8355 |
+  | processed pseudo gene transcripts| 39 |
+  | processed pseudo genes | 38 |
+  | transcripts | 18866 |
+  | long non-coding RNAs | 745 |
+  | distinct proteins | 13791 |
 
+  Le lancement sur la seconde paritie du génome a été fait mais ce dernier a échoué par manque de RAM, en effet quelqu'un à lancé un programme qui a kill miniprot. 
 
+  EviAnn à donc été relancé avec 2 coeurs pour eviter le meme problème.
+
+  Le journal rapporte : 
+
+  | Élément annoté | Nombre |
+  |---|---:|
+  | Genes | 8067 |
+  | protein coding genes | 7323 |
+  | processed pseudo gene transcripts| 14 |
+  | processed pseudo genes | 13 |
+  | transcripts | 17523 |
+  | long non-coding RNAs | 741 |
+  | distinct proteins | 12165 |
+
+  **05/11/2026 — Préparation des outils de controle de l'annotation et ajout de données RNA-seq**
+
+  BUSCO et featureCounts ont été installés dans deux environnements Conda distincts : `/data/projet3/conda_environments/env_busco` et `/data/projet3/conda_environments/env_featurecounts`. BUSCO servira à évaluer la complétude des annotations et featureCounts permettra de compter les lectures alignées par gène à partir des BAM et de l’annotation.
+
+  Deux nouveaux jeux de RNA-seq d’*Acanthaster planci* ont été ajoutés pour diversifier les tissus utilisés. 
+  
+  Le [nerf radial (SRR6378162)](https://www.ncbi.nlm.nih.gov/sra/SRX3472964) et les [pieds ambulacraires (SRR14654944)](https://www.ncbi.nlm.nih.gov/sra/SRX10993458).
+
+  Une tentative de téléchargement avec `prefetch` a échoué lors de la création de fichiers dans `sra_downloads`. Les données ont ensuite été téléchargées directement avec `fastq-dump`. L’option `--split-files` sépare les lectures appariées et `--gzip` produit des fichiers `.fastq.gz`.
+
+  ```bash
+  fastq-dump --split-files --gzip --outdir /data/projet3/data_sets/RNAseq_data_set/nerve_dataset SRR6378162
+
+  fastq-dump --split-files --gzip --outdir /data/projet3/data_sets/RNAseq_data_set/podia_dataset SRR14654944
+  ```
+
+  Les fichiers sont rangés respectivement dans `nerve_dataset` et `podia_dataset`. Leur qualité et leur intégrité restent à contrôler avant utilisation dans EviAnn. 
+
+  **Contrôle qualité des nouvelles données RNA-seq**
+
+  Un contrôle qualité avec FastQC a été lancé sur les lectures appariées du nerf radial (`SRR6378162`) et des pieds ambulacraires (`SRR14654944`). FastQC lit directement les fichiers `.fastq.gz`. Les deux jeux ont été analysés séparément avec deux threads, après activation de l’environnement dédié.
+
+  ```bash
+  # On active l'environement
+  conda activate /data/projet3/conda_environments/env_fastqc
+
+  # On crée le fichier de sortie et on lance
+  mkdir -p /data/projet3/fastqc_results/nerve_dataset
+  fastqc -t 2 -o /data/projet3/fastqc_results/nerve_dataset /data/projet3/data_sets/RNAseq_data_set/nerve_dataset/*.fastq.gz
+
+  mkdir -p /data/projet3/fastqc_results/podia_dataset
+  fastqc -t 2 -o /data/projet3/fastqc_results/podia_dataset /data/projet3/data_sets/RNAseq_data_set/podia_dataset/*.fastq.gz
+  ```
+
+  **Analyse FastQC et préparation du trimming du nerf radial**
+
+  Les rapports FastQC des deux lectures appariées du nerf radial (`SRR6378162`) ont été examinés. Le fichier R1 contient **30 137 242 lectures de 151 bases** (environ 4,5 Gbp), avec **44 % de GC** et un encodage Phred+33.
+
+  La qualité par base est globalement bonne, mais le signal d’adaptateur **Nextera** atteint environ **46 % des lectures** en fin de R1 et **45 %** en fin de R2. Un signal poly-G apparaît également en fin de lecture. FastQC signale une forte duplication pour R1. Ce résultat ne permet pas, à lui seul, de distinguer les duplications techniques des transcrits fortement exprimés en RNA-seq. Aucune déduplication n’a donc été prévue.
+
+  Un trimming **paired-end** avec Trimmomatic a été préparé pour retirer les adaptateurs Nextera et couper les extrémités de faible qualité. Les sorties sont destinées à `/data/projet3/trimming_results/nerve/`.
+
+  ```bash
+  conda activate /data/projet3/conda_environments/env_trimmomatic
+  IN=/data/projet3/data_sets/RNAseq_data_set/nerve_dataset
+  OUT=/data/projet3/trimming_results/nerve
+  ADAPTERS=$(find /data/projet3/conda_environments/env_trimmomatic -type f -name NexteraPE-PE.fa -print -quit)
+
+  [ -n "$ADAPTERS" ] && trimmomatic PE -threads 2 -phred33 "$IN/SRR6378162_1.fastq.gz" "$IN/SRR6378162_2.fastq.gz" "$OUT/SRR6378162_R1_paired.fastq.gz" "$OUT/SRR6378162_R1_unpaired.fastq.gz" "$OUT/SRR6378162_R2_paired.fastq.gz" "$OUT/SRR6378162_R2_unpaired.fastq.gz" "ILLUMINACLIP:$ADAPTERS:2:30:10" SLIDINGWINDOW:4:20 MINLEN:36
+  ```
+
+  **Contrôle des données de nerf après trimming**
+
+  FastQC a été réalisé sur les fichiers appariés du nerf. La qualité par base et le contenu en adaptateurs passent désormais les contrôles. Le trimming a conservé **12 636 649 paires** sur les **30 137 242 paires initiales**. Des alertes subsistent notamment pour la composition et la duplication des séquences.
+
+  **Création des manifestes pour EviAnn**
+
+  Un manifeste a été créé pour chaque partie du génome. Chacun reprend les BAM du manifeste mixte correspondant et ajoute les FASTQ du nerf après trimming ainsi que ceux des podia :
+
+  ```bash
+  BASE=/data/projet3
+  MAN="$BASE/data_sets/BAM_data_set/manifests_bam"
+  NER="$BASE/trimming_results/nerve"
+  POD="$BASE/data_sets/RNAseq_data_set/podia_dataset"
+
+  for part in 001 002; do
+    sortie="$MAN/mixte_nerve_podia_part_$part.txt"
+
+    cp "$MAN/mixte_part_$part.txt" "$sortie"
+
+    printf '%s %s fastq\n' \
+        "$NER/SRR6378162_R1_paired.fastq.gz" \
+        "$NER/SRR6378162_R2_paired.fastq.gz" >> "$sortie"
+
+    printf '%s fastq\n' \
+        "$NER/SRR6378162_R1_unpaired.fastq.gz" >> "$sortie"
+
+    printf '%s %s fastq\n' \
+        "$POD/SRR14654944_1.fastq.gz" \
+        "$POD/SRR14654944_2.fastq.gz" >> "$sortie"
+  done
+  ```
+
+  Les BAM des parties `001` et `002` ont été alignés sur des références différentes, d’où la création de deux manifestes. Le fichier `R1_unpaired` est placé sur une ligne distincte. En effet ses **15 408 272 lectures R1** ont survécu au trimming, contrairement à leurs lectures R2 correspondantes. EviAnn peut ainsi les utiliser comme lectures seules, en plus des **12 636 649 paires** conservées.
+
+  **Lancement du run**
+  
+  On lance EviAnn sur le manifeste mixte_nerve_podia_part_001.txt (contenant les données podia et nerve trimmé ainsi que les chemin des fichiers BAM pour gonad, spine, stomach et juveniles trimé) et les donnée d'homologie filtrées. 
+
+  ```bash
+  time eviann.sh
+  -g /data/projet3/acanthaster_planci_ref_datas/genome/split_genome/GCF_054643075.1_COTS_SCS_genomic.part_001.fna
+  -p /data/projet3/data_sets/homology_data_set/asteroidea_filtre_sans_planci.faa
+  -r /data/projet3/data_sets/BAM_data_set/manifests_bam/mixte_nerve_podia_part_001.txt
+  -t 4 2>&1 | tee eviann.log
+  ```
+
+  
 ---  
 
 ### 28/10/2026 – Libération de l’espace de stockage sur le serveur et suppression des résultats EviAnn devenus inutiles
@@ -1047,17 +1210,206 @@ Le problème provenait du fonctionnement de Conda : bien que l’environnement B
 
 
 
+### 01/10/2026 — Fusion et évaluation du run_1
 
+**Étudiante : Sarah Amzallag**
 
+Le génome d’*A. planci* étant trop volumineux pour la mémoire du serveur, il a été coupé en deux parties (`part_001` et `part_002`). Yassine a lancé EviAnn sur chaque partie séparément (run_1 : 2 réplicats juvéniles et protéines d’Asteroidea). Pour chaque partie, EviAnn produit un fichier **GFF**, qui contient l’annotation (gènes, transcrits, exons et introns avec leur position sur le génome), et un fichier **FASTA**, qui contient les séquences des protéines prédites. Mon travail consistait à réunir ces deux moitiés pour obtenir l’annotation du génome entier, puis à évaluer sa qualité.
 
+J’ai d’abord fusionné les deux annotations GFF en un seul fichier. Chaque GFF commence par un en-tête de 3 lignes (format, nom du programme). Pour ne pas le dupliquer, j’ai conservé l’en-tête de la partie 1 (`head -3`), puis ajouté les gènes de la partie 1 et ceux de la partie 2 à partir de la ligne 4 (`tail -n +4`) :
 
+```bash
+{ head -3 part_001.gff; tail -n +4 part_001.gff; tail -n +4 part_002.gff; } > A_planci.gff
+```
 
+J’ai ensuite fusionné les protéines des deux parties. Les fichiers FASTA n’ayant pas d’en-tête, ils ont simplement été concaténés avec `cat` :
 
+```bash
+cat part_001.proteins.fasta part_002.proteins.fasta > A_planci.proteins.fasta
+```
 
+J’ai enfin évalué l’annotation avec GffCompare 0.12.10. Cet outil compare l’annotation produite par EviAnn à l’annotation officielle du NCBI, qui sert de référence. Pour chaque gène, transcrit, exon et intron, il vérifie si EviAnn l’a retrouvé exactement au même endroit. Cela permet de mesurer la qualité de notre annotation et de comparer les runs entre eux :
 
+```bash
+gffcompare -r /data/projet3/acanthaster_planci_datas/annotation/ref_annotation.gff -o /data/projet3/gffcompare_result/result /data/projet3/gffcompare_result/proteine_annotation_file.gff
+```
 
+L’option `-r` indique l’annotation de référence (NCBI), `-o` le dossier et le préfixe des fichiers de sortie, et le dernier fichier est l’annotation EviAnn à évaluer. GffCompare produit plusieurs fichiers :
 
+- `result.stats` : le résumé des scores (sensibilité, précision, éléments manqués ou nouveaux) ;
+- `result.tracking` et `result.loci` : la correspondance entre nos transcrits et gènes et ceux de la référence ;
+- `result.annotated.gtf` : notre annotation, où chaque transcrit est annoté selon sa correspondance avec la référence ;
+- `.tmap` et `.refmap` : la correspondance transcrit par transcrit.
 
+Des droits insuffisants empêchaient d’écrire dans le dossier contenant l’annotation. J’ai donc travaillé sur une copie du fichier. Les fichiers ont ensuite été rangés dans `analyses/` lors de la réorganisation de l’arborescence.
 
-  
+---
 
+### 02/10/2026 – 30/10/2026 — Analyse des résultats du run_1 en attendant les runs suivants
+
+**Étudiante : Sarah Amzallag**
+
+Le délai entre le run_1 et les runs suivants a été long, car le run_2 a échoué plusieurs fois suite à l’arrêt de miniprot par manque de mémoire vive.
+
+Pendant ce temps, j’ai analysé les résultats GffCompare du run_1 (`result.stats`). L’annotation est précise (96,6 % des introns prédits sont corrects) mais incomplète (20,3 % des gènes de la référence ne sont pas retrouvés). Une explication possible est que le run_1 n’utilise que des RNA-seq de juvéniles : les gènes exprimés dans d’autres tissus ne peuvent pas être détectés. Le détail des résultats est présenté dans l’analyse comparative des cinq runs (05/11/2026).
+
+---
+
+### 31/10/2026 — Fusion et évaluation du run_2
+
+**Étudiante : Sarah Amzallag**
+
+Le run_2 utilise 5 échantillons RNA-seq (2 juvéniles, gonade, épine, estomac) et les mêmes protéines que le run_1. L’objectif est de voir si l’ajout de tissus améliore l’annotation. J’ai fusionné les deux parties de la même façon que pour le run_1, puis lancé GffCompare, en utilisant cette fois des jokers `*` pour sélectionner les fichiers :
+
+```bash
+{ head -3 eviann_runs/run_2/genomic_part_001/*.gff; tail -n +4 eviann_runs/run_2/genomic_part_001/*.gff; tail -n +4 eviann_runs/run_2/genomic_part_002/*.gff; } > analyses/eviann_results/run_2/proteine_annotation_file.gff
+
+cat eviann_runs/run_2/genomic_part_001/*.fasta eviann_runs/run_2/genomic_part_002/*.fasta > analyses/eviann_results/run_2/proteins_sequences_file.fasta
+
+gffcompare -r acanthaster_planci_ref_datas/annotation/ref_annotation.gff -o analyses/gff_compare_results/run_2_gffcompare_results/result analyses/eviann_results/run_2/proteine_annotation_file.gff
+```
+
+Ces fichiers se sont révélés incorrects et ont été refaits le 02/11/2026 (voir ci-dessous).
+
+---
+
+### 02/11/2026 — Run juvéniles trimés, détection d’une erreur et correction
+
+**Étudiante : Sarah Amzallag**
+
+Le run juvéniles trimés (lancé par Yassine) utilise les 2 réplicats juvéniles après trimming (adaptateurs retirés) et les protéines d’Asteroidea sans celles d’*A. planci*. J’ai fusionné ses deux parties avec les mêmes commandes que pour le run_2, puis j’ai vérifié la taille des fichiers obtenus :
+
+```bash
+ls -lh analyses/eviann_results/*/proteins_sequences_file.fasta
+grep -c '^>' analyses/eviann_results/run_juveniles_trimes/proteins_sequences_file.fasta
+```
+
+`ls -lh` affiche la taille des fichiers. `grep -c '^>'` compte les séquences, puisque chaque séquence FASTA commence par `>`. Le fichier de protéines faisait 120 Mo pour le run juvéniles et 230 Mo pour le run_2, contre 24 Mo pour le run_1. Il contenait 53 054 séquences, alors qu’EviAnn annonçait environ 21 000 protéines.
+
+Pour comprendre l’origine de cette différence, j’ai listé les fichiers produits par EviAnn :
+
+```bash
+ls -lh eviann_runs/run_2/*/*.fasta eviann_runs/run_2/*/*.gff
+```
+
+Dans chaque partie, EviAnn produit deux fichiers FASTA (les protéines `.proteins.fasta` et les transcrits `.transcripts.fasta`) et sept fichiers GFF, dont un seul est l’annotation finale (`.fna.gff`). Les six autres sont des fichiers intermédiaires (alignements de protéines, protéines non utilisées…). Le joker `*` sélectionnait tous ces fichiers. J’avais donc collé les protéines (séquences d’acides aminés) avec les transcrits (séquences nucléotidiques), et l’annotation finale avec les fichiers intermédiaires. GffCompare évaluait ce mélange : ses résultats étaient donc faux pour le run_2 et le run juvéniles.
+
+Le run_1 n’est pas concerné, car il avait été fusionné avec les noms exacts des fichiers. Son annotation fait 88 Mo (46 + 43 Mo, les deux `.fna.gff`) et ses protéines 24 Mo.
+
+J’ai supprimé les fichiers fusionnés et les résultats GffCompare de ces deux runs dans `analyses/`, sans toucher aux résultats d’EviAnn (`eviann_runs/`). Avant de refaire la fusion, j’ai vérifié que l’en-tête de chaque annotation faisait bien 3 lignes, pour ne perdre ni dupliquer aucun gène :
+
+```bash
+head -4 eviann_runs/run_2/genomic_part_001/GCF_054643075.1_COTS_SCS_genomic.part_001.fna.gff
+```
+
+J’ai ensuite refait les fusions en indiquant le nom exact des fichiers, sans joker : l’annotation finale de la partie 1 avec celle de la partie 2 (`.fna.gff`), et les protéines de la partie 1 avec celles de la partie 2 (`.proteins.fasta`). Exemple pour le run_2 :
+
+```bash
+{ head -3 eviann_runs/run_2/genomic_part_001/GCF_054643075.1_COTS_SCS_genomic.part_001.fna.gff; tail -n +4 eviann_runs/run_2/genomic_part_001/GCF_054643075.1_COTS_SCS_genomic.part_001.fna.gff; tail -n +4 eviann_runs/run_2/genomic_part_002/GCF_054643075.1_COTS_SCS_genomic.part_002.fna.gff; } > analyses/eviann_results/run_2/proteine_annotation_file.gff
+
+cat eviann_runs/run_2/genomic_part_001/GCF_054643075.1_COTS_SCS_genomic.part_001.fna.proteins.fasta eviann_runs/run_2/genomic_part_002/GCF_054643075.1_COTS_SCS_genomic.part_002.fna.proteins.fasta > analyses/eviann_results/run_2/proteins_sequences_file.fasta
+```
+
+Les mêmes commandes ont été utilisées pour le run juvéniles, en remplaçant `run_2` par `run_juveniles_trimes`. J’ai ensuite vérifié les fichiers obtenus :
+
+```bash
+ls -lh analyses/eviann_results/run_2/ analyses/eviann_results/run_juveniles_trimes/
+grep -c "gff-version" analyses/eviann_results/run_2/proteine_annotation_file.gff
+```
+
+Les tailles correspondent désormais à la somme des deux parties (run_2 : 126 Mo pour l’annotation et 34 Mo pour les protéines ; juvéniles : 67 Mo et 17 Mo). La ligne `gff-version` n’apparaît qu’une fois, ce qui confirme l’absence d’en-tête en double.
+
+J’ai enfin relancé GffCompare sur les deux runs corrigés. GffCompare écrit les fichiers `.tmap` et `.refmap` à côté du fichier analysé : je les ai donc déplacés dans le dossier de résultats correspondant. Exemple pour le run_2 :
+
+```bash
+gffcompare -r acanthaster_planci_ref_datas/annotation/ref_annotation.gff -o analyses/gff_compare_results/run_2_gffcompare_results/result analyses/eviann_results/run_2/proteine_annotation_file.gff
+
+mv analyses/eviann_results/run_2/result.proteine_annotation_file.gff.* analyses/gff_compare_results/run_2_gffcompare_results/
+```
+
+---
+
+### 05/11/2026 — Fusion et évaluation de deux nouveaux runs avec les protéines filtrées
+
+**Étudiante : Sarah Amzallag**
+
+L’analyse des trois premiers runs laissait une question ouverte : la baisse de sensibilité du run juvéniles trimés pouvait venir du trimming ou du retrait des protéines d’*A. planci*, puisque ces deux paramètres avaient changé en même temps. Deux nouveaux runs EviAnn ont donc été réalisés, chacun ne modifiant qu’un seul paramètre :
+
+- **`run_all_RNA_seq_prot_filtred`** : les 5 échantillons RNA-seq du run_2 (juvéniles non trimés), avec les protéines d’Asteroidea sans *A. planci*. Par rapport au run_2, seules les protéines changent : ce run mesure l’effet du retrait des protéines d’*A. planci*.
+- **`run_all_RNA_seq_juveniles_trimes_prot_filtred`** : les 5 échantillons RNA-seq avec les juvéniles trimés, et les mêmes protéines filtrées. Par rapport au run précédent, seul le trimming change : ce run mesure l’effet du trimming.
+
+J’ai fusionné les deux parties de chaque run puis lancé GffCompare, avec la même méthode que pour les runs précédents (voir l’entrée du 02/11/2026) : vérification des en-têtes avec `head -4`, fusion des fichiers `.fna.gff` et `.fna.proteins.fasta` avec leur nom exact, contrôle de la taille et du nombre d’en-têtes, GffCompare, puis déplacement des fichiers `.tmap` et `.refmap`. Les résultats sont rangés dans des dossiers portant le nom de chaque run, dans `analyses/eviann_results/` et `analyses/gff_compare_results/`.
+
+| Run | GFF fusionné | FASTA protéines | En-têtes |
+|---|---:|---:|---:|
+| `run_all_RNA_seq_prot_filtred` | 96 Mo | 25 Mo | 1 |
+| `run_all_RNA_seq_juveniles_trimes_prot_filtred` | 97 Mo | 25 Mo | 1 |
+
+Un troisième run (`run_mixte_nervetrim_podia_all_juvtrim`) était encore en cours d’exécution et n’a pas pu être évalué.
+
+---
+
+### 05/11/2026 — Analyse des résultats GffCompare des cinq runs
+
+**Étudiante : Sarah Amzallag**
+
+Les résultats proviennent des fichiers `result.stats` produits par GffCompare, un par run, dans `analyses/gff_compare_results/`. Chaque fichier compare une annotation EviAnn à l’annotation de référence du NCBI (47 324 transcrits, 22 001 loci).
+
+Pour les trois premiers runs, j’ai vérifié que le nombre de transcrits compté par GffCompare correspondait à la somme des transcrits et des ARN longs non codants annoncés par EviAnn pour les deux parties (34 395, 48 062 et 26 898) : les fusions n’ont ni perdu ni dupliqué de transcrits.
+
+Les mesures utilisées sont les suivantes :
+
+- **Sensibilité** : part des éléments de la référence retrouvés par EviAnn. Elle mesure si l’annotation est complète.
+- **Précision** : part des éléments prédits par EviAnn présents dans la référence. Elle mesure si l’annotation est juste.
+- **Niveaux** : du plus simple au plus exigeant, base, intron, transcrit (tous les exons doivent être identiques) et locus (le gène est trouvé au bon endroit).
+- **Loci manqués** : gènes de la référence absents de notre annotation.
+- **Loci nouveaux** : gènes prédits par EviAnn absents de la référence.
+
+| | Run_1 | Run_2 | Juvéniles trimés | All RNA-seq, prot. filtrées | All RNA-seq juv. trimés, prot. filtrées |
+|---|---|---|---|---|---|
+| RNA-seq | 2 juvéniles | 5 échantillons | 2 juvéniles trimés | 5 échantillons | 5 échantillons (juv. trimés) |
+| Protéines | complètes | complètes | sans *A. planci* | sans *A. planci* | sans *A. planci* |
+| Base (sens. / préc.) | 60,9 / 92,7 % | 73,2 / 85,8 % | 56,0 / 91,7 % | 66,1 / 85,6 % | 66,4 / 85,6 % |
+| Intron (sens. / préc.) | 77,4 / 96,6 % | 85,6 / 93,0 % | 66,8 / 95,3 % | 74,9 / 93,0 % | 75,1 / 92,8 % |
+| Transcrit (sens. / préc.) | 43,4 / 59,7 % | 52,0 / 51,2 % | 32,9 / 57,9 % | 39,5 / 50,0 % | 39,8 / 49,8 % |
+| Locus (sens. / préc.) | 62,5 / 74,5 % | 69,9 / 77,4 % | 53,3 / 77,8 % | 59,3 / 77,0 % | 59,5 / 77,1 % |
+| Loci manqués | 20,3 % | 15,4 % | 33,2 % | 26,4 % | 26,2 % |
+| Loci nouveaux | 3,8 % | 6,0 % | 3,4 % | 5,5 % | 5,6 % |
+| Transcrits prédits | 34 395 | 48 062 | 26 898 | 37 350 | 37 875 |
+
+La précision reste élevée dans les cinq runs (plus de 92 % au niveau des introns) : ce qu’EviAnn prédit est généralement juste. C’est surtout la sensibilité qui varie. Les scores baissent du niveau intron au niveau transcrit, ce qui est attendu, car un seul exon mal placé suffit pour qu’un transcrit entier soit compté comme faux.
+
+Les cinq runs permettent d’isoler l’effet de chaque paramètre :
+
+| Comparaison | Paramètre modifié | Loci manqués | Effet |
+|---|---|---|---|
+| Run_1 → run_2 | Ajout de tissus | 20,3 % → 15,4 % | Sensibilité augmentée |
+| Juvéniles trimés → all RNA-seq juv. trimés, prot. filtrées | Ajout de tissus | 33,2 % → 26,2 % | Sensibilité augmentée |
+| Run_2 → all RNA-seq, prot. filtrées | Retrait des protéines d’*A. planci* | 15,4 % → 26,4 % | Sensibilité diminuée |
+| All RNA-seq, prot. filtrées → all RNA-seq juv. trimés, prot. filtrées | Trimming des juvéniles | 26,4 % → 26,2 % | Aucun effet notable |
+
+**Diversité des tissus.** L’ajout de tissus augmente la sensibilité, avec ou sans les protéines d’*A. planci*. Tous les gènes ne sont pas exprimés dans les mêmes tissus : multiplier les tissus permet de détecter davantage de gènes. La précision baisse légèrement, car EviAnn prédit plus de transcrits, dont certains, propres à un tissu, peuvent être absents de la référence.
+
+**Protéines d’homologie.** Le retrait des protéines d’*A. planci* diminue fortement la sensibilité (de 52,0 % à 39,5 % au niveau des transcrits), sans modifier la précision. Ces protéines proviennent probablement de l’annotation NCBI, qui sert aussi de référence : les run_1 et run_2 disposaient donc d’une partie de la « réponse », et leurs scores sont surestimés.
+
+**Trimming.** Le trimming des juvéniles n’a pratiquement aucun effet (moins de 0,5 point d’écart). La baisse observée pour le run juvéniles trimés était donc due au retrait des protéines d’*A. planci*, et non au trimming.
+
+Le run `all RNA-seq juv. trimés, prot. filtrées` est celui qui reflète le mieux les performances d’EviAnn sur un génome non annoté comme celui de *C. tenuispina* : il utilise toutes les données RNA-seq disponibles, sans protéines de l’espèce étudiée. EviAnn y retrouve 75,1 % des introns et 59,5 % des gènes de la référence, avec une précision de 92,8 % au niveau des introns.
+
+---
+
+### 05/11/2026 — Perspectives : évaluation complémentaire avec BUSCO et AGAT
+
+**Étudiante : Sarah Amzallag**
+
+GffCompare évalue nos annotations uniquement par comparaison avec l’annotation du NCBI. Cette approche a deux limites : elle suppose que la référence est complète et correcte, et elle ne sera plus possible pour un génome non annoté comme celui de *Coscinasterias tenuispina*. Deux outils complémentaires auraient permis d’aller plus loin.
+
+**BUSCO** recherche, dans les protéines prédites, un ensemble de gènes conservés présents en une seule copie chez presque toutes les espèces d’un groupe (par exemple les métazoaires ou les échinodermes). Il indique la proportion de ces gènes retrouvés complets, fragmentés, dupliqués ou absents. Il aurait pu être lancé en mode protéines sur nos fichiers fusionnés (`proteins_sequences_file.fasta`) et sur les protéines de référence. Cela aurait permis :
+
+- d’évaluer la complétude de chaque annotation **sans dépendre de l’annotation NCBI** ;
+- de vérifier si les gènes « nouveaux » ou « manqués » selon GffCompare correspondent à de vraies erreurs ;
+- de disposer d’une méthode d’évaluation applicable à *C. tenuispina*.
+
+**AGAT** calcule des statistiques descriptives sur un fichier GFF (`agat_sp_statistics.pl`) : nombre de gènes, longueur moyenne des gènes, nombre d’exons par transcrit, longueur des introns, etc. Comparer ces statistiques entre nos runs et la référence aurait permis de voir si EviAnn a tendance à produire des gènes trop courts, à fusionner ou à couper des gènes, ou à oublier des exons. Cela aurait aidé à expliquer la baisse des scores au niveau des transcrits.
+
+Ces analyses n’ont pas pu être réalisées. L’installation de BUSCO a échoué faute d’espace sur le disque système (voir l’entrée de Shahiran du 01/11/2026), et une grande partie du temps a été consacrée au téléchargement des données, aux relances d’EviAnn liées au manque de mémoire et à la libération d’espace sur le serveur. Compte tenu du temps restant, il est peu probable qu’elles soient faites avant la fin du projet. Elles constitueraient néanmoins la suite logique de ce travail.

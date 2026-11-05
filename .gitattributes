@@ -1,0 +1,1 @@
+analyses/eviann_results/run_2/proteine_annotation_file.gff filter=lfs diff=lfs merge=lfs -text

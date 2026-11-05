@@ -1,5 +1,7 @@
 # Environnements Conda installés
 /conda_environments/env_*/
+/conda_environments/.*/
+
 
 # Données de référence pour l'alignement
 acanthaster_planci_ref_datas/
@@ -9,10 +11,12 @@ acanthaster_planci_ref_datas/
 
 # Fichiers resultats Eviann et analyses
 eviann_runs/
-analyses/
 
 # Fichiers de résultats FastQC au format zip
 /fastqc_results/**/*.zip
 
 # Fichiers de données trimmées
 trimming_results/
+
+/conda_environments/.pkgs/
+/conda_environments/.tmp/

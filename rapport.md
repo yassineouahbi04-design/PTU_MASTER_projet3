@@ -190,37 +190,40 @@ Ces résultats indiquent que les introns prédits concordent globalement bien av
 
 #### 3. Fusion des résultats des deux partitions
 
-Les fichiers GFF obtenus après les deux exécutions d'EviAnn ont été fusionnés en conservant un seul en-tête, afin d'éviter la duplication des métadonnées. Les fichiers FASTA contenant les séquences protéiques prédites ont également été concaténés.
+Chaque exécution d’EviAnn produit, pour chaque partition, un fichier d’annotation au format GFF3 (`.fna.gff`) et un fichier FASTA des protéines prédites (`.fna.proteins.fasta`). EviAnn génère également plusieurs fichiers intermédiaires (alignements protéiques, transcrits, protéines non retenues) qui ne doivent pas être inclus dans l’annotation finale. Les fichiers ont donc été désignés par leur nom exact.
+
+Pour obtenir l’annotation du génome complet, les deux fichiers GFF ont été fusionnés en ne conservant qu’un seul en-tête. L’en-tête de chaque fichier (3 lignes : version du format et identification du programme) a été vérifié au préalable avec `head -4`. Les fichiers protéiques, sans en-tête, ont été concaténés :
 
 ```bash
-{
-    head -3 part_001.gff
-    tail -n +4 part_001.gff
-    tail -n +4 part_002.gff
-} > A_planci.gff
+RUN=nom_du_run
+P1=eviann_runs/$RUN/genomic_part_001/GCF_054643075.1_COTS_SCS_genomic.part_001.fna
+P2=eviann_runs/$RUN/genomic_part_002/GCF_054643075.1_COTS_SCS_genomic.part_002.fna
 
+{ head -3 $P1.gff; tail -n +4 $P1.gff; tail -n +4 $P2.gff; } > analyses/eviann_results/$RUN/proteine_annotation_file.gff
+cat $P1.proteins.fasta $P2.proteins.fasta > analyses/eviann_results/$RUN/proteins_sequences_file.fasta
 ```
 
-Cette étape a permis d'obtenir un fichier d'annotation GFF et un fichier FASTA protéique regroupant les résultats des deux partitions.
+L’intégrité des fichiers fusionnés a été contrôlée en vérifiant :
+- que leur taille correspond à la somme des fichiers des deux partitions ;
+- que l’en-tête n’apparaît qu’une fois (`grep -c "gff-version"`) ;
+- que le nombre de transcrits recensés par GffCompare est égal à la somme des transcrits et des ARN longs non codants annoncés par EviAnn pour les deux partitions.
 
-#### 4. Évaluation de l'annotation avec GffCompare
+#### 4. Évaluation des annotations avec GffCompare
 
-Afin d'évaluer la qualité de l'annotation produite par EviAnn, GffCompare (version 0.12.10) a été utilisé dans un environnement Conda dédié (`env_gff_compare`). Le fichier GFF produit par EviAnn a été comparé à l'annotation de référence du NCBI.
-
-La comparaison a été réalisée avec la commande suivante :
+La qualité des annotations a été évaluée avec GffCompare 0.12.10 (environnement `env_gff_compare`), par comparaison avec l’annotation de référence du NCBI (`ref_annotation.gff` : 47 324 transcrits, 22 001 loci) :
 
 ```bash
-gffcompare \
-    -r /data/projet3/acanthaster_planci_ref_datas/annotation/ref_annotation.gff \
-    -o /data/projet3/annotation_datas/gff_compare_results/run_1_gffcompare_results/result \
-    /data/projet3/annotation_datas/eviann_datas/eviann_results/run_1/proteine_annotation_file.gff
+gffcompare -r acanthaster_planci_ref_datas/annotation/ref_annotation.gff \
+  -o analyses/gff_compare_results/${RUN}_gffcompare_results/result \
+  analyses/eviann_results/$RUN/proteine_annotation_file.gff
 ```
 
-Les résultats ont été enregistrés dans le dossier `run_1_gffcompare_results`. Le fichier `result.stats` contient les principales statistiques permettant d'évaluer la concordance entre l'annotation prédite et l'annotation de référence.
+GffCompare compare la position et la structure de chaque élément prédit à celles de la référence. Deux métriques sont calculées à plusieurs niveaux (base, exon, intron, chaîne d’introns, transcrit, locus) :
+- la **sensibilité**, proportion des éléments de la référence retrouvés par l’annotation, qui mesure sa complétude ;
+- la **précision**, proportion des éléments prédits présents dans la référence, qui mesure sa justesse.
 
-La comparaison a donné une précision de **92,7 %** et une sensibilité de **60,9 %** au niveau des bases. Au niveau des transcrits, la précision était de **59,7 %** et la sensibilité de **43,4 %**. Pour les introns, la précision atteignait **96,6 %** et la sensibilité **77,4 %**.
+Les niveaux sont de plus en plus exigeants : un transcrit n’est considéré comme correct que si l’ensemble de ses introns correspond exactement à la référence. GffCompare indique également la proportion de loci manqués (présents dans la référence mais absents de l’annotation) et de loci nouveaux (prédits mais absents de la référence). Les résultats sont synthétisés dans le fichier `result.stats`.
 
-Ces résultats indiquent que les introns prédits concordent globalement bien avec ceux de la référence. En revanche, la sensibilité plus faible au niveau des transcrits montre qu'une partie des transcrits présents dans l'annotation de référence n'a pas été retrouvée dans l'annotation produite par EviAnn.
 
 #### 5. Contrôle qualité des données RNA-seq avec FastQC
 Un contrôle qualité des données RNA-seq a été réalisé avec FastQC (version 0.12.1), installé dans un environnement Conda dédié (`env_fastqc`). Cette étape permet d’évaluer la qualité des séquences avant leur utilisation pour l’annotation du génome.
@@ -228,3 +231,85 @@ Un contrôle qualité des données RNA-seq a été réalisé avec FastQC (versio
 Les analyses concernent les échantillons de gonade, d’estomac, d’épines et deux réplicats de juvéniles. Les rapports ont été générés au format HTML, accompagnés de fichiers ZIP contenant les résultats détaillés.
 
 
+
+---
+
+## 3. Résultats
+
+### 3.1. Plan expérimental
+
+Cinq exécutions d’EviAnn ont été évaluées. Elles diffèrent par les données RNA-seq et les protéines d’homologie utilisées, de façon à isoler l’effet de chaque paramètre :
+
+**Tableau 1.** Données utilisées pour chaque exécution d’EviAnn.
+
+| Run | RNA-seq | Protéines d’homologie |
+|---|---|---|
+| Run_1 | 2 réplicats juvéniles | Asteroidea complet (139 392 séquences) |
+| Run_2 | 5 échantillons : 2 juvéniles, gonade, épine, estomac | Asteroidea complet |
+| Juvéniles trimés | 2 réplicats juvéniles trimés | Asteroidea sans *A. planci* (98 124 séquences) |
+| All RNA-seq, prot. filtrées | 5 échantillons | Asteroidea sans *A. planci* |
+| All RNA-seq juv. trimés, prot. filtrées | 5 échantillons, juvéniles trimés | Asteroidea sans *A. planci* |
+
+Une sixième exécution, intégrant de nouveaux tissus (nerf, podia), était en cours au moment de la rédaction et n’a pas pu être évaluée.
+
+### 3.2. Comparaison avec l’annotation de référence
+
+**Tableau 2.** Résultats GffCompare des cinq annotations par rapport à l’annotation de référence du NCBI (sensibilité / précision, en %).
+
+| Niveau | Run_1 | Run_2 | Juvéniles trimés | All RNA-seq, prot. filtrées | All RNA-seq juv. trimés, prot. filtrées |
+|---|---|---|---|---|---|
+| Base | 60,9 / 92,7 | 73,2 / 85,8 | 56,0 / 91,7 | 66,1 / 85,6 | 66,4 / 85,6 |
+| Exon | 68,2 / 81,6 | 76,4 / 78,0 | 60,6 / 84,0 | 67,8 / 80,1 | 68,0 / 80,0 |
+| Intron | 77,4 / 96,6 | 85,6 / 93,0 | 66,8 / 95,3 | 74,9 / 93,0 | 75,1 / 92,8 |
+| Chaîne d’introns | 44,7 / 62,6 | 53,5 / 52,6 | 34,2 / 59,5 | 40,9 / 50,9 | 41,3 / 50,6 |
+| Transcrit | 43,4 / 59,7 | 52,0 / 51,2 | 32,9 / 57,9 | 39,5 / 50,0 | 39,8 / 49,8 |
+| Locus | 62,5 / 74,5 | 69,9 / 77,4 | 53,3 / 77,8 | 59,3 / 77,0 | 59,5 / 77,1 |
+| Loci manqués | 20,3 % | 15,4 % | 33,2 % | 26,4 % | 26,2 % |
+| Loci nouveaux | 3,8 % | 6,0 % | 3,4 % | 5,5 % | 5,6 % |
+| Transcrits prédits | 34 395 | 48 062 | 26 898 | 37 350 | 37 875 |
+| Transcrits par locus | 1,9 | 2,5 | 1,8 | 2,2 | 2,3 |
+
+Dans les cinq exécutions, la précision reste élevée aux niveaux base (85,6 à 92,7 %) et intron (92,8 à 96,6 %). La sensibilité varie davantage : de 66,8 à 85,6 % au niveau des introns, et de 15,4 à 33,2 % de loci manqués. Dans tous les cas, les scores diminuent du niveau intron au niveau transcrit.
+
+### 3.3. Effet de chaque paramètre
+
+**Tableau 3.** Comparaisons entre exécutions ne différant que par un seul paramètre.
+
+| Comparaison | Paramètre modifié | Loci manqués | Sensibilité transcrit |
+|---|---|---|---|
+| Run_1 → Run_2 | Ajout de tissus | 20,3 → 15,4 % | 43,4 → 52,0 % |
+| Juvéniles trimés → All RNA-seq juv. trimés, prot. filtrées | Ajout de tissus | 33,2 → 26,2 % | 32,9 → 39,8 % |
+| Run_2 → All RNA-seq, prot. filtrées | Retrait des protéines d’*A. planci* | 15,4 → 26,4 % | 52,0 → 39,5 % |
+| All RNA-seq, prot. filtrées → All RNA-seq juv. trimés, prot. filtrées | Trimming des juvéniles | 26,4 → 26,2 % | 39,5 → 39,8 % |
+
+---
+
+## 4. Discussion
+
+### 4.1. Une annotation précise mais incomplète
+
+Les cinq annotations présentent une précision élevée : les éléments prédits par EviAnn correspondent en grande majorité à la référence, en particulier les introns. Leur principale limite est la sensibilité, puisqu’une partie des gènes de la référence n’est pas retrouvée. La baisse des scores entre le niveau intron et le niveau transcrit est attendue : il suffit d’une seule erreur d’exon pour qu’un transcrit entier soit compté comme incorrect.
+
+### 4.2. Effet de la diversité tissulaire du RNA-seq
+
+L’ajout des tissus gonade, épine et estomac augmente la sensibilité, que le jeu d’homologie contienne ou non les protéines d’*A. planci* (5 et 7 points de loci manqués en moins). Tous les gènes ne sont pas exprimés dans les mêmes tissus ni au même stade de développement : multiplier les tissus permet donc de détecter des gènes absents du transcriptome juvénile.
+
+Cette amélioration s’accompagne d’une légère baisse de la précision, liée à l’augmentation du nombre de transcrits et d’isoformes prédits. Ces éléments absents de la référence ne sont pas nécessairement des erreurs : l’annotation du NCBI n’est pas exhaustive, et certains transcrits spécifiques à un tissu peuvent y être absents.
+
+### 4.3. Effet des protéines d’homologie
+
+Le retrait des 41 268 protéines d’*A. planci* du jeu d’homologie est le paramètre qui a le plus d’impact : à données RNA-seq identiques, les loci manqués passent de 15,4 à 26,4 % et la sensibilité au niveau des transcrits de 52,0 à 39,5 %, alors que la précision reste stable. Ces protéines sont vraisemblablement issues de l’annotation NCBI, qui sert également de référence pour l’évaluation. Les exécutions qui les incluaient (run_1 et run_2) disposaient donc d’une partie de la « réponse », ce qui surestime leurs scores.
+
+### 4.4. Effet du trimming
+
+Le trimming des lectures juvéniles n’a pratiquement aucun effet (moins de 0,5 point d’écart sur l’ensemble des métriques). EviAnn tolère donc la présence d’adaptateurs dans les lectures, probablement parce que l’aligneur HISAT2 ignore les extrémités qui ne s’alignent pas (soft-clipping). La baisse de sensibilité observée pour le run juvéniles trimés s’explique donc par le retrait des protéines d’*A. planci*, et non par le trimming.
+
+### 4.5. Estimation réaliste et perspectives
+
+L’exécution combinant les cinq échantillons RNA-seq et le jeu d’homologie filtré constitue l’estimation la plus réaliste des performances d’EviAnn sur un génome non annoté, comme celui de *Coscinasterias tenuispina*. EviAnn y retrouve 75,1 % des introns et 59,5 % des loci de la référence, avec une précision de 92,8 % au niveau des introns. Ces résultats suggèrent de privilégier la diversité tissulaire du RNA-seq, et de ne pas considérer le trimming comme une étape prioritaire.
+
+L’évaluation repose cependant uniquement sur la comparaison avec l’annotation du NCBI, supposée complète et correcte. Deux outils complémentaires auraient permis de dépasser cette limite :
+- **BUSCO**, qui mesure la complétude d’une annotation à partir de gènes conservés en copie unique, indépendamment de toute référence : c’est la seule approche applicable à *C. tenuispina* ;
+- **AGAT**, qui fournit des statistiques descriptives sur les gènes (longueur, nombre d’exons, longueur des introns), et aurait permis de caractériser les erreurs de structure.
+
+Ces analyses n’ont pas pu être réalisées en raison des contraintes de mémoire vive et d’espace disque du serveur, qui ont fortement ralenti les exécutions d’EviAnn et empêché l’installation de BUSCO.

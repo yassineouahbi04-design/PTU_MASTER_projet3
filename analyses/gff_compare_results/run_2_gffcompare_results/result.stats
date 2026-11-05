@@ -1,0 +1,30 @@
+# gffcompare v0.12.10 | Command line was:
+#gffcompare -r acanthaster_planci_ref_datas/annotation/ref_annotation.gff -o analyses/gff_compare_results/run_2_gffcompare_results/result analyses/eviann_results/run_2/proteine_annotation_file.gff
+#
+
+#= Summary for dataset: analyses/eviann_results/run_2/proteine_annotation_file.gff 
+#     Query mRNAs :   48062 in   19570 loci  (45841 multi-exon transcripts)
+#            (9516 multi-transcript loci, ~2.5 transcripts per locus)
+# Reference mRNAs :   47324 in   22001 loci  (45017 multi-exon)
+# Super-loci w/ reference transcripts:    17653
+#-----------------| Sensitivity | Precision  |
+        Base level:    73.2     |    85.8    |
+        Exon level:    76.4     |    78.0    |
+      Intron level:    85.6     |    93.0    |
+Intron chain level:    53.5     |    52.6    |
+  Transcript level:    52.0     |    51.2    |
+       Locus level:    69.9     |    77.4    |
+
+     Matching intron chains:   24104
+       Matching transcripts:   24590
+              Matching loci:   15385
+
+          Missed exons:   26277/222186	( 11.8%)
+           Novel exons:    6784/223557	(  3.0%)
+        Missed introns:   18290/198143	(  9.2%)
+         Novel introns:    4360/182360	(  2.4%)
+           Missed loci:    3397/22001	( 15.4%)
+            Novel loci:    1173/19570	(  6.0%)
+
+ Total union super-loci across all input datasets: 18826 
+48062 out of 48062 consensus transcripts written in analyses/gff_compare_results/run_2_gffcompare_results/result.annotated.gtf (0 discarded as redundant)
