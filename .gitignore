@@ -1,10 +1,6 @@
 # Environnements Conda installés
 /conda_environments/env_*/
-/conda_environments/.*/
-
-
-# Données de référence pour l'alignement
-acanthaster_planci_ref_datas/
+/conda_environments/.*/ 
 
 # Lectures RNA-seq brutes
 /data_sets
@@ -13,10 +9,10 @@ acanthaster_planci_ref_datas/
 eviann_runs/
 
 # Fichiers de résultats FastQC au format zip
-/fastqc_results/**/*.zip
+pre_processing/fastqc_results/**/*.zip
 
 # Fichiers de données trimmées
 trimming_results/
 
-/conda_environments/.pkgs/
-/conda_environments/.tmp/
+
+/acanthaster_planci_ref_datas/

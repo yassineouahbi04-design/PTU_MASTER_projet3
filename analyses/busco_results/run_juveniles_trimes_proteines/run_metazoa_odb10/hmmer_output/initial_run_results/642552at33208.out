@@ -1,0 +1,17 @@
+#                                                                                   --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name               accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#       ------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+part001_LOC_00005164-mRNA-1 -            171 642552at33208        -            130   9.1e-46  154.5   0.0   1   2      0.67   3.2e+03   -2.5   0.0    72    83    15    26    14    35 0.79 -
+part001_LOC_00005164-mRNA-1 -            171 642552at33208        -            130   9.1e-46  154.5   0.0   2   2   3.9e-49   1.9e-45  153.5   0.0     4   109    49   151    46   167 0.94 -
+part001_LOC_00002399-mRNA-1 -            213 642552at33208        -            130   1.9e-17   62.9   0.0   1   1   5.8e-21   2.8e-17   62.4   0.0    30   121    91   181    63   190 0.80 -
+part001_LOC_00005739-mRNA-2 -            233 642552at33208        -            130   6.1e-14   51.6   0.1   1   1   2.1e-17     1e-13   50.8   0.1    37   109   142   214   120   229 0.78 -
+#
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Pipeline mode:   SEARCH
+# Query file:      /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/642552at33208.hmm
+# Target file:     /data/projet3/analyses/eviann_fusion/run_juveniles_trimes/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta
+# Option settings: hmmsearch --domtblout /data/projet3/analyses/busco_results/run_juveniles_trimes_proteines/run_metazoa_odb10/hmmer_output/initial_run_results/642552at33208.out --cpu 1 /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/642552at33208.hmm /data/projet3/analyses/eviann_fusion/run_juveniles_trimes/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta 
+# Current dir:     /data/projet3
+# Date:            Fri Nov  6 12:01:04 2026
+# [ok]

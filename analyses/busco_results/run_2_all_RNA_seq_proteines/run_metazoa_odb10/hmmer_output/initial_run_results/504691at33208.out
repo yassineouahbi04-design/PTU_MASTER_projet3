@@ -1,0 +1,17 @@
+#                                                                                   --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name               accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#       ------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+part001_LOC_00005447-mRNA-1 -            176 504691at33208        -            130   3.7e-52  175.5   0.5   1   2   1.8e-29   1.7e-25   89.2   0.0     1    60    15    78    15    90 0.92 -
+part001_LOC_00005447-mRNA-1 -            176 504691at33208        -            130   3.7e-52  175.5   0.5   2   2     3e-28   2.9e-24   85.3   0.1    50   130    86   171    81   171 0.86 -
+part002_LOC_00000096-mRNA-1 -           1530 504691at33208        -            130      0.12   12.1   0.1   1   2   0.00044       4.2    7.1   0.0    72   115   533   578   529   594 0.71 -
+part002_LOC_00000096-mRNA-1 -           1530 504691at33208        -            130      0.12   12.1   0.1   2   2     0.015   1.5e+02    2.1   0.0    55    86   618   648   603   662 0.79 -
+#
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Pipeline mode:   SEARCH
+# Query file:      /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/504691at33208.hmm
+# Target file:     /data/projet3/analyses/eviann_fusion/run_2/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta
+# Option settings: hmmsearch --domtblout /data/projet3/analyses/busco_results/run_2_proteines/run_metazoa_odb10/hmmer_output/initial_run_results/504691at33208.out --cpu 1 /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/504691at33208.hmm /data/projet3/analyses/eviann_fusion/run_2/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta 
+# Current dir:     /data/projet3
+# Date:            Fri Nov  6 11:58:29 2026
+# [ok]

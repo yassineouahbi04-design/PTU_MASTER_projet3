@@ -1066,8 +1066,60 @@ Options utilisées :
   -r /data/projet3/data_sets/BAM_data_set/manifests_bam/mixte_nerve_podia_part_001.txt
   -t 4 2>&1 | tee eviann.log
   ```
+  Le journal rapporte : 
 
-  
+  | Élément annoté | Nombre |
+  |---|---:|
+  | Genes | 9468 |
+  | protein coding genes | 8421 |
+  | processed pseudo gene transcripts| 39 |
+  | processed pseudo genes | 38 |
+  | transcripts | 20487 |
+  | long non-coding RNAs | 1034 |
+  | distinct proteins | 14518 |
+
+  Le run sur la seconde partie du gènome a été lancé de la meme manière, avec le manifeste adequat : 
+
+  Le journal rapporte : 
+
+  | Élément annoté | Nombre |
+  |---|---:|
+  | Genes | 8382 |
+  | protein coding genes | 7431 |
+  | processed pseudo gene transcripts| 12 |
+  | processed pseudo genes | 11 |
+  | transcripts | 18889 |
+  | long non-coding RNAs | 958 |
+  | distinct proteins | 12802 |
+
+  **Publication des analyses sur GitHub**
+
+  La synchronisation du projet a d’abord été refusée par GitHub : le fichier `analyses/eviann_results/run_2/proteine_annotation_file.gff` faisait **125,91 Mo**, au-delà de la limite de **100 Mo** pour un fichier stocké dans Git classique. Plusieurs autres résultats, compris entre 50 et 100 Mo, ont généré des avertissements sans être bloquants.
+
+  Pour corriger les commits locaux non publiés sans supprimer les résultats du serveur, une branche de sauvegarde a été créée, puis `master` a été replacé au niveau de `origin/master` :
+
+  ```bash
+  git branch sauvegarde-avant-nettoyage
+  git reset --soft origin/master
+  ```
+
+  L’option `--soft` a conservé les fichiers et les changements préparés pour un nouveau commit. Après vérification, il a été décidé de **garder le dossier `analyses/` sur GitHub**. La règle qui l’excluait a donc été retirée de `.gitignore`.
+
+  Git LFS (*Large File Storage*) a été installé dans un environnement Conda du projet pour publier le GFF de 125,91 Mio. Ce système stocke le contenu du gros fichier séparément et place un pointeur dans le commit Git :
+
+  ```bash
+  conda activate /data/projet3/conda_environments/env_git_lfs
+  git lfs install
+  git lfs track "analyses/eviann_results/run_2/proteine_annotation_file.gff"
+  git add .gitattributes
+  git add -- analyses/
+  git lfs ls-files
+  ```
+
+  La vérification `git lfs ls-files` a confirmé que ce GFF était pris en charge par LFS. Les deux autres GFF volumineux mesuraient **96,62 Mo** et **95,46 Mo** : ils restent sous la limite de 100 Mo et ont été conservés dans Git classique. Le cache Conda créé pendant l’installation a été exclu du dépôt.
+
+  Un nouveau commit regroupant les analyses, le cahier de labo, les rapports FastQC, les exports d’environnements et le rapport a ensuite été créé et poussé. Le message final `master -> master` confirme la réussite du push (commit `634e614e`). Les avertissements affichés pour les fichiers de plus de 50 Mio n’ont pas empêché leur publication.
+
 ---  
 
 ### 28/10/2026 – Libération de l’espace de stockage sur le serveur et suppression des résultats EviAnn devenus inutiles
@@ -1208,7 +1260,227 @@ Après avoir effectué des recherches sur Internet pour comprendre l’origine d
 
 Le problème provenait du fonctionnement de Conda : bien que l’environnement BUSCO soit destiné à être installé dans `/data/projet3/conda_environments/`, Conda téléchargeait et extrayait d’abord les dépendances dans le cache personnel `/home/kuganaathan/.conda/pkgs`, situé sur le disque système presque saturé. L’espace disponible sur cette partition était donc insuffisant pour terminer l’installation.
 
+## Organisation et conservation des fichiers BAM générés par EviAnn
 
+**Étudiant : Shahiran Kuganaathan**
+
+### 1. Objectif
+
+Afin de limiter la redondance des données et de libérer de l'espace sur le serveur, les fichiers BAM générés par EviAnn ont été identifiés, puis déplacés dans un répertoire commun.
+
+L'objectif est de conserver une seule version réutilisable de chaque alignement RNA-seq, en distinguant les données trimmées et non trimmées ainsi que les deux parties du génome de référence.
+
+### 2. Création des répertoires de stockage
+
+Les dossiers suivants ont été créés :
+
+```bash
+cd /data/projet3
+
+mkdir -p data_sets/BAM_data_set/non_trimmed/part_001
+mkdir -p data_sets/BAM_data_set/non_trimmed/part_002
+mkdir -p data_sets/BAM_data_set/trimmed/part_001
+mkdir -p data_sets/BAM_data_set/trimmed/part_002
+```
+
+### 3. Déplacement et renommage des BAM
+
+Les fichiers ont été déplacés avec `mv` plutôt que copiés avec `cp`, afin d'éviter une duplication supplémentaire des données sur le serveur.
+
+**BAM non trimmés — run 2 :**
+
+```bash
+BASE=/data/projet3
+DEST=$BASE/data_sets/BAM_data_set
+
+for part in 001 002; do
+    SRC=$BASE/eviann_runs/run_2_all_RNA_seq/genomic_part_$part
+    DST=$DEST/non_trimmed/part_$part
+
+    mv -vn "$SRC/tissue1.bam.sorted.bam" "$DST/gonade_SRR37114952.bam"
+    mv -vn "$SRC/tissue2.bam.sorted.bam" "$DST/epine_SRR37114948.bam"
+    mv -vn "$SRC/tissue3.bam.sorted.bam" "$DST/estomac_SRR37114954.bam"
+    mv -vn "$SRC/tissue4.bam.sorted.bam" "$DST/juvenile_1_SRR37199247.bam"
+    mv -vn "$SRC/tissue5.bam.sorted.bam" "$DST/juvenile_2_SRR37199246.bam"
+done
+```
+
+**BAM trimmés — run juvéniles trimmés :**
+
+```bash
+for part in 001 002; do
+    SRC=$BASE/eviann_runs/run_juveniles_trimes/genomic_part_$part
+    DST=$DEST/trimmed/part_$part
+
+    mv -vn "$SRC/tissue1.bam.sorted.bam" "$DST/juvenile_1_SRR37199247.bam"
+    mv -vn "$SRC/tissue2.bam.sorted.bam" "$DST/juvenile_2_SRR37199246.bam"
+done
+```
+
+### 4. Bilan
+
+Au total, **14 fichiers BAM ont été sélectionnés et organisés** :
+
+- 10 BAM non trimmés : 5 datasets sur les 2 parties du génome.
+- 4 BAM trimmés : 2 réplicats juvéniles sur les 2 parties du génome.
+
+Ces fichiers sont désormais regroupés dans :
+
+`/data/projet3/data_sets/BAM_data_set/`
+
+Cette organisation permet de réutiliser les alignements existants pour les prochaines analyses avec EviAnn et FeatureCounts, sans devoir conserver les fastq.gz
+
+## 03/11/2026 — Nettoyage des fichiers EviAnn et libération d'espace sur le serveur
+
+**Étudiant : Shahiran Kuganaathan**
+
+### 1. Identification des fichiers à conserver
+
+Afin de libérer de l'espace sur le serveur, un tri des fichiers générés par les différents runs EviAnn a été effectué.
+
+Les fichiers à conserver ont été sélectionnés en fonction des analyses prévues :
+
+- **BUSCO** : fichiers `*.proteins.fasta` pour évaluer la complétude des annotations.
+- **AGAT** : fichiers `*.pseudo_label.gff` pour obtenir les statistiques des annotations.
+- **GFFCompare** : fichiers GFF des annotations finales pour comparer les différents runs.
+- **FeatureCounts** : fichiers BAM et annotations GFF compatibles pour quantifier l'assignation des lectures aux gènes prédits.
+
+### 2. Suppression des fichiers intermédiaires
+
+Plusieurs catégories de fichiers intermédiaires ont été identifiées comme supprimables :
+
+- `*.ht2` : index HISAT2 utilisés pour l'alignement des lectures.
+- `*.palign.gff` et `*.palign.fixed.gff` : fichiers intermédiaires d'alignement des protéines homologues.
+- `*.best_unused_proteins.gff` : résultats intermédiaires liés aux protéines non retenues.
+- `*.junc.bed` : fichiers contenant les jonctions d'épissage.
+
+Commande de suppression :
+
+```bash
+BASE=/data/projet3/eviann_runs
+
+for run in run_1_juveniles run_2_all_RNA_seq run_juveniles_trimes; do
+    find "$BASE/$run" -type f \
+    \( -name "*.ht2" \
+    -o -name "*.palign.gff" \
+    -o -name "*.palign.fixed.gff" \
+    -o -name "*.best_unused_proteins.gff" \
+    -o -name "*.junc.bed" \) \
+    -delete
+done
+```
+
+Les fichiers `pseudo_label.gff` et `proteins.fasta` ont été conservés. D'autres fichiers intermédiaires, notamment les GTF et les FASTA de transcrits aussi.
+
+### 3. Suppression des fichiers RNA-seq FASTQ
+
+Les données RNA-seq étant déjà disponibles sous forme d'alignements BAM, la suppression des fichiers FASTQ a été envisagée pour libérer davantage d'espace.
+
+
+### 4. Bilan
+
+Le nettoyage a permis de retirer plusieurs fichiers intermédiaires inutiles et de réduire l'espace occupé par le projet.
+
+Les annotations finales, les séquences protéiques prédites et les BAM centralisés ont été conservés pour permettre les analyses BUSCO, AGAT, GFFCompare et FeatureCounts.
+
+Les fichiers FASTQ représentaient jusqu'à 24 Go de données avant leur suppression éventuelle.
+
+## 05/11/2026 - Préparation des fichiers protéiques pour BUSCO
+
+**Étudiant : Shahiran Kuganaathan**
+
+### Objectif
+
+Préparer les fichiers de protéines issus des différentes annotations EviAnn afin de pouvoir évaluer leur complétude avec BUSCO, en évitant les problèmes liés aux identifiants identiques et à la présence de plusieurs isoformes protéiques par gène.
+
+### 1. Correction des identifiants protéiques
+
+Le génome ayant été divisé en deux parties pour les annotations EviAnn, chaque partie possède son propre fichier `proteins.fasta`.
+
+Lors de la fusion des deux fichiers, nous avons constaté que certains identifiants protéiques étaient présents dans les deux parties. Par exemple, un identifiant `LOC_00004904-mRNA-1` pouvait être utilisé pour deux protéines différentes.
+
+Pour le premier run, **10 465 identifiants communs** ont été détectés entre les deux parties.
+
+Cela pose problème pour BUSCO, qui nécessite des identifiants uniques afin de distinguer correctement les séquences analysées.
+
+Nous avons donc utilisé **SeqKit**, avec la commande `seqkit replace`, pour ajouter un préfixe aux identifiants de chaque partie avant de concaténer les protéines.
+
+```bash
+# Activation de l'environnement SeqKit
+conda activate /data/projet3/conda_environments/env_seqkit
+
+# Fichiers proteiques du run 1
+P1="/data/projet3/eviann_runs/run_1_juveniles/genomic_part_001/GCF_054643075.1_COTS_SCS_genomic.part_001.fna.proteins.fasta"
+
+P2="/data/projet3/eviann_runs/run_1_juveniles/genomic_part_002/GCF_054643075.1_COTS_SCS_genomic.part_002.fna.proteins.fasta"
+
+# Nouveau fichier de sortie
+IN="/data/projet3/analyses/eviann_results/run_1/proteins_BUSCO_ID_uniques.fasta"
+
+# Ajout des prefixes et fusion des deux parties
+(
+    set -eC
+    {
+        seqkit replace -p '^' -r 'part001_' "$P1"
+        seqkit replace -p '^' -r 'part002_' "$P2"
+    } > "$IN"
+)
+```
+
+L'option `-p '^'` permet de cibler le début de l'identifiant et `-r` d'ajouter le préfixe correspondant.
+
+Les séquences protéiques restent inchangées. Un nouveau FASTA est créé sans modifier les fichiers originaux.
+
+### 2. Sélection d'une seule isoforme protéique par gène
+
+Un même gène peut produire plusieurs transcrits par épissage alternatif, et donc plusieurs isoformes protéiques.
+
+Or, BUSCO recherche notamment des groupes de gènes conservés généralement présents en copie unique. Si plusieurs isoformes d'un même gène sont conservées, elles peuvent être interprétées comme plusieurs copies du même gène et augmenter artificiellement le pourcentage de BUSCO dupliqués.
+
+Nous avons donc choisi de **conserver uniquement la protéine la plus longue pour chaque gène**, à l'aide de SeqKit et AWK.
+
+Les identifiants des protéines suivant le format `LOC_XXXXX-mRNA-N`, il est possible de retrouver le gène associé en supprimant la partie `-mRNA-N`.
+
+```bash
+# Fichier contenant les proteines avec ID uniques
+IN="/data/projet3/analyses/eviann_results/run_1/proteins_BUSCO_ID_uniques.fasta"
+
+# Fichier final destine a BUSCO
+OUT="/data/projet3/analyses/eviann_results/run_1/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta"
+
+(
+    set -eC -o pipefail
+
+    # Tri des proteines de la plus longue a la plus courte
+    seqkit sort -l -r "$IN" |
+
+    # Conversion du FASTA en tableau
+    seqkit fx2tab -i -Q |
+
+    awk -F '\t' '{
+        # Recuperation de l'identifiant du gene
+        gene=$1
+        sub(/-mRNA-[0-9]+$/, "", gene)
+
+        # Conservation de la premiere isoforme de chaque gene
+        if (!vu[gene]++) print
+    }' |
+
+    # Reconversion du tableau en FASTA
+    seqkit tab2fx > "$OUT"
+)
+```
+
+Le tri par longueur permet de placer la protéine la plus longue en premier. AWK conserve ensuite uniquement la première protéine rencontrée pour chaque gène.
+
+Les préfixes `part001_` et `part002_` sont conservés, ce qui évite de confondre les gènes des deux parties.
+
+
+### Conclusion
+
+Cette préparation permet d'obtenir un fichier protéique adapté à l'analyse BUSCO, avec des identifiants uniques et une seule isoforme représentative par gène.
+
+Les fichiers originaux d'EviAnn ainsi que les premières fusions protéiques sont conservés sans modification. Seuls de nouveaux fichiers destinés à BUSCO ont été générés.
 
 ### 01/10/2026 — Fusion et évaluation du run_1
 
@@ -1413,3 +1685,6 @@ GffCompare évalue nos annotations uniquement par comparaison avec l’annotatio
 **AGAT** calcule des statistiques descriptives sur un fichier GFF (`agat_sp_statistics.pl`) : nombre de gènes, longueur moyenne des gènes, nombre d’exons par transcrit, longueur des introns, etc. Comparer ces statistiques entre nos runs et la référence aurait permis de voir si EviAnn a tendance à produire des gènes trop courts, à fusionner ou à couper des gènes, ou à oublier des exons. Cela aurait aidé à expliquer la baisse des scores au niveau des transcrits.
 
 Ces analyses n’ont pas pu être réalisées. L’installation de BUSCO a échoué faute d’espace sur le disque système (voir l’entrée de Shahiran du 01/11/2026), et une grande partie du temps a été consacrée au téléchargement des données, aux relances d’EviAnn liées au manque de mémoire et à la libération d’espace sur le serveur. Compte tenu du temps restant, il est peu probable qu’elles soient faites avant la fin du projet. Elles constitueraient néanmoins la suite logique de ce travail.
+
+
+

@@ -1,0 +1,19 @@
+#                                                                                   --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name               accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#       ------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+part002_LOC_00006380-mRNA-1 -            307 372257at33208        -            203   5.8e-80  267.6   0.1   1   2   2.6e-81   9.2e-78  260.4   0.0     1   190    23   245    23   258 0.87 -
+part002_LOC_00006380-mRNA-1 -            307 372257at33208        -            203   5.8e-80  267.6   0.1   2   2    0.0051        18    4.7   0.0   186   203   260   277   251   277 0.85 -
+part002_LOC_00004226-mRNA-1 -            432 372257at33208        -            203   4.9e-28   98.0   0.0   1   1   2.1e-31   7.5e-28   97.4   0.0    21   182   177   362   165   370 0.80 -
+part001_LOC_00002358-mRNA-1 -            278 372257at33208        -            203   1.1e-16   61.0   0.0   1   1   1.2e-19   4.3e-16   59.0   0.0     8   198    22   238    17   243 0.73 -
+part002_LOC_00001401-mRNA-1 -           1340 372257at33208        -            203   1.9e-16   60.2   0.0   1   1     1e-19   3.6e-16   59.3   0.0    42   180  1130  1292  1110  1304 0.78 -
+part001_LOC_00006302-mRNA-1 -            272 372257at33208        -            203      0.16   11.4   0.0   1   1   8.9e-05      0.31   10.5   0.0    38    89    86   139    57   143 0.87 -
+#
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Pipeline mode:   SEARCH
+# Query file:      /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/372257at33208.hmm
+# Target file:     /data/projet3/analyses/eviann_fusion/run_1/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta
+# Option settings: hmmsearch --domtblout /data/projet3/analyses/busco_results/run_1_proteines/run_metazoa_odb10/hmmer_output/initial_run_results/372257at33208.out --cpu 1 /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/372257at33208.hmm /data/projet3/analyses/eviann_fusion/run_1/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta 
+# Current dir:     /data/projet3
+# Date:            Fri Nov  6 11:55:17 2026
+# [ok]

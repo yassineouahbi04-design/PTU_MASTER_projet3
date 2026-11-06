@@ -1,0 +1,38 @@
+2026-11-06 11:56:59 INFO:	***** Start a BUSCO v6.1.0 analysis, current time: 11/06/2026 11:56:59 *****
+2026-11-06 11:56:59 INFO:	Configuring BUSCO with local environment
+2026-11-06 11:56:59 INFO:	Running proteins mode
+2026-11-06 11:56:59 INFO:	Downloading information on latest versions of BUSCO data...
+2026-11-06 11:57:00 INFO:	Input file is /data/projet3/analyses/eviann_fusion/run_2/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta
+2026-11-06 11:57:00 INFO:	The local file or folder /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10 is the last available version.
+2026-11-06 11:57:05 INFO:	Running BUSCO using lineage dataset metazoa_odb10 (eukaryota, 2024-01-08)
+2026-11-06 11:57:05 INFO:	***** Run HMMER on gene sequences *****
+2026-11-06 11:57:05 INFO:	Running 954 job(s) on hmmsearch, starting at 11/06/2026 11:57:05
+2026-11-06 11:57:22 INFO:	[hmmsearch]	96 of 954 task(s) completed
+2026-11-06 11:57:37 INFO:	[hmmsearch]	191 of 954 task(s) completed
+2026-11-06 11:57:56 INFO:	[hmmsearch]	287 of 954 task(s) completed
+2026-11-06 11:58:09 INFO:	[hmmsearch]	382 of 954 task(s) completed
+2026-11-06 11:58:20 INFO:	[hmmsearch]	478 of 954 task(s) completed
+2026-11-06 11:58:28 INFO:	[hmmsearch]	573 of 954 task(s) completed
+2026-11-06 11:58:42 INFO:	[hmmsearch]	668 of 954 task(s) completed
+2026-11-06 11:58:52 INFO:	[hmmsearch]	764 of 954 task(s) completed
+2026-11-06 11:59:03 INFO:	[hmmsearch]	859 of 954 task(s) completed
+2026-11-06 11:59:18 INFO:	[hmmsearch]	954 of 954 task(s) completed
+2026-11-06 11:59:19 INFO:	
+
+    ---------------------------------------------------
+    |Results from dataset metazoa_odb10                |
+    ---------------------------------------------------
+    |C:97.4%[S:92.2%,D:5.1%],F:0.5%,M:2.1%,n:954       |
+    |929    Complete BUSCOs (C)                        |
+    |880    Complete and single-copy BUSCOs (S)        |
+    |49    Complete and duplicated BUSCOs (D)          |
+    |5    Fragmented BUSCOs (F)                        |
+    |20    Missing BUSCOs (M)                          |
+    |954    Total BUSCO groups searched                |
+    ---------------------------------------------------
+2026-11-06 11:59:19 INFO:	BUSCO analysis done. Total running time: 139 seconds
+2026-11-06 11:59:19 INFO:	Results written in /data/projet3/analyses/busco_results/run_2_proteines
+2026-11-06 11:59:19 INFO:	For assistance with interpreting the results, please consult the userguide: https://busco.ezlab.org/busco_userguide.html
+
+2026-11-06 11:59:19 INFO:	Visit this page https://gitlab.com/ezlab/busco#how-to-cite-busco to see how to cite BUSCO
+2026-11-06 11:59:19 INFO:	Thank you for using BUSCO! Anonymous usage data is gathered to improve the tool. You may opt out with --opt-out-run-stats.

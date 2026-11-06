@@ -1,0 +1,16 @@
+#                                                                                   --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name               accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#       ------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+part001_LOC_00004060-mRNA-1 -            403 421732at33208        -            286   1.8e-76  257.4  31.1   1   2   5.8e-43   5.6e-39  134.3   9.3     1   132     1   163     1   191 0.86 -
+part001_LOC_00004060-mRNA-1 -            403 421732at33208        -            286   1.8e-76  257.4  31.1   2   2   2.5e-37   2.4e-33  115.9  13.8   138   285   215   400   209   401 0.85 -
+part002_LOC_00000385-mRNA-1 -            321 421732at33208        -            286     0.069   12.6   3.7   1   1   1.5e-05      0.15   11.5   3.7   123   181   242   300   233   309 0.89 -
+#
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Pipeline mode:   SEARCH
+# Query file:      /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/421732at33208.hmm
+# Target file:     /data/projet3/analyses/eviann_fusion/run_2/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta
+# Option settings: hmmsearch --domtblout /data/projet3/analyses/busco_results/run_2_proteines/run_metazoa_odb10/hmmer_output/initial_run_results/421732at33208.out --cpu 1 /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/421732at33208.hmm /data/projet3/analyses/eviann_fusion/run_2/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta 
+# Current dir:     /data/projet3
+# Date:            Fri Nov  6 11:58:12 2026
+# [ok]
