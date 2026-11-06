@@ -1,0 +1,14 @@
+#                                                                                   --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name               accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#       ------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+part002_LOC_00004442-mRNA-1 -            588 458988at33208        -            467    4e-209  695.1   5.1   1   1    2e-212  3.2e-208  692.1   5.1     2   467    44   581    43   581 0.90 -
+#
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Pipeline mode:   SEARCH
+# Query file:      /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/458988at33208.hmm
+# Target file:     /data/projet3/analyses/eviann_fusion/run_mixte_nervetrim_podia_all_juvtrim/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta
+# Option settings: hmmsearch --domtblout /data/projet3/analyses/busco_results/run_mixte_nervetrim_podia_all_juvtrim_proteines/run_metazoa_odb10/hmmer_output/initial_run_results/458988at33208.out --cpu 1 /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/458988at33208.hmm /data/projet3/analyses/eviann_fusion/run_mixte_nervetrim_podia_all_juvtrim/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta 
+# Current dir:     /data/projet3
+# Date:            Fri Nov  6 13:09:43 2026
+# [ok]

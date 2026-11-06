@@ -1,0 +1,27 @@
+#                                                                                   --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name               accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#       ------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+part001_LOC_00000500-mRNA-1 -            415 387079at33208        -            220   1.8e-82  276.3  25.0   1   4     1e-27   3.2e-24   85.8   7.5     1    74     6    96     6   112 0.83 -
+part001_LOC_00000500-mRNA-1 -            415 387079at33208        -            220   1.8e-82  276.3  25.0   2   4   3.1e-52   9.6e-49  166.0   2.4    73   175   185   289   169   291 0.95 -
+part001_LOC_00000500-mRNA-1 -            415 387079at33208        -            220   1.8e-82  276.3  25.0   3   4   1.1e-07   0.00033   20.4   0.0   174   197   319   342   312   363 0.84 -
+part001_LOC_00000500-mRNA-1 -            415 387079at33208        -            220   1.8e-82  276.3  25.0   4   4   0.00025      0.78    9.4   0.3   195   220   379   404   374   404 0.94 -
+part002_LOC_00001938-mRNA-1 -            445 387079at33208        -            220   2.6e-20   73.1  15.8   1   3   1.9e-06     0.006   16.3   2.0    73   122    37    90    19   117 0.74 -
+part002_LOC_00001938-mRNA-1 -            445 387079at33208        -            220   2.6e-20   73.1  15.8   2   3   6.7e-13   2.1e-09   37.4   3.3    68   153   149   233   117   249 0.83 -
+part002_LOC_00001938-mRNA-1 -            445 387079at33208        -            220   2.6e-20   73.1  15.8   3   3   1.6e-09   4.9e-06   26.4   0.0    60   151   281   373   252   392 0.79 -
+part001_LOC_00000109-mRNA-2 -            840 387079at33208        -            220   9.9e-11   41.7   1.9   1   2   2.1e-13   6.7e-10   39.0   0.0     2    45    89   133    88   156 0.90 -
+part001_LOC_00000109-mRNA-2 -            840 387079at33208        -            220   9.9e-11   41.7   1.9   2   2      0.11   3.3e+02    0.8   0.5    34    83   436   486   430   501 0.69 -
+part002_LOC_00007115-mRNA-1 -            578 387079at33208        -            220    0.0013   18.5   2.5   1   3       2.9   9.1e+03   -3.9   0.7    24    44   225   245   211   262 0.49 -
+part002_LOC_00007115-mRNA-1 -            578 387079at33208        -            220    0.0013   18.5   2.5   2   3     4e-07    0.0013   18.5   2.5    52    96   313   357   296   359 0.87 -
+part002_LOC_00007115-mRNA-1 -            578 387079at33208        -            220    0.0013   18.5   2.5   3   3      0.25   7.9e+02   -0.4   0.0   127   150   528   551   497   564 0.66 -
+part002_LOC_00006763-mRNA-1 -            279 387079at33208        -            220    0.0083   15.8   3.1   1   2   0.00023      0.71    9.5   0.3    11    55    12    54     7    68 0.69 -
+part002_LOC_00006763-mRNA-1 -            279 387079at33208        -            220    0.0083   15.8   3.1   2   2    0.0014       4.5    6.9   0.1   124   214   166   254   137   258 0.71 -
+#
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Pipeline mode:   SEARCH
+# Query file:      /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/387079at33208.hmm
+# Target file:     /data/projet3/analyses/eviann_fusion/run_all_RNA_seq_prot_filtred/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta
+# Option settings: hmmsearch --domtblout /data/projet3/analyses/busco_results/run_all_RNA_seq_prot_filtred_proteines/run_metazoa_odb10/hmmer_output/initial_run_results/387079at33208.out --cpu 1 /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/387079at33208.hmm /data/projet3/analyses/eviann_fusion/run_all_RNA_seq_prot_filtred/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta 
+# Current dir:     /data/projet3
+# Date:            Fri Nov  6 13:07:02 2026
+# [ok]

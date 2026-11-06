@@ -1,0 +1,17 @@
+# BUSCO version is: 6.1.0 
+# The lineage dataset is: metazoa_odb10 (Creation date: 2024-01-08, number of genomes: 65, number of BUSCOs: 954)
+# Summarized benchmarking in BUSCO notation for file /data/projet3/analyses/eviann_fusion/run_mixte_nervetrim_podia_all_juvtrim/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta
+# BUSCO was run in mode: proteins
+
+	***** Results: *****
+
+	C:96.8%[S:92.1%,D:4.6%],F:0.5%,M:2.7%,n:954	   
+	923	Complete BUSCOs (C)			   
+	879	Complete and single-copy BUSCOs (S)	   
+	44	Complete and duplicated BUSCOs (D)	   
+	5	Fragmented BUSCOs (F)			   
+	26	Missing BUSCOs (M)			   
+	954	Total BUSCO groups searched		   
+
+Dependencies and versions:
+	hmmsearch: 3.4

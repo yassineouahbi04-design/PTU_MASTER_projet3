@@ -1,0 +1,16 @@
+#                                                                                   --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name               accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#       ------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+part001_LOC_00004257-mRNA-1 -            391 501396at33208        -            170   2.6e-89  297.1   0.0   1   1   4.9e-93   3.8e-89  296.6   0.0     1   169     6   189     6   190 0.93 -
+part002_LOC_00006655-mRNA-1 -            345 501396at33208        -            170     0.031   13.7   0.1   1   2       0.1     8e+02   -0.6   0.0    14    35    21    42    11    49 0.81 -
+part002_LOC_00006655-mRNA-1 -            345 501396at33208        -            170     0.031   13.7   0.1   2   2     2e-05      0.16   11.4   0.0    79   123    65   111    54   121 0.79 -
+#
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Pipeline mode:   SEARCH
+# Query file:      /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/501396at33208.hmm
+# Target file:     /data/projet3/analyses/eviann_fusion/run_all_RNA_seq_juveniles_trimes_prot_filtred/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta
+# Option settings: hmmsearch --domtblout /data/projet3/analyses/busco_results/run_all_RNA_seq_juveniles_trimes_prot_filtred_proteines/run_metazoa_odb10/hmmer_output/initial_run_results/501396at33208.out --cpu 1 /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/501396at33208.hmm /data/projet3/analyses/eviann_fusion/run_all_RNA_seq_juveniles_trimes_prot_filtred/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta 
+# Current dir:     /data/projet3
+# Date:            Fri Nov  6 13:05:15 2026
+# [ok]

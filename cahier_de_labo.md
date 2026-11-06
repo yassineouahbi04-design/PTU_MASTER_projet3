@@ -1120,6 +1120,134 @@ Options utilisées :
 
   Un nouveau commit regroupant les analyses, le cahier de labo, les rapports FastQC, les exports d’environnements et le rapport a ensuite été créé et poussé. Le message final `master -> master` confirme la réussite du push (commit `634e614e`). Les avertissements affichés pour les fichiers de plus de 50 Mio n’ont pas empêché leur publication.
 
+  **06/11/2026 — Analyse BUSCO et préparation du versionnement**
+
+  **Lancement de BUSCO**
+
+  Les fichiers protéiques préparés pour BUSCO contiennent les protéines des deux parties du génome, avec des identifiants rendus uniques et un seule isoforme retenue par gène. Une boucle a été préparée pour analyser successivement chaque run possédant le fichier `proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta`.
+
+  BUSCO est lancé en mode **`proteins`**, avec quatre cœurs et le jeu de référence **`metazoa_odb10`** :
+
+  ```bash
+  busco \
+  -i "$proteines" \
+  -m proteins \
+  -l metazoa_odb10 \
+  -o "${nom}_proteines" \
+  --out_path /data/projet3/analyses/busco_results \
+  --download_path /data/projet3/data_sets/BUSCO_lineages \
+  -c 4
+  ```
+
+  La boucle concerne `run_1`, `run_2` et `run_juveniles_trimes`, pour lesquels le fichier protéique préparé est présent. Elle ignore pour l’instant `run_all_RNA_seq_juveniles_trimes_prot_filtred` et `run_all_RNA_seq_prot_filtred`, car ce fichier n’y a pas encore été créé. Les résultats sont rangés dans un sous-dossier distinct pour chaque run.
+
+  **Préparation des fichiers pour Git**
+
+  Le dossier `analyses/eviann_results/` a été renommé en `analyses/eviann_fusion/`. Git a d’abord affiché les fichiers au nouveau chemin comme non suivis et ceux de l’ancien chemin comme supprimés. Après leur ajout ciblé, plusieurs changements ont été reconnus comme des renommages.
+
+  Le contrôle des tailles a identifié deux GFF dépassant la limite de GitHub pour un fichier Git classique : celui de `run_2` (environ **126 Mio**) et celui de `run_mixte_nervetrim_podia_all_juvtrim` (environ **104 Mio**). Leurs nouveaux chemins ont été déclarés dans Git LFS avant l’ajout :
+
+  ```bash
+  git lfs track --filename \
+  "analyses/eviann_fusion/run_2/proteine_annotation_file.gff"
+  git lfs track --filename \
+  "analyses/eviann_fusion/run_mixte_nervetrim_podia_all_juvtrim/proteine_annotation_file.gff"
+
+  git add .gitattributes
+  git add -u -- analyses/eviann_results/
+  git add -- analyses/eviann_fusion/
+  ```
+
+  `git check-attr filter` a confirmé `filter: lfs` pour les deux GFF. Leur taille dans l’index Git était de **134 octets chacun**, correspondant aux pointeurs LFS. Les fichiers complets restent disponibles sur le serveur.
+
+  Le dossier `pre_processing/` occupait **2,9 Gio**, principalement en raison des FASTQ compressés du nerf. Par ailleurs, **featureCounts était encore en cours d’exécution** et produisait des fichiers temporaires `.tmp`. Un fichier SAF appartenant à un autre membre du groupe n’était pas lisible (`rw-------`). Ces résultats featureCounts ont été laissés de côté en attendant la fin du calcul et la correction des permissions.
+
+  **Résultats de BUSCO**
+
+  | Run | Complets (C) | Copie unique (S) | Dupliqués (D) | Fragmentés (F) | Manquants (M) |
+  |---|---:|---:|---:|---:|---:|
+  | `run_1` | 92,7 % | 88,1 % | 4,6 % | 0,7 % | 6,6 % |
+  | `run_2` | **97,4 %** | 92,2 % | 5,1 % | 0,5 % | **2,1 %** |
+  | `run_juveniles_trimes` | 96,4 % | 92,2 % | 4,2 % | 0,6 % | 2,9 % |
+  | `run_all_RNA_seq_juveniles_trimes_prot_filtred` | 96,6 % | 91,9 % | 4,7 % | 0,5 % | 2,8 % |
+  | `run_all_RNA_seq_prot_filtred` | 96,8 % | 91,7 % | 5,0 % | 0,5 % | 2,7 % |
+  | `run_mixte_nervetrim_podia_all_juvtrim` | 96,8 % | 92,1 % | 4,6 % | 0,5 % | 2,7 % |
+
+  Les six analyses se sont terminées correctement. `run_2` présente la meilleure complétude, avec **929 BUSCO complets sur 954**, contre 884 pour `run_1`. Les quatre autres runs obtiennent des résultats proches, compris entre 96,4 % et 96,8 % de BUSCO complets. Le run mixte et le run utilisant toutes les données RNA-seq avec les protéines filtrées atteignent tous deux 96,8 %.
+
+  Ces résultats indiquent que la plupart des protéines conservées attendues sont présentes dans les annotations. Les faibles écarts entre plusieurs runs ne suffisent toutefois pas, à eux seuls, à établir l’effet de l’origine tissulaire des données RNA-seq sur la qualité globale de l’annotation.
+
+  Les sorties sont enregistrées dans `/data/projet3/analyses/busco_results/`, dans un dossier distinct pour chaque run.
+
+  **Graphique comparatif des résultats BUSCO**
+
+  Les six analyses BUSCO étant terminées, leurs fichiers `short_summary.*.json` ont été réunis dans un dossier dédié afin de comparer les annotations sur un même graphique. Les fichiers originaux restent dans les dossiers de chaque run.
+
+  Le premier graphique affichait six fois le même nom de FASTA. Ce nom étant identique pour toutes les analyses, nous avons renseigné le champ `plot_label` dans les copies des résumés JSON avec le nom du dossier correspondant. Cela permet notamment d’afficher les noms complets.
+
+  La commande suivante regroupe ces étapes et régénère le graphique final :
+
+  ```bash
+  (
+  set -e
+  conda activate /data/projet3/conda_environments/env_busco
+
+  base=/data/projet3/analyses/busco_results
+  plots="$base/comparaison_6_runs"
+  dossiers=( "$base"/*_proteines )
+
+  if [ "${#dossiers[@]}" -ne 6 ]; then
+    echo "Attendu : 6 dossiers BUSCO ; trouvés : ${#dossiers[@]}" >&2
+    exit 1
+  fi
+
+  # Vérifier la présence d'un résumé par run
+  for dossier in "${dossiers[@]}"; do
+    resumes=( "$dossier"/short_summary.specific.metazoa_odb10.*.json )
+    if [ "${#resumes[@]}" -ne 1 ] || [ ! -f "${resumes[0]}" ]; then
+        echo "Résumé JSON introuvable ou ambigu : $dossier" >&2
+        exit 1
+    fi
+  done
+
+  mkdir -p "$plots"
+
+  for dossier in "${dossiers[@]}"; do
+    resumes=( "$dossier"/short_summary.specific.metazoa_odb10.*.json )
+    source="${resumes[0]}"
+    copie="$plots/${source##*/}"
+
+    # Le nom du run est celui du dossier, sans le suffixe _proteines
+    run="${dossier##*/}"
+    run="${run%_proteines}"
+
+    cp -- "$source" "$copie"
+
+    python - "$copie" "$run" <<'PY'
+  import json
+  import sys
+  from pathlib import Path
+
+  fichier = Path(sys.argv[1])
+  nom_run = sys.argv[2]
+
+  donnees = json.loads(fichier.read_text(encoding="utf-8"))
+  donnees["parameters"]["plot_label"] = nom_run
+  fichier.write_text(
+    json.dumps(donnees, indent=2, ensure_ascii=False) + "\n",
+    encoding="utf-8"
+  )
+  print(f"{fichier.name} → {nom_run}")
+  PY
+  done
+
+  busco --plot "$plots" --plot_percentages
+  ls -lh "$plots/busco_figure.png"
+  )
+  ```
+
+  Le graphique final est enregistré dans `/data/projet3/analyses/busco_results/comparaison_6_runs/busco_figure.png`. Chaque barre porte le nom de son run et représente les proportions de BUSCO complets en copie unique, complets dupliqués, fragmentés et manquants.
+
 ---  
 
 ### 28/10/2026 – Libération de l’espace de stockage sur le serveur et suppression des résultats EviAnn devenus inutiles
@@ -1620,6 +1748,24 @@ J’ai fusionné les deux parties de chaque run puis lancé GffCompare, avec la 
 Un troisième run (`run_mixte_nervetrim_podia_all_juvtrim`) était encore en cours d’exécution et n’a pas pu être évalué.
 
 ---
+
+### 06/11/2026 — Fusion et évaluation du run mixte (run 6)
+
+**Étudiante : Sarah Amzallag**
+
+Le dernier run EviAnn (`run_mixte_nervetrim_podia_all_juvtrim`) ajoute deux nouveaux tissus (nerf et podia) aux échantillons RNA-seq déjà utilisés, avec les juvéniles trimés et les protéines d’Asteroidea sans *A. planci*. Il permet de voir si l’ajout de tissus supplémentaires améliore encore l’annotation.
+
+J’ai fusionné les deux parties du génome et lancé GffCompare avec la même méthode que pour les runs précédents (voir l’entrée du 02/11/2026) : vérification des en-têtes, fusion des fichiers `.fna.gff` et `.fna.proteins.fasta` avec leur nom exact, contrôle de la taille et du nombre d’en-têtes, GffCompare, puis déplacement des fichiers `.tmap` et `.refmap`. Le GFF fusionné fait 104 Mo (54 + 50 Mo) et le fichier de protéines 27 Mo (14 + 13 Mo), avec un seul en-tête.
+
+L’arborescence ayant été réorganisée, les fichiers fusionnés sont désormais rangés dans `analyses/eviann_fusion/` (anciennement `analyses/eviann_results/`), et l’annotation de référence a été déplacée dans `data_sets/acanthaster_planci_ref_datas/annotation/`. Au premier lancement, GffCompare a renvoyé l’erreur `Error opening reference gff`. J’ai retrouvé le nouvel emplacement de la référence avec `find`, puis relancé l’évaluation :
+
+```bash
+find /data/projet3 -name "*.gff" -path "*ref*" 2>/dev/null | grep -v eviann
+
+gffcompare -r data_sets/acanthaster_planci_ref_datas/annotation/ref_annotation.gff -o analyses/gff_compare_results/run_mixte_nervetrim_podia_all_juvtrim_gffcompare_results/result analyses/eviann_fusion/run_mixte_nervetrim_podia_all_juvtrim/proteine_annotation_file.gff
+```
+
+Le nombre de transcrits de référence (47 324 transcrits, 22 001 loci) est identique à celui des autres runs, ce qui confirme qu’il s’agit bien de la même référence. Les résultats sont intégrés à l’analyse comparative des six runs.
 
 ### 05/11/2026 — Analyse des résultats GffCompare des cinq runs
 

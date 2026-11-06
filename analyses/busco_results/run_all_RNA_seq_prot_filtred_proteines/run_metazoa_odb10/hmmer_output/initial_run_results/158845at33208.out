@@ -1,0 +1,22 @@
+#                                                                                    --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name                accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#        ------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+part002_LOC_00001108-mRNA-1  -            682 158845at33208        -            491  3.8e-156  520.1  21.5   1   2   4.5e-67   1.2e-63  215.0   5.2    13   187    30   244    20   250 0.86 -
+part002_LOC_00001108-mRNA-1  -            682 158845at33208        -            491  3.8e-156  520.1  21.5   2   2   6.7e-93   1.8e-89  300.2   8.4   184   485   288   654   282   662 0.86 -
+part002_LOC_00001951-mRNA-15 -           1737 158845at33208        -            491     2e-05   23.0   5.7   1   2   1.7e-08   4.3e-05   21.9   2.6    72   188  1391  1515  1384  1521 0.73 -
+part002_LOC_00001951-mRNA-15 -           1737 158845at33208        -            491     2e-05   23.0   5.7   2   2     0.021        55    1.7   0.1   138   191  1681  1734  1677  1736 0.83 -
+part002_LOC_00001949-mRNA-1  -           1248 158845at33208        -            491   6.9e-05   21.2   0.0   1   1     4e-08   0.00011   20.6   0.0    91   188   903  1011   855  1016 0.76 -
+part002_LOC_00001516-mRNA-1  -           1139 158845at33208        -            491   0.00014   20.2   0.4   1   2   1.9e-06     0.005   15.1   0.1    94   131   976  1013   962  1018 0.89 -
+part002_LOC_00001516-mRNA-1  -           1139 158845at33208        -            491   0.00014   20.2   0.4   2   2     0.009        23    3.0   0.0   165   192  1091  1118  1074  1122 0.85 -
+part001_LOC_00004560-mRNA-1  -            274 158845at33208        -            491   0.00047   18.4   0.0   1   1   2.3e-07    0.0006   18.1   0.0    95   190    31   135     8   139 0.83 -
+part002_LOC_00001514-mRNA-8  -           1491 158845at33208        -            491     0.001   17.4   0.1   1   1   6.5e-07    0.0017   16.6   0.1    95   188  1223  1333  1209  1341 0.80 -
+#
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Pipeline mode:   SEARCH
+# Query file:      /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/158845at33208.hmm
+# Target file:     /data/projet3/analyses/eviann_fusion/run_all_RNA_seq_prot_filtred/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta
+# Option settings: hmmsearch --domtblout /data/projet3/analyses/busco_results/run_all_RNA_seq_prot_filtred_proteines/run_metazoa_odb10/hmmer_output/initial_run_results/158845at33208.out --cpu 1 /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/158845at33208.hmm /data/projet3/analyses/eviann_fusion/run_all_RNA_seq_prot_filtred/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta 
+# Current dir:     /data/projet3
+# Date:            Fri Nov  6 13:06:33 2026
+# [ok]

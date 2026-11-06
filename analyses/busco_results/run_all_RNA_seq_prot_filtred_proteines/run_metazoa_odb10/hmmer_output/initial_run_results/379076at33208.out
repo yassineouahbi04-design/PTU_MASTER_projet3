@@ -1,0 +1,17 @@
+#                                                                                   --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name               accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#       ------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+part002_LOC_00002723-mRNA-3 -            617 379076at33208        -            208   8.5e-73  243.9   8.3   1   2      0.26   1.4e+03   -1.8   0.0     6    19   179   192   173   196 0.78 -
+part002_LOC_00002723-mRNA-3 -            617 379076at33208        -            208   8.5e-73  243.9   8.3   2   2   1.6e-76   8.5e-73  243.9   8.3     2   193   195   395   193   408 0.94 -
+part001_LOC_00008048-mRNA-1 -            296 379076at33208        -            208    0.0089   15.2   0.5   1   1   2.7e-06     0.014   14.6   0.5    45    90    26    71     6    87 0.85 -
+part002_LOC_00000412-mRNA-1 -            511 379076at33208        -            208     0.067   12.3   0.9   1   1   2.4e-05      0.13   11.4   0.9    52   147   154   249   144   260 0.84 -
+#
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Pipeline mode:   SEARCH
+# Query file:      /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/379076at33208.hmm
+# Target file:     /data/projet3/analyses/eviann_fusion/run_all_RNA_seq_prot_filtred/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta
+# Option settings: hmmsearch --domtblout /data/projet3/analyses/busco_results/run_all_RNA_seq_prot_filtred_proteines/run_metazoa_odb10/hmmer_output/initial_run_results/379076at33208.out --cpu 1 /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/379076at33208.hmm /data/projet3/analyses/eviann_fusion/run_all_RNA_seq_prot_filtred/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta 
+# Current dir:     /data/projet3
+# Date:            Fri Nov  6 13:06:55 2026
+# [ok]

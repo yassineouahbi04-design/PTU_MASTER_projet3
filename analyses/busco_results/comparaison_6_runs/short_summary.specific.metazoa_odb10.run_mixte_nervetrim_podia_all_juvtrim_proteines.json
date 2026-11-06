@@ -1,0 +1,65 @@
+{
+  "parameters": {
+    "out_path": "/data/projet3/analyses/busco_results",
+    "cpu": "4",
+    "force": "False",
+    "restart": "False",
+    "quiet": "False",
+    "download_path": "/data/projet3/data_sets/BUSCO_lineages",
+    "datasets_version": "odb10",
+    "offline": "False",
+    "download_base_url": "https://busco-data.ezlab.org/v5/data/",
+    "auto-lineage": "False",
+    "auto-lineage-prok": "False",
+    "auto-lineage-euk": "False",
+    "use_augustus": "False",
+    "use_miniprot": "False",
+    "use_metaeuk": "False",
+    "skip_bbtools": "False",
+    "batch_mode": "False",
+    "tar": "False",
+    "opt-out-run-stats": "False",
+    "plot_percentages": "False",
+    "in": "/data/projet3/analyses/eviann_fusion/run_mixte_nervetrim_podia_all_juvtrim/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta",
+    "out": "run_mixte_nervetrim_podia_all_juvtrim_proteines",
+    "mode": "proteins",
+    "lineage_dataset": "/data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10",
+    "main_out": "/data/projet3/analyses/busco_results/run_mixte_nervetrim_podia_all_juvtrim_proteines",
+    "lineage_results_dir": "run_metazoa_odb10",
+    "domain": "eukaryota",
+    "orthodb_version": "10.1",
+    "plot_label": "run_mixte_nervetrim_podia_all_juvtrim"
+  },
+  "lineage_dataset": {
+    "name": "metazoa_odb10",
+    "creation_date": "2024-01-08",
+    "number_of_buscos": "954",
+    "number_of_species": "65"
+  },
+  "versions": {
+    "python": [
+      3,
+      13,
+      16,
+      "final",
+      0
+    ],
+    "busco": "6.1.0",
+    "hmmsearch": 3.4
+  },
+  "results": {
+    "one_line_summary": "C:96.8%[S:92.1%,D:4.6%],F:0.5%,M:2.7%,n:954",
+    "Complete percentage": 96.8,
+    "Complete BUSCOs": 923,
+    "Single copy percentage": 92.1,
+    "Single copy BUSCOs": 879,
+    "Multi copy percentage": 4.6,
+    "Multi copy BUSCOs": 44,
+    "Fragmented percentage": 0.5,
+    "Fragmented BUSCOs": 5,
+    "Missing percentage": 2.7,
+    "Missing BUSCOs": 26,
+    "n_markers": 954,
+    "domain": "eukaryota"
+  }
+}

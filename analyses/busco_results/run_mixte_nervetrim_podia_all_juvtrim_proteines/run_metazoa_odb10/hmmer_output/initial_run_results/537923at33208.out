@@ -1,0 +1,19 @@
+#                                                                                   --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name               accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#       ------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+part001_LOC_00001178-mRNA-1 -            175 537923at33208        -            157   6.7e-82  272.6   0.1   1   1     3e-85   7.9e-82  272.4   0.1     1   156     1   173     1   174 0.92 -
+part002_LOC_00002853-mRNA-1 -            266 537923at33208        -            157   3.4e-25   88.4   0.1   1   1   1.6e-28   4.3e-25   88.0   0.1     9   156     9   165     1   166 0.86 -
+part002_LOC_00002856-mRNA-1 -            266 537923at33208        -            157   8.6e-25   87.1   0.1   1   1   4.2e-28   1.1e-24   86.7   0.1     9   155     9   164     1   166 0.85 -
+part002_LOC_00007187-mRNA-1 -            160 537923at33208        -            157   5.6e-06   25.9   0.1   1   1   2.3e-09     6e-06   25.8   0.1    71   143    80   156    18   159 0.86 -
+part001_LOC_00000850-mRNA-1 -            520 537923at33208        -            157   4.3e-05   23.0   0.1   1   1   2.5e-08   6.5e-05   22.5   0.1    20   129   391   508   371   514 0.76 -
+part002_LOC_00000102-mRNA-1 -            618 537923at33208        -            157      0.18   11.3   0.0   1   1   0.00012      0.33   10.4   0.0    73   117   224   268   214   275 0.89 -
+#
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Pipeline mode:   SEARCH
+# Query file:      /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/537923at33208.hmm
+# Target file:     /data/projet3/analyses/eviann_fusion/run_mixte_nervetrim_podia_all_juvtrim/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta
+# Option settings: hmmsearch --domtblout /data/projet3/analyses/busco_results/run_mixte_nervetrim_podia_all_juvtrim_proteines/run_metazoa_odb10/hmmer_output/initial_run_results/537923at33208.out --cpu 1 /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/537923at33208.hmm /data/projet3/analyses/eviann_fusion/run_mixte_nervetrim_podia_all_juvtrim/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta 
+# Current dir:     /data/projet3
+# Date:            Fri Nov  6 13:10:24 2026
+# [ok]

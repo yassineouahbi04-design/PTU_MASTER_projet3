@@ -10,9 +10,5 @@ eviann_runs/
 
 # Fichiers de résultats FastQC au format zip
 pre_processing/fastqc_results/**/*.zip
+pre_processing/trimming_results/
 
-# Fichiers de données trimmées
-trimming_results/
-
-
-/acanthaster_planci_ref_datas/

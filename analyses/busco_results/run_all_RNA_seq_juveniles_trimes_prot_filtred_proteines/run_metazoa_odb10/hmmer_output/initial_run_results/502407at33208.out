@@ -1,0 +1,25 @@
+#                                                                                   --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name               accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#       ------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+part001_LOC_00004894-mRNA-2 -            262 502407at33208        -            173   5.9e-70  234.4   4.8   1   2   6.4e-09     1e-05   25.4   0.1     1    35    30    72    30    78 0.92 -
+part001_LOC_00004894-mRNA-2 -            262 502407at33208        -            173   5.9e-70  234.4   4.8   2   2   1.6e-65   2.5e-62  209.7   1.7    36   173    97   252    88   252 0.91 -
+part001_LOC_00002405-mRNA-1 -            245 502407at33208        -            173   1.9e-07   30.9   0.0   1   1   1.7e-10   2.7e-07   30.5   0.0    22   168    58   211    48   214 0.77 -
+part001_LOC_00006852-mRNA-1 -            262 502407at33208        -            173   2.7e-07   30.5   0.0   1   1   2.7e-10   4.3e-07   29.8   0.0    43   147    94   202    65   211 0.79 -
+part001_LOC_00000422-mRNA-1 -            246 502407at33208        -            173   8.6e-07   28.8   0.7   1   1   7.8e-10   1.2e-06   28.3   0.7    37   141    82   187    54   201 0.86 -
+part001_LOC_00007028-mRNA-1 -            257 502407at33208        -            173   3.6e-06   26.8   0.3   1   1   3.9e-09   6.1e-06   26.1   0.3    37   142    88   198    61   207 0.79 -
+part001_LOC_00007027-mRNA-2 -            257 502407at33208        -            173   3.1e-05   23.8   0.1   1   1   3.1e-08   4.9e-05   23.1   0.1    56   141   108   197    61   210 0.82 -
+part001_LOC_00006385-mRNA-1 -            259 502407at33208        -            173    0.0003   20.5   1.0   1   2       3.2     5e+03   -3.0   0.1    72    96    20    44    14    49 0.69 -
+part001_LOC_00006385-mRNA-1 -            259 502407at33208        -            173    0.0003   20.5   1.0   2   2   2.4e-07   0.00037   20.2   0.1    34   134    84   188    59   198 0.82 -
+part001_LOC_00004496-mRNA-1 -            268 502407at33208        -            173    0.0038   17.0   0.0   1   1     4e-06    0.0062   16.3   0.0    98   151   166   219   136   231 0.87 -
+part002_LOC_00004216-mRNA-1 -            283 502407at33208        -            173     0.017   14.9   0.0   1   1   1.6e-05     0.025   14.3   0.0    45   130    92   181    56   206 0.80 -
+part001_LOC_00004827-mRNA-1 -            288 502407at33208        -            173      0.05   13.3   0.0   1   1   4.9e-05     0.077   12.7   0.0    58   129   110   184    55   198 0.79 -
+#
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Pipeline mode:   SEARCH
+# Query file:      /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/502407at33208.hmm
+# Target file:     /data/projet3/analyses/eviann_fusion/run_all_RNA_seq_juveniles_trimes_prot_filtred/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta
+# Option settings: hmmsearch --domtblout /data/projet3/analyses/busco_results/run_all_RNA_seq_juveniles_trimes_prot_filtred_proteines/run_metazoa_odb10/hmmer_output/initial_run_results/502407at33208.out --cpu 1 /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/502407at33208.hmm /data/projet3/analyses/eviann_fusion/run_all_RNA_seq_juveniles_trimes_prot_filtred/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta 
+# Current dir:     /data/projet3
+# Date:            Fri Nov  6 13:05:18 2026
+# [ok]

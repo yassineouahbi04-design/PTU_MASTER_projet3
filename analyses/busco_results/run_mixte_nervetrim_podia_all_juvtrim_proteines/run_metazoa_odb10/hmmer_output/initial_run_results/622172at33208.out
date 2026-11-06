@@ -1,0 +1,20 @@
+#                                                                                   --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name               accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#       ------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+part002_LOC_00001842-mRNA-1 -            306 622172at33208        -            168   6.1e-46  155.8   0.1   1   1   1.3e-49     1e-45  155.1   0.1    23   155    91   243    68   256 0.88 -
+part002_LOC_00004296-mRNA-1 -           2642 622172at33208        -            168    0.0067   15.7   3.6   1   6    0.0018        14    4.9   0.0    71   102   815   846   811   851 0.92 -
+part002_LOC_00004296-mRNA-1 -           2642 622172at33208        -            168    0.0067   15.7   3.6   2   6       0.2   1.6e+03   -1.7   0.0    71    96   985  1010   983  1016 0.87 -
+part002_LOC_00004296-mRNA-1 -           2642 622172at33208        -            168    0.0067   15.7   3.6   3   6     0.094   7.4e+02   -0.7   0.1    71    96  1159  1184  1156  1190 0.88 -
+part002_LOC_00004296-mRNA-1 -           2642 622172at33208        -            168    0.0067   15.7   3.6   4   6    0.0093        74    2.6   0.0    71   104  1511  1544  1489  1554 0.82 -
+part002_LOC_00004296-mRNA-1 -           2642 622172at33208        -            168    0.0067   15.7   3.6   5   6     0.079   6.3e+02   -0.4   0.0    71    96  1685  1710  1680  1716 0.89 -
+part002_LOC_00004296-mRNA-1 -           2642 622172at33208        -            168    0.0067   15.7   3.6   6   6    0.0089        71    2.7   0.0    70   104  1858  1892  1836  1902 0.82 -
+#
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Pipeline mode:   SEARCH
+# Query file:      /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/622172at33208.hmm
+# Target file:     /data/projet3/analyses/eviann_fusion/run_mixte_nervetrim_podia_all_juvtrim/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta
+# Option settings: hmmsearch --domtblout /data/projet3/analyses/busco_results/run_mixte_nervetrim_podia_all_juvtrim_proteines/run_metazoa_odb10/hmmer_output/initial_run_results/622172at33208.out --cpu 1 /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/622172at33208.hmm /data/projet3/analyses/eviann_fusion/run_mixte_nervetrim_podia_all_juvtrim/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta 
+# Current dir:     /data/projet3
+# Date:            Fri Nov  6 13:11:06 2026
+# [ok]

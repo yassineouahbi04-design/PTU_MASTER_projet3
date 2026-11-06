@@ -1,0 +1,33 @@
+#                                                                                    --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name                accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#        ------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+part001_LOC_00000072-mRNA-1  -            253 525542at33208        -            178   4.8e-60  202.0   8.4   1   1   7.8e-60   1.1e-56  191.1   8.4     5   178    26   250    22   250 0.80 -
+part001_LOC_00007226-mRNA-8  -           1474 525542at33208        -            178   5.4e-33  113.9   5.1   1   3   1.6e-19   2.3e-16   59.7   0.0   100   165    84   149    74   159 0.88 -
+part001_LOC_00007226-mRNA-8  -           1474 525542at33208        -            178   5.4e-33  113.9   5.1   2   3   4.6e-18   6.7e-15   55.0   0.1   106   164   225   283   211   290 0.88 -
+part001_LOC_00007226-mRNA-8  -           1474 525542at33208        -            178   5.4e-33  113.9   5.1   3   3       2.4   3.4e+03   -2.7   0.3    57    88  1232  1263  1228  1283 0.71 -
+part002_LOC_00000310-mRNA-1  -            496 525542at33208        -            178   5.3e-30  104.2   1.5   1   2   1.1e-15   1.5e-12   47.3   0.1   115   164   295   345   285   353 0.92 -
+part002_LOC_00000310-mRNA-1  -            496 525542at33208        -            178   5.3e-30  104.2   1.5   2   2   2.5e-18   3.6e-15   55.9   0.1    94   165   395   468   388   478 0.89 -
+part002_LOC_00005069-mRNA-1  -            249 525542at33208        -            178   7.3e-15   54.9   0.2   1   1     8e-18   1.2e-14   54.2   0.2   102   165     6    72     3    78 0.88 -
+part002_LOC_00001491-mRNA-7  -           2383 525542at33208        -            178   1.3e-14   54.0   0.1   1   1   2.3e-17   3.3e-14   52.7   0.1   101   165  2247  2311  2227  2318 0.88 -
+part001_LOC_00002601-mRNA-12 -           1300 525542at33208        -            178   1.9e-14   53.5   0.2   1   4   1.3e-17   1.9e-14   53.5   0.2   102   169     5    73     1    79 0.90 -
+part001_LOC_00002601-mRNA-12 -           1300 525542at33208        -            178   1.9e-14   53.5   0.2   2   4      0.95   1.4e+03   -1.4   1.3    10    65   189   225   182   289 0.55 -
+part001_LOC_00002601-mRNA-12 -           1300 525542at33208        -            178   1.9e-14   53.5   0.2   3   4       1.4     2e+03   -2.0   0.4    14   100   301   386   297   410 0.65 -
+part001_LOC_00002601-mRNA-12 -           1300 525542at33208        -            178   1.9e-14   53.5   0.2   4   4      0.99   1.4e+03   -1.5   0.7    14    95   392   479   381   490 0.60 -
+part002_LOC_00001704-mRNA-11 -           1695 525542at33208        -            178   8.7e-13   48.1   0.0   1   2     6e-16   8.7e-13   48.1   0.0   112   165    87   141    73   147 0.87 -
+part002_LOC_00001704-mRNA-11 -           1695 525542at33208        -            178   8.7e-13   48.1   0.0   2   2       7.2     1e+04   -4.3   1.5    26    86  1368  1427  1357  1461 0.66 -
+part001_LOC_00001499-mRNA-1  -           3554 525542at33208        -            178   1.4e-11   44.1   0.6   1   2       5.1   7.4e+03   -3.8   0.9    78   100   662   687   656   704 0.69 -
+part001_LOC_00001499-mRNA-1  -           3554 525542at33208        -            178   1.4e-11   44.1   0.6   2   2   3.4e-14   4.9e-11   42.4   0.0    95   165  2830  2900  2802  2909 0.87 -
+part001_LOC_00003227-mRNA-3  -            548 525542at33208        -            178   1.6e-10   40.7   0.0   1   1     2e-13   2.9e-10   39.9   0.0   115   169   417   475   405   480 0.88 -
+part001_LOC_00000077-mRNA-1  -            540 525542at33208        -            178   4.8e-08   32.6   0.0   1   1   6.4e-11   9.3e-08   31.7   0.0   116   164    28    79    13    87 0.83 -
+part002_LOC_00003873-mRNA-1  -           1598 525542at33208        -            178   6.3e-07   29.0   0.0   1   2   0.00031      0.45    9.9   0.0    81   169   221   316   194   325 0.77 -
+part002_LOC_00003873-mRNA-1  -           1598 525542at33208        -            178   6.3e-07   29.0   0.0   2   2   3.9e-06    0.0056   16.1   0.0   114   167  1103  1161  1083  1169 0.75 -
+#
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Pipeline mode:   SEARCH
+# Query file:      /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/525542at33208.hmm
+# Target file:     /data/projet3/analyses/eviann_fusion/run_mixte_nervetrim_podia_all_juvtrim/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta
+# Option settings: hmmsearch --domtblout /data/projet3/analyses/busco_results/run_mixte_nervetrim_podia_all_juvtrim_proteines/run_metazoa_odb10/hmmer_output/initial_run_results/525542at33208.out --cpu 1 /data/projet3/data_sets/BUSCO_lineages/lineages/metazoa_odb10/hmms/525542at33208.hmm /data/projet3/analyses/eviann_fusion/run_mixte_nervetrim_podia_all_juvtrim/proteins_BUSCO_ID_uniques_1_isoforme_par_gene.fasta 
+# Current dir:     /data/projet3
+# Date:            Fri Nov  6 13:10:33 2026
+# [ok]
