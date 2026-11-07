@@ -1,0 +1,1107 @@
+===== VERIFICATION DES FICHIERS =====
+OK : run_1_juveniles partie 001
+OK : run_1_juveniles partie 002
+OK : run_2_all_RNA_seq partie 001
+OK : run_2_all_RNA_seq partie 002
+OK : run_juveniles_trimes partie 001
+OK : run_juveniles_trimes partie 002
+OK : run_all_RNA_seq_prot_filtred partie 001
+OK : run_all_RNA_seq_prot_filtred partie 002
+OK : run_all_RNA_seq_juveniles_trimes_prot_filtred partie 001
+OK : run_all_RNA_seq_juveniles_trimes_prot_filtred partie 002
+OK : run_mixte_nervetrim_podia_all_juvtrim partie 001
+OK : run_mixte_nervetrim_podia_all_juvtrim partie 002
+===== DEBUT DES COMPTAGES =====
+==================================
+RUN : run_1_juveniles
+PARTIE : 001
+SAF : /data/projet3/analyses/featureCounts_SAF/run_1_juveniles/part_001.saf
+BAM : 2
+==================================
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.1.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 2 BAM files                                      ||
+||                                                                            ||
+||                           juvenile_1_SRR37199247.bam                       ||
+||                           juvenile_2_SRR37199246.bam                       ||
+||                                                                            ||
+||             Output file : counts_paired.txt                                ||
+||                 Summary : counts_paired.txt.summary                        ||
+||              Paired-end : yes                                              ||
+||        Count read pairs : yes                                              ||
+||              Annotation : part_001.saf (SAF)                               ||
+||      Dir for temp files : /data/projet3/analyses/featureCounts_results ... ||
+||                                                                            ||
+||                 Threads : 4                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file part_001.saf ...                                      ||
+||    Features : 96011                                                        ||
+||    Meta-features : 9559                                                    ||
+||    Chromosomes/contigs : 97                                                ||
+||                                                                            ||
+|| Process BAM file juvenile_1_SRR37199247.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29122937                                             ||
+||    Successfully assigned alignments : 7541560 (25.9%)                      ||
+||    Running time : 11.92 minutes                                            ||
+||                                                                            ||
+|| Process BAM file juvenile_2_SRR37199246.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29664890                                             ||
+||    Successfully assigned alignments : 7681454 (25.9%)                      ||
+||    Running time : 12.04 minutes                                            ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/data/projet3/analyses/  ||
+|| featureCounts_results/run_1_juveniles/part_001/counts_paired.txt.summary"  ||
+||                                                                            ||
+\\============================================================================//
+
+TERMINE : run_1_juveniles partie 001
+==================================
+RUN : run_1_juveniles
+PARTIE : 002
+SAF : /data/projet3/analyses/featureCounts_SAF/run_1_juveniles/part_002.saf
+BAM : 2
+==================================
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.1.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 2 BAM files                                      ||
+||                                                                            ||
+||                           juvenile_1_SRR37199247.bam                       ||
+||                           juvenile_2_SRR37199246.bam                       ||
+||                                                                            ||
+||             Output file : counts_paired.txt                                ||
+||                 Summary : counts_paired.txt.summary                        ||
+||              Paired-end : yes                                              ||
+||        Count read pairs : yes                                              ||
+||              Annotation : part_002.saf (SAF)                               ||
+||      Dir for temp files : /data/projet3/analyses/featureCounts_results ... ||
+||                                                                            ||
+||                 Threads : 4                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file part_002.saf ...                                      ||
+||    Features : 89876                                                        ||
+||    Meta-features : 9013                                                    ||
+||    Chromosomes/contigs : 91                                                ||
+||                                                                            ||
+|| Process BAM file juvenile_1_SRR37199247.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28227291                                             ||
+||    Successfully assigned alignments : 6655751 (23.6%)                      ||
+||    Running time : 10.69 minutes                                            ||
+||                                                                            ||
+|| Process BAM file juvenile_2_SRR37199246.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28836183                                             ||
+||    Successfully assigned alignments : 6771984 (23.5%)                      ||
+||    Running time : 10.89 minutes                                            ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/data/projet3/analyses/  ||
+|| featureCounts_results/run_1_juveniles/part_002/counts_paired.txt.summary"  ||
+||                                                                            ||
+\\============================================================================//
+
+TERMINE : run_1_juveniles partie 002
+==================================
+RUN : run_2_all_RNA_seq
+PARTIE : 001
+SAF : /data/projet3/analyses/featureCounts_SAF/run_2_all_RNA_seq/part_001.saf
+BAM : 5
+==================================
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.1.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 5 BAM files                                      ||
+||                                                                            ||
+||                           epine_SRR37114948.bam                            ||
+||                           estomac_SRR37114954.bam                          ||
+||                           gonade_SRR37114952.bam                           ||
+||                           juvenile_1_SRR37199247.bam                       ||
+||                           juvenile_2_SRR37199246.bam                       ||
+||                                                                            ||
+||             Output file : counts_paired.txt                                ||
+||                 Summary : counts_paired.txt.summary                        ||
+||              Paired-end : yes                                              ||
+||        Count read pairs : yes                                              ||
+||              Annotation : part_001.saf (SAF)                               ||
+||      Dir for temp files : /data/projet3/analyses/featureCounts_results ... ||
+||                                                                            ||
+||                 Threads : 4                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file part_001.saf ...                                      ||
+||    Features : 114878                                                       ||
+||    Meta-features : 10353                                                   ||
+||    Chromosomes/contigs : 105                                               ||
+||                                                                            ||
+|| Process BAM file epine_SRR37114948.bam...                                  ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 20966866                                             ||
+||    Successfully assigned alignments : 8514851 (40.6%)                      ||
+||    Running time : 7.48 minutes                                             ||
+||                                                                            ||
+|| Process BAM file estomac_SRR37114954.bam...                                ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 21974509                                             ||
+||    Successfully assigned alignments : 9161538 (41.7%)                      ||
+||    Running time : 9.08 minutes                                             ||
+||                                                                            ||
+|| Process BAM file gonade_SRR37114952.bam...                                 ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22699155                                             ||
+||    Successfully assigned alignments : 9165198 (40.4%)                      ||
+||    Running time : 8.41 minutes                                             ||
+||                                                                            ||
+|| Process BAM file juvenile_1_SRR37199247.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29122937                                             ||
+||    Successfully assigned alignments : 8542710 (29.3%)                      ||
+||    Running time : 10.86 minutes                                            ||
+||                                                                            ||
+|| Process BAM file juvenile_2_SRR37199246.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29664890                                             ||
+||    Successfully assigned alignments : 8702797 (29.3%)                      ||
+||    Running time : 13.34 minutes                                            ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/data/projet3/analyses/  ||
+|| featureCounts_results/run_2_all_RNA_seq/part_001/counts_paired.txt.summar  ||
+|| y"                                                                         ||
+||                                                                            ||
+\\============================================================================//
+
+TERMINE : run_2_all_RNA_seq partie 001
+==================================
+RUN : run_2_all_RNA_seq
+PARTIE : 002
+SAF : /data/projet3/analyses/featureCounts_SAF/run_2_all_RNA_seq/part_002.saf
+BAM : 5
+==================================
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.1.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 5 BAM files                                      ||
+||                                                                            ||
+||                           epine_SRR37114948.bam                            ||
+||                           estomac_SRR37114954.bam                          ||
+||                           gonade_SRR37114952.bam                           ||
+||                           juvenile_1_SRR37199247.bam                       ||
+||                           juvenile_2_SRR37199246.bam                       ||
+||                                                                            ||
+||             Output file : counts_paired.txt                                ||
+||                 Summary : counts_paired.txt.summary                        ||
+||              Paired-end : yes                                              ||
+||        Count read pairs : yes                                              ||
+||              Annotation : part_002.saf (SAF)                               ||
+||      Dir for temp files : /data/projet3/analyses/featureCounts_results ... ||
+||                                                                            ||
+||                 Threads : 4                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file part_002.saf ...                                      ||
+||    Features : 109396                                                       ||
+||    Meta-features : 9771                                                    ||
+||    Chromosomes/contigs : 98                                                ||
+||                                                                            ||
+|| Process BAM file epine_SRR37114948.bam...                                  ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 20540164                                             ||
+||    Successfully assigned alignments : 7414091 (36.1%)                      ||
+||    Running time : 8.98 minutes                                             ||
+||                                                                            ||
+|| Process BAM file estomac_SRR37114954.bam...                                ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 21808873                                             ||
+||    Successfully assigned alignments : 8538354 (39.2%)                      ||
+||    Running time : 8.66 minutes                                             ||
+||                                                                            ||
+|| Process BAM file gonade_SRR37114952.bam...                                 ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22475663                                             ||
+||    Successfully assigned alignments : 9044814 (40.2%)                      ||
+||    Running time : 7.83 minutes                                             ||
+||                                                                            ||
+|| Process BAM file juvenile_1_SRR37199247.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28227291                                             ||
+||    Successfully assigned alignments : 7221680 (25.6%)                      ||
+||    Running time : 8.81 minutes                                             ||
+||                                                                            ||
+|| Process BAM file juvenile_2_SRR37199246.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28836183                                             ||
+||    Successfully assigned alignments : 7345870 (25.5%)                      ||
+||    Running time : 9.40 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/data/projet3/analyses/  ||
+|| featureCounts_results/run_2_all_RNA_seq/part_002/counts_paired.txt.summar  ||
+|| y"                                                                         ||
+||                                                                            ||
+\\============================================================================//
+
+TERMINE : run_2_all_RNA_seq partie 002
+==================================
+RUN : run_juveniles_trimes
+PARTIE : 001
+SAF : /data/projet3/analyses/featureCounts_SAF/run_juveniles_trimes/part_001.saf
+BAM : 2
+==================================
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.1.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 2 BAM files                                      ||
+||                                                                            ||
+||                           juvenile_1_SRR37199247.bam                       ||
+||                           juvenile_2_SRR37199246.bam                       ||
+||                                                                            ||
+||             Output file : counts_paired.txt                                ||
+||                 Summary : counts_paired.txt.summary                        ||
+||              Paired-end : yes                                              ||
+||        Count read pairs : yes                                              ||
+||              Annotation : part_001.saf (SAF)                               ||
+||      Dir for temp files : /data/projet3/analyses/featureCounts_results ... ||
+||                                                                            ||
+||                 Threads : 4                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file part_001.saf ...                                      ||
+||    Features : 85991                                                        ||
+||    Meta-features : 8184                                                    ||
+||    Chromosomes/contigs : 95                                                ||
+||                                                                            ||
+|| Process BAM file juvenile_1_SRR37199247.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30176965                                             ||
+||    Successfully assigned alignments : 11306576 (37.5%)                     ||
+||    Running time : 8.88 minutes                                             ||
+||                                                                            ||
+|| Process BAM file juvenile_2_SRR37199246.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30731746                                             ||
+||    Successfully assigned alignments : 11596803 (37.7%)                     ||
+||    Running time : 9.03 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/data/projet3/analyses/  ||
+|| featureCounts_results/run_juveniles_trimes/part_001/counts_paired.txt.sum  ||
+|| mary"                                                                      ||
+||                                                                            ||
+\\============================================================================//
+
+TERMINE : run_juveniles_trimes partie 001
+==================================
+RUN : run_juveniles_trimes
+PARTIE : 002
+SAF : /data/projet3/analyses/featureCounts_SAF/run_juveniles_trimes/part_002.saf
+BAM : 2
+==================================
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.1.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 2 BAM files                                      ||
+||                                                                            ||
+||                           juvenile_1_SRR37199247.bam                       ||
+||                           juvenile_2_SRR37199246.bam                       ||
+||                                                                            ||
+||             Output file : counts_paired.txt                                ||
+||                 Summary : counts_paired.txt.summary                        ||
+||              Paired-end : yes                                              ||
+||        Count read pairs : yes                                              ||
+||              Annotation : part_002.saf (SAF)                               ||
+||      Dir for temp files : /data/projet3/analyses/featureCounts_results ... ||
+||                                                                            ||
+||                 Threads : 4                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file part_002.saf ...                                      ||
+||    Features : 74916                                                        ||
+||    Meta-features : 6955                                                    ||
+||    Chromosomes/contigs : 72                                                ||
+||                                                                            ||
+|| Process BAM file juvenile_1_SRR37199247.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28722282                                             ||
+||    Successfully assigned alignments : 9386000 (32.7%)                      ||
+||    Running time : 8.58 minutes                                             ||
+||                                                                            ||
+|| Process BAM file juvenile_2_SRR37199246.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29309167                                             ||
+||    Successfully assigned alignments : 9605703 (32.8%)                      ||
+||    Running time : 9.48 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/data/projet3/analyses/  ||
+|| featureCounts_results/run_juveniles_trimes/part_002/counts_paired.txt.sum  ||
+|| mary"                                                                      ||
+||                                                                            ||
+\\============================================================================//
+
+TERMINE : run_juveniles_trimes partie 002
+==================================
+RUN : run_all_RNA_seq_prot_filtred
+PARTIE : 001
+SAF : /data/projet3/analyses/featureCounts_SAF/run_all_RNA_seq_prot_filtred/part_001.saf
+BAM : 5
+==================================
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.1.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 5 BAM files                                      ||
+||                                                                            ||
+||                           epine_SRR37114948.bam                            ||
+||                           estomac_SRR37114954.bam                          ||
+||                           gonade_SRR37114952.bam                           ||
+||                           juvenile_1_SRR37199247.bam                       ||
+||                           juvenile_2_SRR37199246.bam                       ||
+||                                                                            ||
+||             Output file : counts_paired.txt                                ||
+||                 Summary : counts_paired.txt.summary                        ||
+||              Paired-end : yes                                              ||
+||        Count read pairs : yes                                              ||
+||              Annotation : part_001.saf (SAF)                               ||
+||      Dir for temp files : /data/projet3/analyses/featureCounts_results ... ||
+||                                                                            ||
+||                 Threads : 4                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file part_001.saf ...                                      ||
+||    Features : 101388                                                       ||
+||    Meta-features : 9116                                                    ||
+||    Chromosomes/contigs : 103                                               ||
+||                                                                            ||
+|| Process BAM file epine_SRR37114948.bam...                                  ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 20966866                                             ||
+||    Successfully assigned alignments : 8277969 (39.5%)                      ||
+||    Running time : 7.37 minutes                                             ||
+||                                                                            ||
+|| Process BAM file estomac_SRR37114954.bam...                                ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 21974509                                             ||
+||    Successfully assigned alignments : 8882186 (40.4%)                      ||
+||    Running time : 9.63 minutes                                             ||
+||                                                                            ||
+|| Process BAM file gonade_SRR37114952.bam...                                 ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22699155                                             ||
+||    Successfully assigned alignments : 8964478 (39.5%)                      ||
+||    Running time : 9.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file juvenile_1_SRR37199247.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29122937                                             ||
+||    Successfully assigned alignments : 8290384 (28.5%)                      ||
+||    Running time : 12.79 minutes                                            ||
+||                                                                            ||
+|| Process BAM file juvenile_2_SRR37199246.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29664890                                             ||
+||    Successfully assigned alignments : 8445332 (28.5%)                      ||
+||    Running time : 9.86 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/data/projet3/analyses/  ||
+|| featureCounts_results/run_all_RNA_seq_prot_filtred/part_001/counts_paired  ||
+|| .txt.summary"                                                              ||
+||                                                                            ||
+\\============================================================================//
+
+TERMINE : run_all_RNA_seq_prot_filtred partie 001
+==================================
+RUN : run_all_RNA_seq_prot_filtred
+PARTIE : 002
+SAF : /data/projet3/analyses/featureCounts_SAF/run_all_RNA_seq_prot_filtred/part_002.saf
+BAM : 5
+==================================
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.1.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 5 BAM files                                      ||
+||                                                                            ||
+||                           epine_SRR37114948.bam                            ||
+||                           estomac_SRR37114954.bam                          ||
+||                           gonade_SRR37114952.bam                           ||
+||                           juvenile_1_SRR37199247.bam                       ||
+||                           juvenile_2_SRR37199246.bam                       ||
+||                                                                            ||
+||             Output file : counts_paired.txt                                ||
+||                 Summary : counts_paired.txt.summary                        ||
+||              Paired-end : yes                                              ||
+||        Count read pairs : yes                                              ||
+||              Annotation : part_002.saf (SAF)                               ||
+||      Dir for temp files : /data/projet3/analyses/featureCounts_results ... ||
+||                                                                            ||
+||                 Threads : 4                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file part_002.saf ...                                      ||
+||    Features : 91910                                                        ||
+||    Meta-features : 8036                                                    ||
+||    Chromosomes/contigs : 89                                                ||
+||                                                                            ||
+|| Process BAM file epine_SRR37114948.bam...                                  ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 20540164                                             ||
+||    Successfully assigned alignments : 7211494 (35.1%)                      ||
+||    Running time : 7.03 minutes                                             ||
+||                                                                            ||
+|| Process BAM file estomac_SRR37114954.bam...                                ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 21808873                                             ||
+||    Successfully assigned alignments : 8314611 (38.1%)                      ||
+||    Running time : 7.06 minutes                                             ||
+||                                                                            ||
+|| Process BAM file gonade_SRR37114952.bam...                                 ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22475663                                             ||
+||    Successfully assigned alignments : 8845299 (39.4%)                      ||
+||    Running time : 6.20 minutes                                             ||
+||                                                                            ||
+|| Process BAM file juvenile_1_SRR37199247.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28227291                                             ||
+||    Successfully assigned alignments : 6905882 (24.5%)                      ||
+||    Running time : 8.20 minutes                                             ||
+||                                                                            ||
+|| Process BAM file juvenile_2_SRR37199246.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28836183                                             ||
+||    Successfully assigned alignments : 7023615 (24.4%)                      ||
+||    Running time : 7.13 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/data/projet3/analyses/  ||
+|| featureCounts_results/run_all_RNA_seq_prot_filtred/part_002/counts_paired  ||
+|| .txt.summary"                                                              ||
+||                                                                            ||
+\\============================================================================//
+
+TERMINE : run_all_RNA_seq_prot_filtred partie 002
+==================================
+RUN : run_all_RNA_seq_juveniles_trimes_prot_filtred
+PARTIE : 001
+SAF : /data/projet3/analyses/featureCounts_SAF/run_all_RNA_seq_juveniles_trimes_prot_filtred/part_001.saf
+BAM : 5
+==================================
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.1.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 5 BAM files                                      ||
+||                                                                            ||
+||                           epine_SRR37114948.bam                            ||
+||                           estomac_SRR37114954.bam                          ||
+||                           gonade_SRR37114952.bam                           ||
+||                           juvenile_1_SRR37199247.bam                       ||
+||                           juvenile_2_SRR37199246.bam                       ||
+||                                                                            ||
+||             Output file : counts_paired.txt                                ||
+||                 Summary : counts_paired.txt.summary                        ||
+||              Paired-end : yes                                              ||
+||        Count read pairs : yes                                              ||
+||              Annotation : part_001.saf (SAF)                               ||
+||      Dir for temp files : /data/projet3/analyses/featureCounts_results ... ||
+||                                                                            ||
+||                 Threads : 4                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file part_001.saf ...                                      ||
+||    Features : 101782                                                       ||
+||    Meta-features : 9125                                                    ||
+||    Chromosomes/contigs : 106                                               ||
+||                                                                            ||
+|| Process BAM file epine_SRR37114948.bam...                                  ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 20966866                                             ||
+||    Successfully assigned alignments : 8359121 (39.9%)                      ||
+||    Running time : 6.30 minutes                                             ||
+||                                                                            ||
+|| Process BAM file estomac_SRR37114954.bam...                                ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 21974509                                             ||
+||    Successfully assigned alignments : 8945382 (40.7%)                      ||
+||    Running time : 7.32 minutes                                             ||
+||                                                                            ||
+|| Process BAM file gonade_SRR37114952.bam...                                 ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22699155                                             ||
+||    Successfully assigned alignments : 9058921 (39.9%)                      ||
+||    Running time : 6.08 minutes                                             ||
+||                                                                            ||
+|| Process BAM file juvenile_1_SRR37199247.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30176965                                             ||
+||    Successfully assigned alignments : 11824456 (39.2%)                     ||
+||    Running time : 7.45 minutes                                             ||
+||                                                                            ||
+|| Process BAM file juvenile_2_SRR37199246.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30731746                                             ||
+||    Successfully assigned alignments : 12122615 (39.4%)                     ||
+||    Running time : 6.92 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/data/projet3/analyses/  ||
+|| featureCounts_results/run_all_RNA_seq_juveniles_trimes_prot_filtred/part_  ||
+|| 001/counts_paired.txt.summary"                                             ||
+||                                                                            ||
+\\============================================================================//
+
+TERMINE : run_all_RNA_seq_juveniles_trimes_prot_filtred partie 001
+==================================
+RUN : run_all_RNA_seq_juveniles_trimes_prot_filtred
+PARTIE : 002
+SAF : /data/projet3/analyses/featureCounts_SAF/run_all_RNA_seq_juveniles_trimes_prot_filtred/part_002.saf
+BAM : 5
+==================================
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.1.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 5 BAM files                                      ||
+||                                                                            ||
+||                           epine_SRR37114948.bam                            ||
+||                           estomac_SRR37114954.bam                          ||
+||                           gonade_SRR37114952.bam                           ||
+||                           juvenile_1_SRR37199247.bam                       ||
+||                           juvenile_2_SRR37199246.bam                       ||
+||                                                                            ||
+||             Output file : counts_paired.txt                                ||
+||                 Summary : counts_paired.txt.summary                        ||
+||              Paired-end : yes                                              ||
+||        Count read pairs : yes                                              ||
+||              Annotation : part_002.saf (SAF)                               ||
+||      Dir for temp files : /data/projet3/analyses/featureCounts_results ... ||
+||                                                                            ||
+||                 Threads : 4                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file part_002.saf ...                                      ||
+||    Features : 92526                                                        ||
+||    Meta-features : 8067                                                    ||
+||    Chromosomes/contigs : 89                                                ||
+||                                                                            ||
+|| Process BAM file epine_SRR37114948.bam...                                  ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 20540164                                             ||
+||    Successfully assigned alignments : 7213637 (35.1%)                      ||
+||    Running time : 5.72 minutes                                             ||
+||                                                                            ||
+|| Process BAM file estomac_SRR37114954.bam...                                ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 21808873                                             ||
+||    Successfully assigned alignments : 8322831 (38.2%)                      ||
+||    Running time : 7.71 minutes                                             ||
+||                                                                            ||
+|| Process BAM file gonade_SRR37114952.bam...                                 ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22475663                                             ||
+||    Successfully assigned alignments : 8835930 (39.3%)                      ||
+||    Running time : 7.05 minutes                                             ||
+||                                                                            ||
+|| Process BAM file juvenile_1_SRR37199247.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28722282                                             ||
+||    Successfully assigned alignments : 9590059 (33.4%)                      ||
+||    Running time : 7.54 minutes                                             ||
+||                                                                            ||
+|| Process BAM file juvenile_2_SRR37199246.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29309167                                             ||
+||    Successfully assigned alignments : 9812456 (33.5%)                      ||
+||    Running time : 8.20 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/data/projet3/analyses/  ||
+|| featureCounts_results/run_all_RNA_seq_juveniles_trimes_prot_filtred/part_  ||
+|| 002/counts_paired.txt.summary"                                             ||
+||                                                                            ||
+\\============================================================================//
+
+TERMINE : run_all_RNA_seq_juveniles_trimes_prot_filtred partie 002
+==================================
+RUN : run_mixte_nervetrim_podia_all_juvtrim
+PARTIE : 001
+SAF : /data/projet3/analyses/featureCounts_SAF/run_mixte_nervetrim_podia_all_juvtrim/part_001.saf
+BAM : 7
+==================================
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.1.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 7 BAM files                                      ||
+||                                                                            ||
+||                           epine_SRR37114948.bam                            ||
+||                           estomac_SRR37114954.bam                          ||
+||                           gonade_SRR37114952.bam                           ||
+||                           juvenile_1_SRR37199247.bam                       ||
+||                           juvenile_2_SRR37199246.bam                       ||
+||                           nerf_SRR6378162_paired.bam                       ||
+||                           podia_SRR14654944.bam                            ||
+||                                                                            ||
+||             Output file : counts_paired.txt                                ||
+||                 Summary : counts_paired.txt.summary                        ||
+||              Paired-end : yes                                              ||
+||        Count read pairs : yes                                              ||
+||              Annotation : part_001.saf (SAF)                               ||
+||      Dir for temp files : /data/projet3/analyses/featureCounts_results ... ||
+||                                                                            ||
+||                 Threads : 4                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file part_001.saf ...                                      ||
+||    Features : 105836                                                       ||
+||    Meta-features : 9468                                                    ||
+||    Chromosomes/contigs : 107                                               ||
+||                                                                            ||
+|| Process BAM file epine_SRR37114948.bam...                                  ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 20966866                                             ||
+||    Successfully assigned alignments : 8326609 (39.7%)                      ||
+||    Running time : 6.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file estomac_SRR37114954.bam...                                ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 21974509                                             ||
+||    Successfully assigned alignments : 8893601 (40.5%)                      ||
+||    Running time : 7.51 minutes                                             ||
+||                                                                            ||
+|| Process BAM file gonade_SRR37114952.bam...                                 ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22699155                                             ||
+||    Successfully assigned alignments : 9013266 (39.7%)                      ||
+||    Running time : 7.07 minutes                                             ||
+||                                                                            ||
+|| Process BAM file juvenile_1_SRR37199247.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30176965                                             ||
+||    Successfully assigned alignments : 11803794 (39.1%)                     ||
+||    Running time : 6.86 minutes                                             ||
+||                                                                            ||
+|| Process BAM file juvenile_2_SRR37199246.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30731746                                             ||
+||    Successfully assigned alignments : 12098914 (39.4%)                     ||
+||    Running time : 6.80 minutes                                             ||
+||                                                                            ||
+|| Process BAM file nerf_SRR6378162_paired.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 14407659                                             ||
+||    Successfully assigned alignments : 4792841 (33.3%)                      ||
+||    Running time : 6.51 minutes                                             ||
+||                                                                            ||
+|| Process BAM file podia_SRR14654944.bam...                                  ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 31308629                                             ||
+||    Successfully assigned alignments : 12769576 (40.8%)                     ||
+||    Running time : 19.03 minutes                                            ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/data/projet3/analyses/  ||
+|| featureCounts_results/run_mixte_nervetrim_podia_all_juvtrim/part_001/coun  ||
+|| ts_paired.txt.summary"                                                     ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.1.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 1 BAM file                                       ||
+||                                                                            ||
+||                           nerf_SRR6378162_R1_unpaired.bam                  ||
+||                                                                            ||
+||             Output file : counts_nerf_unpaired.txt                         ||
+||                 Summary : counts_nerf_unpaired.txt.summary                 ||
+||              Paired-end : no                                               ||
+||        Count read pairs : no                                               ||
+||              Annotation : part_001.saf (SAF)                               ||
+||      Dir for temp files : /data/projet3/analyses/featureCounts_results ... ||
+||                                                                            ||
+||                 Threads : 4                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file part_001.saf ...                                      ||
+||    Features : 105836                                                       ||
+||    Meta-features : 9468                                                    ||
+||    Chromosomes/contigs : 107                                               ||
+||                                                                            ||
+|| Process BAM file nerf_SRR6378162_R1_unpaired.bam...                        ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 17637286                                             ||
+||    Successfully assigned alignments : 5403417 (30.6%)                      ||
+||    Running time : 2.34 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/data/projet3/analyses/  ||
+|| featureCounts_results/run_mixte_nervetrim_podia_all_juvtrim/part_001/coun  ||
+|| ts_nerf_unpaired.txt.summary"                                              ||
+||                                                                            ||
+\\============================================================================//
+
+TERMINE : run_mixte_nervetrim_podia_all_juvtrim partie 001
+==================================
+RUN : run_mixte_nervetrim_podia_all_juvtrim
+PARTIE : 002
+SAF : /data/projet3/analyses/featureCounts_SAF/run_mixte_nervetrim_podia_all_juvtrim/genomic_part_002.saf
+BAM : 7
+==================================
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.1.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 7 BAM files                                      ||
+||                                                                            ||
+||                           epine_SRR37114948.bam                            ||
+||                           estomac_SRR37114954.bam                          ||
+||                           gonade_SRR37114952.bam                           ||
+||                           juvenile_1_SRR37199247.bam                       ||
+||                           juvenile_2_SRR37199246.bam                       ||
+||                           nerf_SRR6378162_paired.bam                       ||
+||                           podia_SRR14654944.bam                            ||
+||                                                                            ||
+||             Output file : counts_paired.txt                                ||
+||                 Summary : counts_paired.txt.summary                        ||
+||              Paired-end : yes                                              ||
+||        Count read pairs : yes                                              ||
+||              Annotation : genomic_part_002.saf (SAF)                       ||
+||      Dir for temp files : /data/projet3/analyses/featureCounts_results ... ||
+||                                                                            ||
+||                 Threads : 4                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file genomic_part_002.saf ...                              ||
+||    Features : 96130                                                        ||
+||    Meta-features : 8382                                                    ||
+||    Chromosomes/contigs : 94                                                ||
+||                                                                            ||
+|| Process BAM file epine_SRR37114948.bam...                                  ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 20540164                                             ||
+||    Successfully assigned alignments : 7201146 (35.1%)                      ||
+||    Running time : 6.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file estomac_SRR37114954.bam...                                ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 21808873                                             ||
+||    Successfully assigned alignments : 8285665 (38.0%)                      ||
+||    Running time : 6.34 minutes                                             ||
+||                                                                            ||
+|| Process BAM file gonade_SRR37114952.bam...                                 ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22475663                                             ||
+||    Successfully assigned alignments : 8818047 (39.2%)                      ||
+||    Running time : 5.76 minutes                                             ||
+||                                                                            ||
+|| Process BAM file juvenile_1_SRR37199247.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28722282                                             ||
+||    Successfully assigned alignments : 9552268 (33.3%)                      ||
+||    Running time : 6.05 minutes                                             ||
+||                                                                            ||
+|| Process BAM file juvenile_2_SRR37199246.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29309167                                             ||
+||    Successfully assigned alignments : 9772481 (33.3%)                      ||
+||    Running time : 6.36 minutes                                             ||
+||                                                                            ||
+|| Process BAM file nerf_SRR6378162_paired.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 14173419                                             ||
+||    Successfully assigned alignments : 4780665 (33.7%)                      ||
+||    Running time : 5.84 minutes                                             ||
+||                                                                            ||
+|| Process BAM file podia_SRR14654944.bam...                                  ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30729835                                             ||
+||    Successfully assigned alignments : 10440489 (34.0%)                     ||
+||    Running time : 13.25 minutes                                            ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/data/projet3/analyses/  ||
+|| featureCounts_results/run_mixte_nervetrim_podia_all_juvtrim/part_002/coun  ||
+|| ts_paired.txt.summary"                                                     ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.1.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 1 BAM file                                       ||
+||                                                                            ||
+||                           nerf_SRR6378162_R1_unpaired.bam                  ||
+||                                                                            ||
+||             Output file : counts_nerf_unpaired.txt                         ||
+||                 Summary : counts_nerf_unpaired.txt.summary                 ||
+||              Paired-end : no                                               ||
+||        Count read pairs : no                                               ||
+||              Annotation : genomic_part_002.saf (SAF)                       ||
+||      Dir for temp files : /data/projet3/analyses/featureCounts_results ... ||
+||                                                                            ||
+||                 Threads : 4                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file genomic_part_002.saf ...                              ||
+||    Features : 96130                                                        ||
+||    Meta-features : 8382                                                    ||
+||    Chromosomes/contigs : 94                                                ||
+||                                                                            ||
+|| Process BAM file nerf_SRR6378162_R1_unpaired.bam...                        ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 17540634                                             ||
+||    Successfully assigned alignments : 5411517 (30.9%)                      ||
+||    Running time : 1.87 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/data/projet3/analyses/  ||
+|| featureCounts_results/run_mixte_nervetrim_podia_all_juvtrim/part_002/coun  ||
+|| ts_nerf_unpaired.txt.summary"                                              ||
+||                                                                            ||
+\\============================================================================//
+
+TERMINE : run_mixte_nervetrim_podia_all_juvtrim partie 002
+==================================
+TOUS LES FEATURECOUNTS SONT TERMINES
+==================================

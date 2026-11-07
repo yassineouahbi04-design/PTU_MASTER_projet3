@@ -1,0 +1,15 @@
+Status	/data/projet3/data_sets/BAM_data_set/non_trimmed/part_001/epine_SRR37114948.bam	/data/projet3/data_sets/BAM_data_set/non_trimmed/part_001/estomac_SRR37114954.bam	/data/projet3/data_sets/BAM_data_set/non_trimmed/part_001/gonade_SRR37114952.bam	/data/projet3/data_sets/BAM_data_set/non_trimmed/part_001/juvenile_1_SRR37199247.bam	/data/projet3/data_sets/BAM_data_set/non_trimmed/part_001/juvenile_2_SRR37199246.bam
+Assigned	8514851	9161538	9165198	8542710	8702797
+Unassigned_Unmapped	9703178	10508761	11136083	17203591	17675487
+Unassigned_Read_Type	0	0	0	0	0
+Unassigned_Singleton	0	0	0	0	0
+Unassigned_MappingQuality	0	0	0	0	0
+Unassigned_Chimera	0	0	0	0	0
+Unassigned_FragmentLength	0	0	0	0	0
+Unassigned_Duplicate	0	0	0	0	0
+Unassigned_MultiMapping	1493324	1156817	1232611	2215482	2112382
+Unassigned_Secondary	0	0	0	0	0
+Unassigned_NonSplit	0	0	0	0	0
+Unassigned_NoFeatures	887365	805426	784346	588629	594311
+Unassigned_Overlapping_Length	0	0	0	0	0
+Unassigned_Ambiguity	368148	341967	380917	572525	579913

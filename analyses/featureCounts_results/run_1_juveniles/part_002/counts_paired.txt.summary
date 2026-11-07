@@ -1,0 +1,15 @@
+Status	/data/projet3/data_sets/BAM_data_set/non_trimmed/part_002/juvenile_1_SRR37199247.bam	/data/projet3/data_sets/BAM_data_set/non_trimmed/part_002/juvenile_2_SRR37199246.bam
+Assigned	6655751	6771984
+Unassigned_Unmapped	19375503	19892740
+Unassigned_Read_Type	0	0
+Unassigned_Singleton	0	0
+Unassigned_MappingQuality	0	0
+Unassigned_Chimera	0	0
+Unassigned_FragmentLength	0	0
+Unassigned_Duplicate	0	0
+Unassigned_MultiMapping	900430	856406
+Unassigned_Secondary	0	0
+Unassigned_NonSplit	0	0
+Unassigned_NoFeatures	1207166	1226436
+Unassigned_Overlapping_Length	0	0
+Unassigned_Ambiguity	88441	88617
